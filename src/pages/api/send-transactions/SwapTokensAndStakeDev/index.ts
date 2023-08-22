@@ -1,9 +1,9 @@
 /* eslint-disable functional/no-conditional-statements */
 import type { APIRoute } from 'astro'
+import abi from './abi'
 import { json } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
-import abi from './abi'
 import { Contract } from 'ethers'
 import { auth } from 'utils/auth'
 

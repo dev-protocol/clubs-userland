@@ -55,7 +55,7 @@ export const app: App = async ({ body }) => {
 	const contract = new Contract(address, abi, wallet)
 
 	const tx = await utils
-		.execute<MutationOption>({
+		.execute({
 			contract,
 			method: 'mintFor',
 			args: [
@@ -70,7 +70,8 @@ export const app: App = async ({ body }) => {
 				overrides: {
 					gasPrice: parseUnits('82', 'wei'),
 				},
-			},
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			} as any,
 		})
 		.catch((err: Error) => err)
 

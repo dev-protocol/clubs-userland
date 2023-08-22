@@ -75,5 +75,5 @@ export const app: App = async ({ body }) => {
 		}
 	}
 
-	return { body: { message: `Hello!` } }
+	return { body: { message: 'success' } }
 }

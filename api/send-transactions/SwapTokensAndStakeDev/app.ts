@@ -1,6 +1,6 @@
 import { createWallet } from '../../../utils/wallet.js'
 import type { App } from '../../../utils/factory.js'
-import { Contract, parseUnits } from 'ethers'
+import { Contract } from 'ethers'
 import abi from './abi.js'
 import { utils } from '@devprotocol/dev-kit'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
@@ -66,16 +66,11 @@ export const app: App = async ({ body }) => {
 				[args.amounts.token, args.amounts.input, args.amounts.fee],
 			],
 			mutation: true,
-			overrides: {
-				overrides: {
-					gasPrice: parseUnits('82', 'wei'),
-				},
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			} as any,
 		})
 		.catch((err: Error) => err)
 
 	if (tx instanceof Error) {
+		console.error({ tx })
 		return {
 			body: { message: 'faild to send the transaction', error: tx.message },
 		}

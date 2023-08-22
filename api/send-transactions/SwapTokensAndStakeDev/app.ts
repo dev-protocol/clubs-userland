@@ -1,9 +1,10 @@
 import { createWallet } from '../../../utils/wallet.js'
-import type { App } from '../../../utils/factory.js'
+import type { App } from '../../../utils/factory.ts'
 import { Contract } from 'ethers'
 import abi from './abi.js'
 import { utils } from '@devprotocol/dev-kit'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
+import { BrowserProvider } from 'ethers'
 
 export const app: App = async ({ body }) => {
 	const { rpcUrl, chainId, args } =
@@ -55,6 +56,8 @@ export const app: App = async ({ body }) => {
 	const contract = new Contract(address, abi)
 
 	contract.connect(wallet)
+
+	console.log('signer', await (contract.runner as BrowserProvider).getSigner())
 
 	const tx = await utils
 		.execute({

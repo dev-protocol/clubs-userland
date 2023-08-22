@@ -20,8 +20,9 @@ export const factory =
 	(app: App) => async (request: VercelRequest, response: VercelResponse) => {
 		const key = request.headers.authorization?.replace(/Bearer(\s)+/i, '')
 		if (key !== API_KEY) {
-			response.json({ message: 'authorization failed' })
+			return response.json({ message: 'authorization failed' })
 		}
+
 		const body = (request.body as null | JSON) ?? ({} as JSON)
 		const res = await app({ body })
 

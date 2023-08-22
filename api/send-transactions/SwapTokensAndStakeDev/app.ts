@@ -1,6 +1,6 @@
 import { createWallet } from '../../../utils/wallet.js'
 import type { App } from '../../../utils/factory.js'
-import { Contract } from 'ethers'
+import { Contract, parseUnits } from 'ethers'
 import abi from './abi.js'
 import { utils } from '@devprotocol/dev-kit'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
@@ -55,7 +55,7 @@ export const app: App = async ({ body }) => {
 	const contract = new Contract(address, abi, wallet)
 
 	const tx = await utils
-		.execute({
+		.execute<MutationOption>({
 			contract,
 			method: 'mintFor',
 			args: [
@@ -66,6 +66,11 @@ export const app: App = async ({ body }) => {
 				[args.amounts.token, args.amounts.input, args.amounts.fee],
 			],
 			mutation: true,
+			overrides: {
+				overrides: {
+					gasPrice: parseUnits('82', 'wei'),
+				},
+			},
 		})
 		.catch((err: Error) => err)
 

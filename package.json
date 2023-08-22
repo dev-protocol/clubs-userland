@@ -4,9 +4,11 @@
 	"type": "module",
 	"description": "Template repository for using TypeScript",
 	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
 		"test": "ava",
-		"build": "tsc --noemit",
-		"watch": "tsc -w",
 		"pretest": "tsc",
 		"prebuild": "rimraf dist",
 		"lint": "yarn lint:eslint && yarn lint:format",
@@ -17,8 +19,10 @@
 	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
+		"@astrojs/vercel": "^3.8.2",
 		"@devprotocol/dev-kit": "8.2.2",
 		"@devprotocol/util-ts": "3.0.1",
+		"astro": "^2.10.12",
 		"ethers": "^6.7.1",
 		"ramda": "0.29.0"
 	},

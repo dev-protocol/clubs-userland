@@ -52,11 +52,11 @@ export const app: App = async ({ body }) => {
 		return { body: { message: 'wallet error' } }
 	}
 
-	const contract = new Contract(address, abi).connect(wallet)
+	const contract = new Contract(address, abi, wallet)
 
 	const tx = await utils
 		.execute({
-			contract: contract as unknown as Contract,
+			contract,
 			method: 'mintFor',
 			args: [
 				args.to,

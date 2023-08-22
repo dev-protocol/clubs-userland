@@ -1,5 +1,7 @@
-import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
-import { type HDNodeWallet, JsonRpcProvider, Wallet } from 'ethers'
+import type { UndefinedOr } from '@devprotocol/util-ts'
+import { whenDefined } from '@devprotocol/util-ts'
+import type { HDNodeWallet } from 'ethers'
+import { JsonRpcProvider, Wallet } from 'ethers'
 
 const { MNEMONIC } = process.env
 

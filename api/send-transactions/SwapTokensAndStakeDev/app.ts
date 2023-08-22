@@ -1,5 +1,5 @@
 import { createWallet } from '../../../utils/wallet.js'
-import type { App } from '../../../utils/factory.ts'
+import type { App } from '../../../utils/factory.js'
 import { Contract } from 'ethers'
 import abi from './abi.js'
 import { utils } from '@devprotocol/dev-kit'

@@ -4,9 +4,9 @@
 	"description": "Template repository for using TypeScript",
 	"scripts": {
 		"test": "ava",
-		"build": "tsc",
+		"build": "tsc --noemit",
 		"watch": "tsc -w",
-		"pretest": "yarn build",
+		"pretest": "tsc",
 		"prebuild": "rimraf dist",
 		"lint": "yarn lint:eslint && yarn lint:format",
 		"lint:eslint": "eslint . --ext .ts,.js --fix",

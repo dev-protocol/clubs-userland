@@ -1,3 +1,4 @@
+/* eslint-disable functional/no-conditional-statements */
 import type { APIRoute } from 'astro'
 import { json } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
@@ -70,7 +71,6 @@ export const post: APIRoute = async ({ request }) => {
 		.catch((err: Error) => err)
 
 	if (tx instanceof Error) {
-		console.error({ tx })
 		return {
 			body: json({
 				message: 'faild to send the transaction',

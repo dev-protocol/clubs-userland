@@ -14,6 +14,12 @@
 		"plugin:functional/all",
 		"prettier"
 	],
+	"rules": {
+		"functional/no-return-void": "off",
+		"functional/prefer-immutable-types": "off",
+		"functional/no-expression-statements": "off",
+		"functional/no-conditional-statements": "off"
+	},
 	"overrides": [
 		{
 			"files": ["**/*.test.ts"],

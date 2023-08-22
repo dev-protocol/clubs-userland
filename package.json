@@ -16,7 +16,8 @@
 	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"ethereum-waffle": "4.0.10",
+		"@devprotocol/util-ts": "^3.0.0",
+		"ethers": "^6.7.1",
 		"ramda": "0.29.0"
 	},
 	"devDependencies": {
@@ -26,6 +27,7 @@
 		"@types/ramda": "0.29.3",
 		"@typescript-eslint/eslint-plugin": "6.4.1",
 		"@typescript-eslint/parser": "6.4.1",
+		"@vercel/node": "^3.0.0",
 		"ava": "5.3.1",
 		"dotenv": "16.3.1",
 		"eslint": "8.47.0",

@@ -72,8 +72,9 @@ export const app: App = async ({ body }) => {
 		.catch((err: Error) => err)
 
 	if (tx instanceof Error) {
-		console.log(tx)
-		return { body: { message: 'faild to send the transaction' } }
+		return {
+			body: { message: 'faild to send the transaction', error: tx.message },
+		}
 	}
 
 	return { body: { message: `Hello!` } }

@@ -1,83 +1,80 @@
-/* eslint-disable functional/no-conditional-statements */
 import type { APIRoute } from 'astro'
 import abi from './abi'
 import { json } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
-import { Contract } from 'ethers'
+import { Contract, TransactionResponse } from 'ethers'
 import { auth } from 'utils/auth'
+import { whenNotErrorAll } from 'utils/whenNotError'
+import { whenDefinedAll } from '@devprotocol/util-ts'
+import { always } from 'ramda'
 
 export const post: APIRoute = async ({ request }) => {
-	if (!auth(request)) {
-		return { body: json({ message: 'authentication faild' }) }
-	}
+	const authres = auth(request) ? true : new Error('authentication faild')
 
-	const { rpcUrl, chainId, args } =
-		((await request.json()) as {
-			rpcUrl?: string
-			chainId?: number
-			args?: {
-				to: string
-				property: string
-				payload: string
-				gatewayAddress: string
-				amounts: {
-					token: string
-					input: string
-					fee: string
-				}
+	const {
+		rpcUrl: rpcUrl_,
+		chainId: chainId_,
+		args: args_,
+	} = ((await request.json()) as {
+		rpcUrl?: string
+		chainId?: number
+		args?: {
+			to: string
+			property: string
+			payload: string
+			gatewayAddress: string
+			amounts: {
+				token: string
+				input: string
+				fee: string
 			}
-		}) ?? {}
+		}
+	}) ?? {}
 
-	if (!rpcUrl) {
-		return { body: json({ message: 'missing parameter: rpcUrl' }) }
-	}
+	const props = whenNotErrorAll(
+		[authres],
+		always(
+			whenDefinedAll([rpcUrl_, chainId_, args_], ([rpcUrl, chainId, args]) => ({
+				rpcUrl,
+				chainId,
+				args,
+			})) ?? new Error('missing required parameter'),
+		),
+	)
 
-	if (!chainId) {
-		return { body: json({ message: 'missing parameter: chainId' }) }
-	}
-
-	if (!args) {
-		return { body: json({ message: 'missing parameter: args' }) }
-	}
-
-	const address =
+	const address = whenNotErrorAll([props], ([{ chainId }]) =>
 		chainId === 137
 			? agentAddresses.polygon.mainnet.swapArbitraryTokens.swap
 			: chainId === 80001
 			? agentAddresses.polygon.mumbai.swapArbitraryTokens.swap
-			: undefined
+			: new Error(`unexpected chainId: ${chainId}`),
+	)
 
-	if (!address) {
-		return { body: json({ message: `unexpected chainId: ${chainId}` }) }
-	}
+	const wallet = whenNotErrorAll(
+		[props],
+		([{ rpcUrl }]) => createWallet({ rpcUrl }) ?? new Error('wallet error'),
+	)
 
-	const wallet = createWallet({ rpcUrl })
+	const contract = whenNotErrorAll(
+		[address, wallet],
+		([addr, wal]) => new Contract(addr, abi, wal),
+	)
 
-	if (!wallet) {
-		return { body: json({ message: 'wallet error' }) }
-	}
+	const tx = await whenNotErrorAll([contract, props], ([cont, { args }]) =>
+		cont
+			.mintFor(
+				args.to,
+				args.property,
+				args.payload,
+				args.gatewayAddress,
+				args.amounts,
+			)
+			.then((res: TransactionResponse) => res)
+			.catch((err: Error) => err),
+	)
 
-	const contract = new Contract(address, abi, wallet)
-
-	const tx = await contract
-		.mintFor(
-			args.to,
-			args.property,
-			args.payload,
-			args.gatewayAddress,
-			args.amounts,
-		)
-		.catch((err: Error) => err)
-
-	if (tx instanceof Error) {
-		return {
-			body: json({
-				message: 'faild to send the transaction',
-				error: tx.message,
-			}),
-		}
-	}
-
-	return { body: json({ message: 'success' }) }
+	return tx instanceof Error
+		? { body: json({ message: 'error', error: tx.message }) }
+		: { body: json({ message: 'success' }) }
 }

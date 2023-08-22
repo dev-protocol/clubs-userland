@@ -4,7 +4,6 @@ import { Contract } from 'ethers'
 import abi from './abi.js'
 import { utils } from '@devprotocol/dev-kit'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
-import { BrowserProvider } from 'ethers'
 
 export const app: App = async ({ body }) => {
 	const { rpcUrl, chainId, args } =
@@ -53,15 +52,11 @@ export const app: App = async ({ body }) => {
 		return { body: { message: 'wallet error' } }
 	}
 
-	const contract = new Contract(address, abi)
-
-	contract.connect(wallet)
-
-	console.log('signer', await (contract.runner as BrowserProvider).getSigner())
+	const contract = new Contract(address, abi).connect(wallet)
 
 	const tx = await utils
 		.execute({
-			contract,
+			contract: contract as unknown as Contract,
 			method: 'mintFor',
 			args: [
 				args.to,

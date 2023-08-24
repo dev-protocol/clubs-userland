@@ -21,7 +21,7 @@
 	"dependencies": {
 		"@astrojs/vercel": "^3.8.2",
 		"@devprotocol/dev-kit": "8.2.2",
-		"@devprotocol/util-ts": "3.0.1",
+		"@devprotocol/util-ts": "3.1.0",
 		"astro": "^2.10.12",
 		"ethers": "^6.7.1",
 		"ramda": "0.29.0"

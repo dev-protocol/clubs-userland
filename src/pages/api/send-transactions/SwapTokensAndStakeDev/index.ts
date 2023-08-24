@@ -1,12 +1,15 @@
 import type { APIRoute } from 'astro'
 import abi from './abi'
-import { json } from 'utils/json'
+import { json, headers } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
 import { Contract, TransactionResponse } from 'ethers'
 import { auth } from 'utils/auth'
-import { whenNotErrorAll } from 'utils/whenNotError'
-import { whenDefinedAll } from '@devprotocol/util-ts'
+import {
+	whenDefinedAll,
+	whenNotErrorAll,
+	whenNotError,
+} from '@devprotocol/util-ts'
 import { always } from 'ramda'
 
 export const post: APIRoute = async ({ request }) => {
@@ -32,8 +35,8 @@ export const post: APIRoute = async ({ request }) => {
 		}
 	}) ?? {}
 
-	const props = whenNotErrorAll(
-		[authres],
+	const props = whenNotError(
+		authres,
 		always(
 			whenDefinedAll([rpcUrl_, chainId_, args_], ([rpcUrl, chainId, args]) => ({
 				rpcUrl,
@@ -43,7 +46,7 @@ export const post: APIRoute = async ({ request }) => {
 		),
 	)
 
-	const address = whenNotErrorAll([props], ([{ chainId }]) =>
+	const address = whenNotError(props, ({ chainId }) =>
 		chainId === 137
 			? agentAddresses.polygon.mainnet.swapArbitraryTokens.swap
 			: chainId === 80001
@@ -51,9 +54,9 @@ export const post: APIRoute = async ({ request }) => {
 			: new Error(`unexpected chainId: ${chainId}`),
 	)
 
-	const wallet = whenNotErrorAll(
-		[props],
-		([{ rpcUrl }]) => createWallet({ rpcUrl }) ?? new Error('wallet error'),
+	const wallet = whenNotError(
+		props,
+		({ rpcUrl }) => createWallet({ rpcUrl }) ?? new Error('wallet error'),
 	)
 
 	const contract = whenNotErrorAll(
@@ -75,6 +78,9 @@ export const post: APIRoute = async ({ request }) => {
 	)
 
 	return tx instanceof Error
-		? { body: json({ message: 'error', error: tx.message }) }
-		: { body: json({ message: 'success' }) }
+		? new Response(json({ message: 'error', error: tx.message }), {
+				status: 400,
+				headers,
+		  })
+		: new Response(json({ message: 'success' }), { status: 200, headers })
 }

@@ -77,6 +77,8 @@ export const POST: APIRoute = async ({ request }) => {
 			.catch((err: Error) => err),
 	)
 
+	console.log({ tx })
+
 	return tx instanceof Error
 		? new Response(json({ message: 'error', error: tx.message }), {
 				status: 400,

@@ -3,7 +3,7 @@ import abi from './abi'
 import { json, headers } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
-import { Contract, TransactionResponse } from 'ethers'
+import { Contract, JsonRpcProvider, TransactionResponse } from 'ethers'
 import { auth } from 'utils/auth'
 import {
 	whenDefinedAll,
@@ -64,17 +64,38 @@ export const POST: APIRoute = async ({ request }) => {
 		([addr, wal]) => new Contract(addr, abi, wal),
 	)
 
-	const tx = await whenNotErrorAll([contract, props], ([cont, { args }]) =>
-		cont
-			.mintFor(
-				args.to,
-				args.property,
-				args.payload,
-				args.gatewayAddress,
-				args.amounts,
-			)
-			.then((res: TransactionResponse) => res)
-			.catch((err: Error) => err),
+	const feeData = await whenNotError(props, async ({ rpcUrl }) => {
+		const fromChain = await new JsonRpcProvider(rpcUrl)
+			.getFeeData()
+			.catch((err: Error) => err)
+		const multiplied = whenNotError(
+			fromChain,
+			(_data) =>
+				whenDefinedAll(
+					[_data.maxFeePerGas, _data.maxPriorityFeePerGas],
+					([maxFeePerGas, maxPriorityFeePerGas]) => ({
+						maxFeePerGas: (maxFeePerGas * 12n) / 10n,
+						maxPriorityFeePerGas: (maxPriorityFeePerGas * 12n) / 10n,
+					}),
+				) ?? new Error('Missing fee data: maxFeePerGas, maxPriorityFeePerGas'),
+		)
+		return multiplied
+	})
+
+	const tx = await whenNotErrorAll(
+		[contract, props, feeData],
+		([cont, { args }, { maxFeePerGas, maxPriorityFeePerGas }]) =>
+			cont
+				.mintFor(
+					args.to,
+					args.property,
+					args.payload,
+					args.gatewayAddress,
+					args.amounts,
+					{ maxFeePerGas, maxPriorityFeePerGas },
+				)
+				.then((res: TransactionResponse) => res)
+				.catch((err: Error) => err),
 	)
 
 	console.log({ tx })

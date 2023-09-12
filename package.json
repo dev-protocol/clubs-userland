@@ -14,19 +14,21 @@
 		"lint": "yarn lint:eslint && yarn lint:format",
 		"lint:eslint": "eslint . --ext .ts,.js --fix",
 		"lint:format": "prettier --write '**/*.{ts,js,json,md,yml}'",
+		"typecheck": "astro check && tsc --noEmit",
 		"prepare": "husky install"
 	},
 	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@astrojs/vercel": "^3.8.2",
+		"@astrojs/vercel": "^4.0.5",
 		"@devprotocol/dev-kit": "8.2.2",
 		"@devprotocol/util-ts": "3.1.0",
-		"astro": "^2.10.12",
+		"astro": "^3.0.12",
 		"ethers": "^6.7.1",
 		"ramda": "0.29.0"
 	},
 	"devDependencies": {
+		"@astrojs/check": "^0.2.0",
 		"@ava/typescript": "4.1.0",
 		"@types/dotenv": "8.2.0",
 		"@types/node": "18.17.6",

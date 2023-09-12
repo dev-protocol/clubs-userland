@@ -12,7 +12,7 @@ import {
 } from '@devprotocol/util-ts'
 import { always } from 'ramda'
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
 	const authres = auth(request) ? true : new Error('authentication faild')
 
 	const {

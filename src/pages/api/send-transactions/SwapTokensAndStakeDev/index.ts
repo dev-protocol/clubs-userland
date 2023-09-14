@@ -248,7 +248,10 @@ export const POST: APIRoute = async ({ request }) => {
 	)
 
 	const result = await whenNotErrorAll([redis, saved], ([db]) =>
-		db.quit().catch((err) => err),
+		db
+			.quit()
+			.then((x) => x)
+			.catch((err: Error) => err),
 	)
 
 	console.log({ tx, result })

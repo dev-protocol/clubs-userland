@@ -32,7 +32,7 @@ export const GET: APIRoute = async ({ url, params }) => {
 				.table(table)
 				.select({
 					fields: [field],
-					filterByFormula: encodeURI(`{${field}}=${account}`),
+					filterByFormula: `{${field}}=${account}`,
 				})
 				.eachPage(
 					(records, fetchNextPage) => {

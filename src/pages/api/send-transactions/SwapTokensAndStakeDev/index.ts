@@ -3,14 +3,19 @@ import abi from './abi'
 import { json, headers } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
-import { Contract, JsonRpcProvider, TransactionResponse } from 'ethers'
+import {
+	Contract,
+	JsonRpcProvider,
+	NonceManager,
+	TransactionResponse,
+} from 'ethers'
 import { auth } from 'utils/auth'
 import {
 	whenDefinedAll,
 	whenNotErrorAll,
 	whenNotError,
 } from '@devprotocol/util-ts'
-import { always } from 'ramda'
+import { always, tryCatch } from 'ramda'
 import fetch from 'cross-fetch'
 import BigNumber from 'bignumber.js'
 
@@ -154,6 +159,17 @@ export const POST: APIRoute = async ({ request }) => {
 			  })
 			: feeDataFromGS
 
+	const nonce = await whenNotError(wallet, async (wal) => {
+		const valid = tryCatch(
+			(_wal) => {
+				const nonceManager = new NonceManager(_wal)
+				return nonceManager.reset()
+			},
+			(err: Error) => err,
+		)(wal)
+		return whenNotError(valid, always(wal.getNonce()))
+	})
+
 	const gasLimit = await whenNotErrorAll(
 		[contract, props],
 		([cont, { args }]) =>
@@ -170,8 +186,14 @@ export const POST: APIRoute = async ({ request }) => {
 	)
 
 	const tx = await whenNotErrorAll(
-		[contract, props, gasLimit, feeData],
-		([cont, { args }, _gasLimit, { maxFeePerGas, maxPriorityFeePerGas }]) =>
+		[contract, props, nonce, gasLimit, feeData],
+		([
+			cont,
+			{ args },
+			_nonce,
+			_gasLimit,
+			{ maxFeePerGas, maxPriorityFeePerGas },
+		]) =>
 			cont
 				.mintFor(
 					args.to,
@@ -179,7 +201,12 @@ export const POST: APIRoute = async ({ request }) => {
 					args.payload,
 					args.gatewayAddress,
 					args.amounts,
-					{ gasLimit: _gasLimit, maxFeePerGas, maxPriorityFeePerGas },
+					{
+						nonce: _nonce,
+						gasLimit: _gasLimit,
+						maxFeePerGas,
+						maxPriorityFeePerGas,
+					},
 				)
 				.then((res: TransactionResponse) => res)
 				.catch((err: Error) => err),

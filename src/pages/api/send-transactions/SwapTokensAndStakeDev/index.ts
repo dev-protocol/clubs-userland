@@ -154,9 +154,24 @@ export const POST: APIRoute = async ({ request }) => {
 			  })
 			: feeDataFromGS
 
+	const gasLimit = await whenNotErrorAll(
+		[contract, props],
+		([cont, { args }]) =>
+			cont.mintFor
+				.estimateGas(
+					args.to,
+					args.property,
+					args.payload,
+					args.gatewayAddress,
+					args.amounts,
+				)
+				.then((res) => res)
+				.catch((err: Error) => err),
+	)
+
 	const tx = await whenNotErrorAll(
-		[contract, props, feeData],
-		([cont, { args }, { maxFeePerGas, maxPriorityFeePerGas }]) =>
+		[contract, props, gasLimit, feeData],
+		([cont, { args }, _gasLimit, { maxFeePerGas, maxPriorityFeePerGas }]) =>
 			cont
 				.mintFor(
 					args.to,
@@ -164,7 +179,7 @@ export const POST: APIRoute = async ({ request }) => {
 					args.payload,
 					args.gatewayAddress,
 					args.amounts,
-					{ maxFeePerGas, maxPriorityFeePerGas },
+					{ gasLimit: _gasLimit, maxFeePerGas, maxPriorityFeePerGas },
 				)
 				.then((res: TransactionResponse) => res)
 				.catch((err: Error) => err),

@@ -15,9 +15,7 @@
 		"prettier"
 	],
 	"rules": {
-		"functional/no-return-void": "off",
-		"functional/prefer-immutable-types": "off",
-		"functional/no-expression-statements": "off"
+		"functional/prefer-immutable-types": "off"
 	},
 	"overrides": [
 		{

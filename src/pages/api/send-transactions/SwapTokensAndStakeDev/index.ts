@@ -254,6 +254,7 @@ export const POST: APIRoute = async ({ request }) => {
 			.catch((err: Error) => err),
 	)
 
+	// eslint-disable-next-line functional/no-expression-statements
 	console.log({ tx, result })
 
 	return result instanceof Error

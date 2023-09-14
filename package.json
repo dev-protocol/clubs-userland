@@ -24,6 +24,8 @@
 		"@devprotocol/dev-kit": "8.2.2",
 		"@devprotocol/util-ts": "3.1.0",
 		"astro": "^3.0.12",
+		"bignumber.js": "^9.1.2",
+		"cross-fetch": "^4.0.0",
 		"ethers": "^6.7.1",
 		"ramda": "0.29.0"
 	},

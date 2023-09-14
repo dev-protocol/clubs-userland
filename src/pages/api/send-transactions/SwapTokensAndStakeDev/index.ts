@@ -11,6 +11,28 @@ import {
 	whenNotError,
 } from '@devprotocol/util-ts'
 import { always } from 'ramda'
+import fetch from 'cross-fetch'
+import BigNumber from 'bignumber.js'
+
+type GasStaionReturnValue = Readonly<{
+	safeLow: Readonly<{
+		maxPriorityFee: number
+		maxFee: number
+	}>
+	standard: Readonly<{
+		maxPriorityFee: number
+		maxFee: number
+	}>
+	fast: Readonly<{
+		maxPriorityFee: number
+		maxFee: number
+	}>
+	estimatedBaseFee: number
+	blockTime: number
+	blockNumber: number
+}>
+
+const WeiPerGwei = '1000000000'
 
 export const POST: APIRoute = async ({ request }) => {
 	const authres = auth(request) ? true : new Error('authentication faild')
@@ -64,23 +86,73 @@ export const POST: APIRoute = async ({ request }) => {
 		([addr, wal]) => new Contract(addr, abi, wal),
 	)
 
-	const feeData = await whenNotError(props, async ({ rpcUrl }) => {
-		const fromChain = await new JsonRpcProvider(rpcUrl)
-			.getFeeData()
-			.catch((err: Error) => err)
+	const feeDataFromGS = await whenNotError(props, async ({ chainId }) => {
+		const url =
+			chainId === 137
+				? 'https://gasstation.polygon.technology/v2'
+				: chainId === 80001
+				? 'https://gasstation-testnet.polygon.technology/v2'
+				: new Error('Cannot found gas stasion URL')
+		const gsRes = await whenNotError(url, (endpoint) =>
+			fetch(endpoint).catch((err: Error) => err),
+		)
+		const result = await whenNotError(gsRes, (res) =>
+			res
+				.json()
+				.then((x) => x as GasStaionReturnValue)
+				.catch((err: Error) => err),
+		)
 		const multiplied = whenNotError(
-			fromChain,
+			result,
 			(_data) =>
 				whenDefinedAll(
-					[_data.maxFeePerGas, _data.maxPriorityFeePerGas],
+					[_data.fast.maxFee, _data.fast.maxPriorityFee],
 					([maxFeePerGas, maxPriorityFeePerGas]) => ({
-						maxFeePerGas: (maxFeePerGas * 12n) / 10n,
-						maxPriorityFeePerGas: (maxPriorityFeePerGas * 12n) / 10n,
+						maxFeePerGas: new BigNumber(maxFeePerGas)
+							.times(WeiPerGwei)
+							.times(1.2)
+							.dp(0)
+							.toFixed(),
+						maxPriorityFeePerGas: new BigNumber(maxPriorityFeePerGas)
+							.times(WeiPerGwei)
+							.times(1.2)
+							.dp(0)
+							.toFixed(),
 					}),
-				) ?? new Error('Missing fee data: maxFeePerGas, maxPriorityFeePerGas'),
+				) ?? new Error('Missing fee data: fast.maxFee, fast.maxPriorityFee'),
 		)
 		return multiplied
 	})
+
+	const feeData =
+		feeDataFromGS instanceof Error
+			? await whenNotError(props, async ({ rpcUrl }) => {
+					const fromChain = await new JsonRpcProvider(rpcUrl)
+						.getFeeData()
+						.catch((err: Error) => err)
+					const multiplied = whenNotError(
+						fromChain,
+						(_data) =>
+							whenDefinedAll(
+								[_data.maxFeePerGas, _data.maxPriorityFeePerGas],
+								([maxFeePerGas, maxPriorityFeePerGas]) => ({
+									maxFeePerGas: new BigNumber(maxFeePerGas.toString())
+										.times(1.2)
+										.dp(0)
+										.toFixed(),
+									maxPriorityFeePerGas: new BigNumber(
+										maxPriorityFeePerGas.toString(),
+									)
+										.times(1.2)
+										.dp(0)
+										.toFixed(),
+								}),
+							) ??
+							new Error('Missing fee data: maxFeePerGas, maxPriorityFeePerGas'),
+					)
+					return multiplied
+			  })
+			: feeDataFromGS
 
 	const tx = await whenNotErrorAll(
 		[contract, props, feeData],
@@ -98,7 +170,7 @@ export const POST: APIRoute = async ({ request }) => {
 				.catch((err: Error) => err),
 	)
 
-	console.log({ tx })
+	console.log({ tx, feeDataFromGS, feeData })
 
 	return tx instanceof Error
 		? new Response(json({ message: 'error', error: tx.message }), {

@@ -43,17 +43,19 @@ export const GET: APIRoute = async ({ url, params }) => {
 	const filterByFormula = whenNotErrorAll(
 		[query, optionalQuery],
 		([{ account, field }, { additionalConditions }]) =>
-			`AND({${field}}="${account}", ${additionalConditions
-				.map(([_f, _v]) => {
-					return typeof _v === 'string'
-						? `{${_f}}="${_v}"`
-						: typeof _v === 'boolean'
-						? _v
-							? `TRUE("${_f}")`
-							: `NOT(TRUE("${_f}"))`
-						: `{${_f}}=${_v}`
-				})
-				.join(', ')})` ?? `{${field}}="${account}"`,
+			additionalConditions.length > 0
+				? `AND({${field}}="${account}", ${additionalConditions
+						.map(([_f, _v]) => {
+							return typeof _v === 'string'
+								? `{${_f}}="${_v}"`
+								: typeof _v === 'boolean'
+								? _v
+									? `TRUE("${_f}")`
+									: `NOT(TRUE("${_f}"))`
+								: `{${_f}}=${_v}`
+						})
+						.join(', ')})`
+				: `{${field}}="${account}"`,
 	)
 
 	const result = await new Promise<ErrorOr<Record<FieldSet>>>((resolve) =>

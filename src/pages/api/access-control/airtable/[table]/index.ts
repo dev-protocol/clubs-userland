@@ -5,9 +5,9 @@ import {
 	whenDefinedAll,
 	whenNotErrorAll,
 	type ErrorOr,
-	whenNotError,
 } from '@devprotocol/util-ts'
 import Airtable, { Record, type FieldSet } from 'airtable'
+import { tryCatch } from 'ramda'
 
 const { AIRTABLE_BASE, AIRTABLE_API_KEY } = import.meta.env
 
@@ -24,6 +24,15 @@ export const GET: APIRoute = async ({ url, params }) => {
 			}),
 		) ?? new Error('Missing required paramater: ?account, ?field')
 
+	const optionalQuery = tryCatch(
+		([conds]: [string[]]) => ({
+			additionalConditions: conds.map(
+				(cond) => JSON.parse(cond) as [string, string | boolean | number],
+			),
+		}),
+		(err: Error) => err,
+	)([url.searchParams.getAll('additional-conditions')])
+
 	const props =
 		whenDefinedAll([params.table], ([table]) => ({
 			table,
@@ -31,9 +40,20 @@ export const GET: APIRoute = async ({ url, params }) => {
 
 	const airtable = Airtable.base(AIRTABLE_BASE)
 
-	const filterByFormula = whenNotError(
-		query,
-		({ account, field }) => `{${field}}="${account}"`,
+	const filterByFormula = whenNotErrorAll(
+		[query, optionalQuery],
+		([{ account, field }, { additionalConditions }]) =>
+			`AND({${field}}="${account}", ${additionalConditions
+				.map(([_f, _v]) => {
+					return typeof _v === 'string'
+						? `{${_f}}="${_v}"`
+						: typeof _v === 'boolean'
+						? _v
+							? `TRUE("${_f}")`
+							: `NOT(TRUE("${_f}"))`
+						: `{${_f}}=${_v}`
+				})
+				.join(', ')})` ?? `{${field}}="${account}"`,
 	)
 
 	const result = await new Promise<ErrorOr<Record<FieldSet>>>((resolve) =>

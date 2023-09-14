@@ -3,21 +3,20 @@ import abi from './abi'
 import { json, headers } from 'utils/json'
 import { agentAddresses } from '@devprotocol/dev-kit/agent'
 import { createWallet } from 'utils/wallet'
-import {
-	Contract,
-	JsonRpcProvider,
-	NonceManager,
-	TransactionResponse,
-} from 'ethers'
+import { Contract, JsonRpcProvider, TransactionResponse } from 'ethers'
 import { auth } from 'utils/auth'
 import {
 	whenDefinedAll,
 	whenNotErrorAll,
 	whenNotError,
 } from '@devprotocol/util-ts'
-import { always, tryCatch } from 'ramda'
+import { always } from 'ramda'
 import fetch from 'cross-fetch'
 import BigNumber from 'bignumber.js'
+import { createClient } from 'redis'
+import { generateTransactionKey } from 'utils/db'
+
+const { REDIS_URL, REDIS_USERNAME, REDIS_PASSWORD } = import.meta.env
 
 type GasStaionReturnValue = Readonly<{
 	safeLow: Readonly<{
@@ -91,6 +90,19 @@ export const POST: APIRoute = async ({ request }) => {
 		([addr, wal]) => new Contract(addr, abi, wal),
 	)
 
+	const redis = await whenNotError(
+		createClient({
+			url: REDIS_URL,
+			username: REDIS_USERNAME ?? '',
+			password: REDIS_PASSWORD ?? '',
+		}),
+		(db) =>
+			db
+				.connect()
+				.then(always(db))
+				.catch((err) => new Error(err)),
+	)
+
 	const feeDataFromGS = await whenNotError(props, async ({ chainId }) => {
 		const url =
 			chainId === 137
@@ -159,17 +171,6 @@ export const POST: APIRoute = async ({ request }) => {
 			  })
 			: feeDataFromGS
 
-	const nonce = await whenNotError(wallet, async (wal) => {
-		const valid = tryCatch(
-			(_wal) => {
-				const nonceManager = new NonceManager(_wal)
-				return nonceManager.reset()
-			},
-			(err: Error) => err,
-		)(wal)
-		return whenNotError(valid, always(wal.getNonce()))
-	})
-
 	const gasLimit = await whenNotErrorAll(
 		[contract, props],
 		([cont, { args }]) =>
@@ -185,37 +186,75 @@ export const POST: APIRoute = async ({ request }) => {
 				.catch((err: Error) => err),
 	)
 
-	const tx = await whenNotErrorAll(
-		[contract, props, nonce, gasLimit, feeData],
-		([
-			cont,
-			{ args },
-			_nonce,
-			_gasLimit,
-			{ maxFeePerGas, maxPriorityFeePerGas },
-		]) =>
-			cont
-				.mintFor(
+	const unsignedTx = await whenNotErrorAll(
+		[contract, props, gasLimit, feeData],
+		([cont, { args }, _gasLimit, { maxFeePerGas, maxPriorityFeePerGas }]) =>
+			cont.mintFor
+				.populateTransaction(
 					args.to,
 					args.property,
 					args.payload,
 					args.gatewayAddress,
 					args.amounts,
 					{
-						nonce: _nonce,
 						gasLimit: _gasLimit,
 						maxFeePerGas,
 						maxPriorityFeePerGas,
 					},
 				)
+				.then((res) => res)
+				.catch((err: Error) => err),
+	)
+
+	const prevTransaction = await whenNotErrorAll(
+		[unsignedTx, redis],
+		([_tx, db]) =>
+			whenDefinedAll([_tx.to, _tx.data], ([to, data]) =>
+				db.get(generateTransactionKey(to, data)),
+			) ??
+			new Error(
+				'Missing TransactionRequest field to get the prev transaction: .to, .data',
+			),
+	)
+
+	const validExecutionInterval = whenNotError(prevTransaction, (ptx) => {
+		const lasttime = typeof ptx === 'string' ? Number(ptx) : undefined
+		const now = new Date().getTime()
+		const oneMin = 60000
+		const interval = now - (lasttime ?? 0)
+		return interval > oneMin
+			? true
+			: new Error(`Invalid execution interval: ${interval}ms`)
+	})
+
+	const tx = await whenNotErrorAll(
+		[wallet, unsignedTx, validExecutionInterval],
+		([wal, _tx]) =>
+			wal
+				.sendTransaction(_tx)
 				.then((res: TransactionResponse) => res)
 				.catch((err: Error) => err),
 	)
 
-	console.log({ tx, feeDataFromGS, feeData })
+	const saved = await whenNotErrorAll(
+		[tx, redis],
+		([_tx, db]) =>
+			whenDefinedAll([_tx.to, _tx.data], ([to, data]) =>
+				db.set(generateTransactionKey(to, data), new Date().getTime()),
+			) ??
+			new Error(
+				'Missing TransactionResponse field to save the transaction: .to, .data',
+			),
+	)
 
-	return tx instanceof Error
-		? new Response(json({ message: 'error', error: tx.message }), {
+	const result = await whenNotErrorAll([redis, saved], ([db]) =>
+		db.quit().catch((err) => err),
+	)
+
+	console.log({ tx, result })
+
+	return result instanceof Error
+		? new Response(json({ message: 'error', error: result.message }), {
 				status: 400,
 				headers,
 		  })

@@ -27,7 +27,8 @@
 		"bignumber.js": "^9.1.2",
 		"cross-fetch": "^4.0.0",
 		"ethers": "^6.7.1",
-		"ramda": "0.29.0"
+		"ramda": "0.29.0",
+		"redis": "^4.6.8"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.2.0",

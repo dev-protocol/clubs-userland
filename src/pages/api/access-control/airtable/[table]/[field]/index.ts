@@ -83,8 +83,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 				: `{${field}}="${account}"`,
 	)
 
-	const result = await new Promise<ErrorOr<Record<FieldSet>>>((resolve) =>
-		whenNotErrorAll(
+	const result = await new Promise<ErrorOr<Record<FieldSet>>>((resolve) => {
+		const res = whenNotErrorAll(
 			[query, filterByFormula, props, fieldName],
 			([{ account }, _filterByFormula, { table }, field]) =>
 				airtable
@@ -104,8 +104,9 @@ export const GET: APIRoute = async ({ url, params }) => {
 							? resolve(hit)
 							: resolve(new Error('Not found'))
 					}),
-		),
-	)
+		)
+		return res instanceof Error ? resolve(res) : undefined
+	})
 
 	console.log({ result, filterByFormula, props, query })
 

@@ -5,9 +5,11 @@ import {
 	whenDefinedAll,
 	whenNotErrorAll,
 	type ErrorOr,
+	whenNotError,
 } from '@devprotocol/util-ts'
 import Airtable, { Record, type FieldSet } from 'airtable'
 import { tryCatch } from 'ramda'
+import { getFieldNameById } from 'utils/airtable'
 
 const { AIRTABLE_BASE, AIRTABLE_API_KEY } = import.meta.env
 
@@ -16,13 +18,9 @@ Airtable.configure({ apiKey: AIRTABLE_API_KEY })
 
 export const GET: APIRoute = async ({ url, params }) => {
 	const query =
-		whenDefinedAll(
-			[url.searchParams.get('account'), url.searchParams.get('field')],
-			([account, field]) => ({
-				account,
-				field,
-			}),
-		) ?? new Error('Missing required paramater: ?account, ?field')
+		whenDefinedAll([url.searchParams.get('account')], ([account]) => ({
+			account,
+		})) ?? new Error('Missing required paramater: ?account')
 
 	const optionalQuery = tryCatch(
 		([conds]: [string[]]) => ({
@@ -34,17 +32,44 @@ export const GET: APIRoute = async ({ url, params }) => {
 	)([url.searchParams.getAll('additional-conditions')])
 
 	const props =
-		whenDefinedAll([params.table], ([table]) => ({
+		whenDefinedAll([params.table, params.field], ([table, field]) => ({
 			table,
-		})) ?? new Error('Missing required path paramater: /[table]')
+			field,
+		})) ?? new Error('Missing required path paramater: /[table]/[field]')
 
 	const airtable = Airtable.base(AIRTABLE_BASE)
 
+	const fieldName = await whenNotError(props, ({ table, field }) => {
+		return getFieldNameById({ base: airtable, id: field, table })
+	})
+
+	const additionalConditions = await whenNotErrorAll(
+		[optionalQuery, props],
+		async ([{ additionalConditions }, { table }]) => {
+			const res = await Promise.all(
+				additionalConditions.map<
+					Promise<[ErrorOr<string>, string | number | boolean]>
+				>(async ([field, value]) => {
+					const name = await getFieldNameById({
+						base: airtable,
+						id: field,
+						table,
+					})
+					return [name, value]
+				}),
+			)
+			const error = res.find(([x]) => x instanceof Error)
+			return error
+				? (error[0] as Error)
+				: (res as [[string, string | number | boolean]])
+		},
+	)
+
 	const filterByFormula = whenNotErrorAll(
-		[query, optionalQuery],
-		([{ account, field }, { additionalConditions }]) =>
-			additionalConditions.length > 0
-				? `AND({${field}}="${account}", ${additionalConditions
+		[query, additionalConditions, fieldName],
+		([{ account }, conditions, field]) =>
+			conditions.length > 0
+				? `AND({${field}}="${account}", ${conditions
 						.map(([_f, _v]) => {
 							return typeof _v === 'string'
 								? `{${_f}}="${_v}"`
@@ -60,8 +85,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 
 	const result = await new Promise<ErrorOr<Record<FieldSet>>>((resolve) =>
 		whenNotErrorAll(
-			[query, filterByFormula, props],
-			([{ account, field }, _filterByFormula, { table }]) =>
+			[query, filterByFormula, props, fieldName],
+			([{ account }, _filterByFormula, { table }, field]) =>
 				airtable
 					.table(table)
 					.select({

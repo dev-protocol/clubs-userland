@@ -20,7 +20,7 @@
 	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@astrojs/vercel": "^4.0.5",
+		"@astrojs/vercel": "^5.0.0",
 		"@devprotocol/dev-kit": "8.5.0",
 		"@devprotocol/util-ts": "3.1.0",
 		"airtable": "^0.12.2",

@@ -23,14 +23,17 @@ type RequestBody = ReadonlyDeep<{
 	status: 'used'
 	id: string // sTokens ID
 	account: string // EOA
-	benefit: { id: string; description: string }
+	ticket: { name: string }
+	benefit: { id: string; name: string; description?: string }
 }>
 
 type TicketsFields = ReadonlyDeep<{
 	status?: string
 	id?: string
 	account?: string
+	ticket_name?: string
 	benefit_id?: string
+	benefit_name?: string
 	benefit_description?: string
 }>
 
@@ -72,7 +75,9 @@ export const POST: APIRoute = async ({ params, request }) => {
 				status: x.status,
 				id: x.id,
 				account: x.account,
+				ticket_name: x.ticket.name,
 				benefit_id: x.benefit_id,
+				benefit_name: x.benefit_name,
 				benefit_description: x.benefit_description,
 			}) as TicketsFields,
 	)
@@ -81,7 +86,7 @@ export const POST: APIRoute = async ({ params, request }) => {
 
 	const computedFields = whenNotErrorAll(
 		[body, parsedMap, parsedMapKeys],
-		([{ status, id, account, benefit }, _map, _keys]) =>
+		([{ status, id, account, ticket, benefit }, _map, _keys]) =>
 			_keys.map((key) =>
 				typeof _map[key] === 'string'
 					? {
@@ -92,8 +97,12 @@ export const POST: APIRoute = async ({ params, request }) => {
 									? status
 									: key === 'id'
 									? id
+									: key === 'ticket_name'
+									? ticket.name
 									: key === 'benefit_id'
 									? benefit.id
+									: key === 'benefit_name'
+									? benefit.name
 									: key === 'benefit_description'
 									? benefit.description
 									: undefined,

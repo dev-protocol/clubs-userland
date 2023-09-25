@@ -75,7 +75,7 @@ export const POST: APIRoute = async ({ params, request }) => {
 				status: x.status,
 				id: x.id,
 				account: x.account,
-				ticket_name: x.ticket.name,
+				ticket_name: x.ticket_name,
 				benefit_id: x.benefit_id,
 				benefit_name: x.benefit_name,
 				benefit_description: x.benefit_description,
@@ -135,7 +135,7 @@ export const POST: APIRoute = async ({ params, request }) => {
 		},
 	)
 
-	console.log({ result })
+	console.log({ fields, result })
 
 	return new Response(
 		result instanceof Error

@@ -5732,9 +5732,9 @@ type-fest@^2.13.0:
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 type-fest@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.3.1.tgz#5cb58cdab5120f7ab0b40cfdc35073fb9adb651d"
-  integrity sha512-pphNW/msgOUSkJbH58x8sqpq8uQj6b0ZKGxEsLKMUnGorRcDjrUaLS+39+/ub41JNTwrrMyJcUB8+YZs3mbwqw==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.3.2.tgz#bb7948127bb644364994dc1b44b8a797da8aadcd"
+  integrity sha512-VpwuOgnTsQUUWi0id8Hl4/xiQ+OoaeJGe8dnFjzubJYe/lOc2/d1Qx/d3FqWR0FlpOG/cvukAXfB12A49Y4iiA==
 
 types-ramda@^0.29.4:
   version "0.29.4"

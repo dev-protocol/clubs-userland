@@ -1,18 +1,20 @@
 /* eslint-disable functional/no-return-void */
 import type { APIRoute } from 'astro'
-import { cors } from 'utils/json'
+import { cors, headers, json } from 'utils/json'
 import {
 	whenDefinedAll,
 	whenNotErrorAll,
 	type ErrorOr,
 	whenNotError,
 	type UndefinedOr,
+	whenDefined,
 } from '@devprotocol/util-ts'
-import Airtable, { type FieldSet, type Records } from 'airtable'
-import { splitEvery, tryCatch } from 'ramda'
-import { AbiCoder, EventLog, JsonRpcProvider, Log } from 'ethers'
+import Airtable from 'airtable'
+import { tryCatch } from 'ramda'
+import { AbiCoder, JsonRpcProvider } from 'ethers'
 import { clientsSTokens } from '@devprotocol/dev-kit'
 import { Minted } from './abi'
+import { createOrUpdate } from 'utils/airtable'
 
 const { AIRTABLE_BASE, AIRTABLE_API_KEY, RPC_URL } = import.meta.env
 
@@ -22,6 +24,7 @@ Airtable.configure({ apiKey: AIRTABLE_API_KEY })
 enum RequiredFields {
 	BlockNumber = 'block',
 	Account = 'account',
+	MintedAt = 'time',
 	TokenId = 't_id',
 	TokenName = 't_name',
 	TokenPayload = 't_payload',
@@ -29,9 +32,13 @@ enum RequiredFields {
 
 export const GET: APIRoute = async ({ url, params }) => {
 	const query =
-		whenDefinedAll([url.searchParams.get('fields')], ([fields]) => ({
-			fields,
-		})) ?? new Error('Missing required paramater: ?fields')
+		whenDefinedAll(
+			[url.searchParams.get('fields'), url.searchParams.get('primaryKey')],
+			([fields, primaryKey]) => ({
+				fields,
+				primaryKey,
+			}),
+		) ?? new Error('Missing required paramater: ?fields, ?primaryKey')
 	const optionalQuery = {
 		fromBlock: url.searchParams.get('fromBlock'),
 	}
@@ -58,13 +65,22 @@ export const GET: APIRoute = async ({ url, params }) => {
 							[
 								map.get(RequiredFields.Account),
 								map.get(RequiredFields.BlockNumber),
+								map.get(RequiredFields.MintedAt),
 								map.get(RequiredFields.TokenId),
 								map.get(RequiredFields.TokenName),
 								map.get(RequiredFields.TokenPayload),
 							],
-							([account, blockNumber, tokenId, tokenName, payload]) => ({
+							([
 								account,
 								blockNumber,
+								mintedAt,
+								tokenId,
+								tokenName,
+								payload,
+							]) => ({
+								account,
+								blockNumber,
+								mintedAt,
 								tokenId,
 								tokenName,
 								payload,
@@ -113,41 +129,42 @@ export const GET: APIRoute = async ({ url, params }) => {
 	const [l1, l2] = await clientsSTokens(provider)
 	const client = l1 ?? l2 ?? new Error('Failed to load sTokens')
 	const sTokensContract = whenNotError(client, (c) => c.contract())
-	const events =
+	const eventsOnChain =
 		(await whenNotError(sTokensContract, async (contract) => {
 			return contract
 				.queryFilter(contract.filters.Minted, nextBlock)
 				.catch((err) => new Error(err))
 		})) ?? new Error('Failed to create contract client')
 
-	const eventsWithTokenIds = await whenNotErrorAll([events], async ([evs]) => {
-		const res = await Promise.all(
-			evs.map(async (event) => {
-				const encoded = tryCatch(
-					(data: string) => AbiCoder.defaultAbiCoder().decode(Minted, data),
-					(err: Error) => err,
-				)(event.data)
-				const tokenId = whenNotError(encoded, ([v]) => v as bigint)
-				return { tokenId, event }
-			}),
-		)
-		const allGreen = res.every(({ tokenId }) => typeof tokenId === 'bigint')
-		return allGreen
-			? (res as { tokenId: bigint; event: EventLog | Log }[])
-			: new Error('Failed to parse some events')
-	})
+	const eventsExtended = await whenNotErrorAll(
+		[eventsOnChain],
+		async ([evs]) => {
+			const res = await Promise.all(
+				evs.map(async (event) => {
+					const encoded = AbiCoder.defaultAbiCoder().decode(Minted, event.data)
+					const block = await provider.getBlock(event.blockNumber)
+					const timestamp = whenDefined(block, (b) =>
+						new Date(b.timestamp * 1000).toISOString(),
+					)
+					const tokenId = encoded[0] as bigint
+					return { tokenId, event, timestamp }
+				}),
+			)
+			return res
+		},
+	)
 
 	const filterdEvents = await whenNotErrorAll(
-		[eventsWithTokenIds, client, props],
+		[eventsExtended, client, props],
 		async ([logs, contract, { propertyAddress }]) => {
 			const metadatas = await Promise.all(
-				logs.map(async ({ tokenId, event }) => {
+				logs.map(async ({ tokenId, ...left }) => {
 					const id = Number(tokenId)
 					const [metadata, owner] = await Promise.all([
 						contract.tokenURI(id),
 						contract.ownerOf(id),
 					])
-					return { tokenId, metadata, owner, event }
+					return { tokenId, metadata, owner, ...left }
 				}),
 			)
 			const property = propertyAddress.toLowerCase()
@@ -163,52 +180,44 @@ export const GET: APIRoute = async ({ url, params }) => {
 
 	const newRecords = whenNotErrorAll(
 		[givenFields, filterdEvents],
-		([{ account, blockNumber, tokenId, tokenName, payload }, _events]) =>
+		([
+			{ account, blockNumber, mintedAt, tokenId, tokenName, payload },
+			_events,
+		]) =>
 			_events.map((ev) => ({
-				fields: {
-					[account]: ev.owner,
-					[blockNumber]: ev.event.blockNumber,
-					[tokenId]: Number(ev.tokenId),
-					[tokenName]: ev.metadata.name,
-					[payload]:
-						ev.metadata.attributes.find((x) => x.trait_type === 'Payload')
-							?.value ?? '',
-				},
+				[account]: ev.owner,
+				[blockNumber]: ev.event.blockNumber,
+				[mintedAt]: ev.timestamp ?? '',
+				[tokenId]: Number(ev.tokenId),
+				[tokenName]: ev.metadata.name,
+				[payload]:
+					ev.metadata.attributes.find((x) => x.trait_type === 'Payload')
+						?.value ?? '',
 			})),
 	)
 
 	console.log({ newRecords })
 
-	const result = await new Promise<ErrorOr<Records<FieldSet> | undefined>>(
-		(resolve) => {
-			const res = whenNotErrorAll(
-				[props, newRecords],
-				([{ table }, records]) => {
-					const fieldsSet = splitEvery(10, records)
-					const tmp = new Set<Records<FieldSet>>()
-					return fieldsSet.length > 0
-						? fieldsSet.map((fields, index) =>
-								airtable.table(table).create(fields, (err, records) => {
-									// eslint-disable-next-line functional/no-expression-statements
-									records && tmp.add(records)
-									return err
-										? resolve(new Error(err))
-										: index === fieldsSet.length
-										? resolve(Array.from(tmp).flat())
-										: undefined
-								}),
-						  )
-						: resolve([])
-				},
-			)
-			return res instanceof Error ? resolve(res) : undefined
-		},
+	const result = await whenNotErrorAll(
+		[props, query, newRecords],
+		([{ table }, { primaryKey }, records]) =>
+			createOrUpdate({
+				base: airtable,
+				table,
+				records: records,
+				key: primaryKey,
+			}),
 	)
 
 	console.log({ result })
 
-	return new Response(events instanceof Error ? '0' : '1', {
-		status: 200,
-		headers: cors,
-	})
+	return result instanceof Error
+		? new Response(json({ error: result.message }), {
+				status: 400,
+				headers: { ...headers, ...cors },
+		  })
+		: new Response(json(result), {
+				status: 200,
+				headers: { ...headers, ...cors },
+		  })
 }

@@ -1,7 +1,7 @@
 {
 	"crons": [
 		{
-			"path": "/api/webhooks/s-tokens/0xF1AA1fC5a248bDCF531E45447916d49d54212AdE/airtable/tblPDegAqgvekB7xO?primaryKey=token_id&fields=[[\"block\",\"block_number\"],[\"account\",\"eoa\"],[\"time\",\"minted_at\"],[\"t_id\",\"token_id\"],[\"t_name\",\"token_name\"],[\"t_payload\",\"payload\"]]",
+			"path": "/api/webhooks/s-tokens/0xF1AA1fC5a248bDCF531E45447916d49d54212AdE/airtable/tblPDegAqgvekB7xO?primaryKey=token_id&fields=[[\"block\",\"block_number\"],[\"account\",\"eoa\"],[\"time\",\"minted_at\"],[\"t_id\",\"token_id\"],[\"t_name\",\"token_name\"],[\"t_payload\",\"payload\"],[\"t_lock\",\"token\"]]",
 			"schedule": "*/5 * * * *"
 		}
 	]

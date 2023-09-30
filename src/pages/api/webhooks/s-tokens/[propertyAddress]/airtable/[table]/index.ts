@@ -29,6 +29,9 @@ enum RequiredFields {
 	TokenName = 't_name',
 	TokenPayload = 't_payload',
 }
+enum OptionalFields {
+	TokenLocked = 't_lock',
+}
 
 export const GET: APIRoute = async ({ url, params }) => {
 	const query =
@@ -84,6 +87,7 @@ export const GET: APIRoute = async ({ url, params }) => {
 								tokenId,
 								tokenName,
 								payload,
+								tokenLocked: map.get(OptionalFields.TokenLocked),
 							}),
 						) ?? new Error('Missing some required field types')
 					)
@@ -181,7 +185,15 @@ export const GET: APIRoute = async ({ url, params }) => {
 	const newRecords = whenNotErrorAll(
 		[givenFields, filterdEvents],
 		([
-			{ account, blockNumber, mintedAt, tokenId, tokenName, payload },
+			{
+				account,
+				blockNumber,
+				mintedAt,
+				tokenId,
+				tokenName,
+				payload,
+				tokenLocked,
+			},
 			_events,
 		]) =>
 			_events.map((ev) => ({
@@ -193,6 +205,14 @@ export const GET: APIRoute = async ({ url, params }) => {
 				[payload]:
 					ev.metadata.attributes.find((x) => x.trait_type === 'Payload')
 						?.value ?? '',
+				...(tokenLocked
+					? {
+							[tokenLocked]:
+								ev.metadata.attributes.find(
+									(x) => x.trait_type === 'Locked Amount',
+								)?.value ?? '',
+					  }
+					: {}),
 			})),
 	)
 

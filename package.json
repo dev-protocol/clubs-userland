@@ -32,7 +32,7 @@
 		"redis": "^4.6.8"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.2.0",
+		"@astrojs/check": "^0.3.0",
 		"@ava/typescript": "4.1.0",
 		"@types/dotenv": "8.2.0",
 		"@types/node": "20.8.9",

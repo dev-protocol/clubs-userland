@@ -1452,9 +1452,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.0.1.tgz#a2d34492bd090c41beb1fa1bfd1dbe706cf3a767"
-  integrity sha512-QSZGFbgWw5nWr7pdKkjOz1E+1KMSheX8+dCNi/DstMVlQMIYyUrBuAjGL3fYsR9vc9kGbfhQMgSpM1/p5JYEWA==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.0.2.tgz#ca5fc458692e8553d54b4c9436ceeaf1be692f2d"
+  integrity sha512-ee7tGS53ZcKjorxTy6VEapIGwRA3rzSUAEXYhuchGppFxykObCbzJv5o3x8G2lvHm4g7Mn83OFrvNlwjYjsXnQ==
   dependencies:
     "@astrojs/compiler" "^2.3.2"
     "@astrojs/internal-helpers" "0.2.1"
@@ -1513,7 +1513,7 @@ astro@^4.0.0:
     unist-util-visit "^5.0.0"
     vfile "^6.0.1"
     vite "^5.0.0"
-    vitefu "^0.2.4"
+    vitefu "^0.2.5"
     which-pm "^2.1.1"
     yargs-parser "^21.1.1"
     zod "^3.22.4"
@@ -1686,13 +1686,13 @@ braces@^3.0.2, braces@~3.0.2:
     fill-range "^7.0.1"
 
 browserslist@^4.21.9:
-  version "4.22.1"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.22.1.tgz#ba91958d1a59b87dab6fed8dfbcb3da5e2e9c619"
-  integrity sha512-FEVc202+2iuClEhZhrWy6ZiAcRLvNMyYcxZ8raemul1DYVOVdFsbqckWLdsixQZCpJlwe77Z3UTalE7jsjnKfQ==
+  version "4.22.2"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.22.2.tgz#704c4943072bd81ea18997f3bd2180e89c77874b"
+  integrity sha512-0UgcrvQmBDvZHFGdYUehrCNIazki7/lUP3kkoi/r3YB2amZbFM9J43ZRkJTXBUZK4gmx56+Sqk9+Vs9mwZx9+A==
   dependencies:
-    caniuse-lite "^1.0.30001541"
-    electron-to-chromium "^1.4.535"
-    node-releases "^2.0.13"
+    caniuse-lite "^1.0.30001565"
+    electron-to-chromium "^1.4.601"
+    node-releases "^2.0.14"
     update-browserslist-db "^1.0.13"
 
 buffer@^5.5.0:
@@ -1726,10 +1726,10 @@ camelcase@^7.0.1:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-7.0.1.tgz#f02e50af9fd7782bc8b88a3558c32fd3a388f048"
   integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
-caniuse-lite@^1.0.30001541:
-  version "1.0.30001565"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001565.tgz#a528b253c8a2d95d2b415e11d8b9942acc100c4f"
-  integrity sha512-xrE//a3O7TP0vaJ8ikzkD2c2NgcVUvsEe2IvFTntV4Yd1Z9FVzh+gW+enX96L0psrbaFMcVcH2l90xNuGDWc8w==
+caniuse-lite@^1.0.30001565:
+  version "1.0.30001566"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001566.tgz#61a8e17caf3752e3e426d4239c549ebbb37fef0d"
+  integrity sha512-ggIhCsTxmITBAMmK8yZjEhCO5/47jKXPu6Dha/wuCS4JePVL+3uiDEBuhu2aIoT+bqTOR8L76Ip1ARL9xYsEJA==
 
 cbor@^8.1.0:
   version "8.1.0"
@@ -2175,10 +2175,10 @@ edge-runtime@2.5.7:
     signal-exit "4.0.2"
     time-span "4.0.0"
 
-electron-to-chromium@^1.4.535:
-  version "1.4.597"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.597.tgz#9848b9aa52749bf35be88013bab52be232889d94"
-  integrity sha512-0XOQNqHhg2YgRVRUrS4M4vWjFCFIP2ETXcXe/0KIQBjXE9Cpy+tgzzYfuq6HGai3hWq0YywtG+5XK8fyG08EjA==
+electron-to-chromium@^1.4.601:
+  version "1.4.604"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.604.tgz#8a53d70adb8ebb7206df082aa58cffb48e44b501"
+  integrity sha512-JAJ4lyLJYudlgJPYJicimU9R+qZ/3iyeyQS99bfT7PWi7psYWeN84lPswTjpHxQueU34PKxM/IJzQS6poYlovQ==
 
 emittery@^1.0.1:
   version "1.0.1"
@@ -4076,9 +4076,9 @@ nlcst-to-string@^3.0.0:
     "@types/nlcst" "^1.0.0"
 
 node-abi@^3.3.0:
-  version "3.51.0"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.51.0.tgz#970bf595ef5a26a271307f8a4befa02823d4e87d"
-  integrity sha512-SQkEP4hmNWjlniS5zdnfIXTk1x7Ome85RDzHlTbBtzE97Gfwz/Ipw4v/Ryk20DWIy3yCNVLVlGKApCnmvYoJbA==
+  version "3.52.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.52.0.tgz#ffba0a85f54e552547e5849015f40f9514d5ba7c"
+  integrity sha512-JJ98b02z16ILv7859irtXn4oUaFWADtvkzy2c0IAatNVX2Mc9Yoh8z6hZInn3QwvMEYhHuQloYi+TTQy67SIdQ==
   dependencies:
     semver "^7.3.5"
 
@@ -4106,10 +4106,10 @@ node-gyp-build@^4.2.2:
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.6.1.tgz#24b6d075e5e391b8d5539d98c7fc5c210cac8a3e"
   integrity sha512-24vnklJmyRS8ViBNI8KbtK/r/DmXQMRiOMXTNz2nrTnAYUwjmEEbnnpB/+kt+yWRv73bPsSPRFddrcIbAxSiMQ==
 
-node-releases@^2.0.13:
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.13.tgz#d5ed1627c23e3461e819b02e57b75e4899b1c81d"
-  integrity sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==
+node-releases@^2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.14.tgz#2ffb053bceb8b2be8495ece1ab6ce600c4461b0b"
+  integrity sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==
 
 nofilter@^3.1.0:
   version "3.1.0"
@@ -5525,7 +5525,7 @@ vite@^5.0.0:
   optionalDependencies:
     fsevents "~2.3.3"
 
-vitefu@^0.2.4:
+vitefu@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-0.2.5.tgz#c1b93c377fbdd3e5ddd69840ea3aa70b40d90969"
   integrity sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==

@@ -1216,10 +1216,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@7.2.5":
-  version "7.2.5"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.2.5.tgz#e51fb92ac8bd07e584cb590288aa54fd71a20ad4"
-  integrity sha512-rlXL7Kjwfl8c8CQ9fYpP/+AunFZbaXXf89OT+7G8E/CGRM+hAYrGF+N3Kz1X8TfwfNlSCqPs7VQriOKKajUS0g==
+"@vercel/build-utils@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.3.0.tgz#222fee367367bf773395985a509964adfb495f24"
+  integrity sha512-RJwqrGYSk75auHZqWmlSL+a5JsWv+4SF1AxNQJ+KpF3XWZ/8yThkN/jHBfNxMmW6VvNczSVtMaXI0/2Sess6Eg==
 
 "@vercel/error-utils@2.0.2":
   version "2.0.2"
@@ -1261,15 +1261,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.11.tgz#2159eb4a11debbf74b91373e317c5227f3b7e241"
-  integrity sha512-J6ETfnfHNCnomEaEVTdbr/J1t1+SDYTx7nawCRux+Gn2JDrQ6y1K0YIi61FLLd7uIhShqJ4DzfImih7zKxxeeg==
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.12.tgz#398e3ab9ebe8d9f6a3920d8f2a94de59e23a61d0"
+  integrity sha512-OiNHiUe1LX/CfDrQ07ntPsoYhJiC38mEeErYeqA6YNVAz3QGdX3pthiaIig2KPqeeYkEx5bSkVIqQtQOTJBuLQ==
   dependencies:
     "@edge-runtime/node-utils" "2.2.1"
     "@edge-runtime/primitives" "4.0.5"
     "@edge-runtime/vm" "3.1.7"
     "@types/node" "14.18.33"
-    "@vercel/build-utils" "7.2.5"
+    "@vercel/build-utils" "7.3.0"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.24.2"
     "@vercel/static-config" "3.0.0"
@@ -1391,12 +1391,7 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-acorn-walk@^8.1.1:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.0.tgz#2097665af50fd0cf7a2dfccd2b9368964e66540f"
-  integrity sha512-FS7hV565M5l1R08MXqo8odwMTB02C2UqzB17RVgu9EyuYFBqJZ3/ZY97sQD5FewVu1UyDFc1yztUDrAwT0EypA==
-
-acorn-walk@^8.3.0:
+acorn-walk@^8.1.1, acorn-walk@^8.3.0:
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.1.tgz#2f10f5b69329d90ae18c58bf1fa8fccd8b959a43"
   integrity sha512-TgUZgYvqZprrl7YldZNoa9OciCAyZR+Ejm9eXzKCmjsF5IKp/wgQ7Z/ZpjpGTIUPwrHQIcYeI8qDh4PsEwxMbw==

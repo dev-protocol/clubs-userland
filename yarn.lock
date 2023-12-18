@@ -1116,10 +1116,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.3.0.tgz#222fee367367bf773395985a509964adfb495f24"
-  integrity sha512-RJwqrGYSk75auHZqWmlSL+a5JsWv+4SF1AxNQJ+KpF3XWZ/8yThkN/jHBfNxMmW6VvNczSVtMaXI0/2Sess6Eg==
+"@vercel/build-utils@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.4.0.tgz#83341a08baed79791f3a616dca2e07d17cb6e046"
+  integrity sha512-m+uqWqCc+/iIbvf/3EowJmqQUiBl76hX3RsM0thjkTdAjaHGgnhk/MgwkSmH07lEFPo4YOZ5LmNpkMyGeS01/Q==
 
 "@vercel/error-utils@2.0.2":
   version "2.0.2"
@@ -1161,15 +1161,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.12.tgz#398e3ab9ebe8d9f6a3920d8f2a94de59e23a61d0"
-  integrity sha512-OiNHiUe1LX/CfDrQ07ntPsoYhJiC38mEeErYeqA6YNVAz3QGdX3pthiaIig2KPqeeYkEx5bSkVIqQtQOTJBuLQ==
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.13.tgz#970e7ad5f2fae85373ae4e1ca8cbe39b16177dc0"
+  integrity sha512-az2O0Qq446W5/BcTfi1gMswt8FPTRHXe1mMOLbmKnzamNYHPruoJeCLZtXIgCz7XOEQKcYEo3Drp9QZPUh+Uhw==
   dependencies:
     "@edge-runtime/node-utils" "2.2.1"
     "@edge-runtime/primitives" "4.0.5"
     "@edge-runtime/vm" "3.1.7"
     "@types/node" "14.18.33"
-    "@vercel/build-utils" "7.3.0"
+    "@vercel/build-utils" "7.4.0"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.24.2"
     "@vercel/static-config" "3.0.0"
@@ -2638,9 +2638,9 @@ fast-levenshtein@^2.0.6:
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
 fastq@^1.6.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.15.0.tgz#d04d07c6a2a68fe4599fea8d2e103a937fae6b3a"
-  integrity sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.16.0.tgz#83b9a9375692db77a822df081edb6a9cf6839320"
+  integrity sha512-ifCoaXsDrsdkWTtiNJX5uzHDsrck5TzfKKDcuFFTIrrc/BS076qgEIfoIy1VeZqViznfKiysPYTh/QeHtnIsYA==
   dependencies:
     reusify "^1.0.4"
 

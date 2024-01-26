@@ -111,9 +111,9 @@
     which-pm-runs "^1.1.0"
 
 "@astrojs/vercel@^7.0.0":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-7.0.1.tgz#54e42676adcb291fe956901e3b844f28e5017843"
-  integrity sha512-Y6txgjSDtv5Jgch1hL5aDQ9q7ggu2UFprkvxz5lj0SkoZAMpjyebw+Wz0jX+sDNIerVvZwv63VC08u1Avp9vTw==
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-7.0.2.tgz#667bef7b8ff297ef6f11a2e1ff15dc31eb0f4ad4"
+  integrity sha512-XlUNqstoGVDDk5txGF2JadSt+jK79peMeFHlH6D5u9d9yeql1Kyw2o9nPvu9nr1PMdnDrBkF82DQE06iIzXZ1Q==
   dependencies:
     "@astrojs/internal-helpers" "0.2.1"
     "@vercel/analytics" "^1.0.2"
@@ -5654,9 +5654,9 @@ web-namespaces@^2.0.0:
   integrity sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==
 
 web-vitals@^3.4.0:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.5.1.tgz#af7a9dc60708b81007922ab55a23d963676ba30a"
-  integrity sha512-xQ9lvIpfLxUj0eSmT79ZjRoU5wIRfIr7pNukL7ZE4EcWZSmfZQqOlhuAGfkVa3EFmzPHZhWhXfm2i5ys+THVPg==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-3.5.2.tgz#5bb58461bbc173c3f00c2ddff8bfe6e680999ca9"
+  integrity sha512-c0rhqNcHXRkY/ogGDJQxZ9Im9D19hDihbzSQJrsioex+KnFgmMzBiy57Z1EjkhX/+OjyBpclDCzz2ITtjokFmg==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"

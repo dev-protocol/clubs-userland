@@ -35,7 +35,7 @@
 		"@astrojs/check": "^0.4.0",
 		"@ava/typescript": "4.1.0",
 		"@types/dotenv": "8.2.0",
-		"@types/node": "20.11.7",
+		"@types/node": "20.11.8",
 		"@types/ramda": "0.29.10",
 		"@typescript-eslint/eslint-plugin": "6.19.1",
 		"@typescript-eslint/parser": "6.19.1",

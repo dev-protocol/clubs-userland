@@ -1468,9 +1468,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.3.0.tgz#5d13c00aaaaf16e6832a53cd4c924454df24e4b8"
-  integrity sha512-DSn7q7KJ9lmA7B3faz6uaIIRTzJduKNYRAsgXDn+wH1Jso33PFOU3ZcI4knlMAqhFW3MX8WorB8Hg6kR+waQXg==
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.3.1.tgz#f9c3813d6cd0d64c1688a13e509623362c02523e"
+  integrity sha512-LAY2zQHOuOXEhpguyw5X0AIz6Xq+TAkBNEqrgIxwj72R87mmRQqQWmjChMPPkK95nFHkYR/71M2BrKunpbsfyw==
   dependencies:
     "@astrojs/compiler" "^2.5.0"
     "@astrojs/internal-helpers" "0.2.1"
@@ -2197,9 +2197,9 @@ edge-runtime@2.5.7:
     time-span "4.0.0"
 
 electron-to-chromium@^1.4.648:
-  version "1.4.653"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.653.tgz#832ab25e80ad698ac09c1ca547bd9ee6cce7df10"
-  integrity sha512-wA2A2LQCqnEwQAvwADQq3KpMpNwgAUBnRmrFgRzHnPhbQUFArTR32Ab46f4p0MovDLcg4uqd4nCsN2hTltslpA==
+  version "1.4.654"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.654.tgz#65dc3cd96f8d2f8d7197492509cc9726782d6919"
+  integrity sha512-hjfFa+Vj4WGLRVTlCQa+IivBkpcp+boGxMQfusOC/me5Y5NfU4wX7wyw+K9p8Cw4tl0BVIZGH2n7y/jMc3w4pg==
 
 emittery@^1.0.1:
   version "1.0.1"

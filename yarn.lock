@@ -1487,9 +1487,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.3.6.tgz#bdbbdf2cdccec79d07a0a2e12afd2d637f2819cb"
-  integrity sha512-VYJGsBygMtPM/qTRgn5QdxkSILgjpW2uHVw3snp/Gkl+N9uRAAnuYxrUO7wkbLejfrmlb0nZyyKG+H5VDQPbeg==
+  version "4.3.7"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.3.7.tgz#8ade6ce4e9802e1254d9e40985e565b9e6d7803f"
+  integrity sha512-spdl+Ae6WZjQ0w8VBPq8ulN1hdN0m4EWvKG7ecgHjPQIHidMnzWJoZLEFEeKASqCGB1fDibqr7RDHoHkhZbp2Q==
   dependencies:
     "@astrojs/compiler" "^2.5.3"
     "@astrojs/internal-helpers" "0.2.1"
@@ -1648,9 +1648,9 @@ bare-events@^2.0.0, bare-events@^2.2.0:
   integrity sha512-Yyyqff4PIFfSuthCZqLlPISTWHmnQxoPuAvkmgzsJEmG3CesdIv6Xweayl0JkCZJSB2yYIdJyEz97tpxNhgjbg==
 
 bare-fs@^2.1.1:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/bare-fs/-/bare-fs-2.1.3.tgz#92e9ed679af898b2e7a23523113f79113048d75b"
-  integrity sha512-Oa7F0QJV7We0mtKq7Tk246uiBrl7vun64cPEsJOEwv2vHjnVL9yO7aH3643aSrd4rXfVe7yhJ9LHZywQQAXKFQ==
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/bare-fs/-/bare-fs-2.1.5.tgz#55aae5f1c7701a83d7fbe62b0a57cfbee89a1726"
+  integrity sha512-5t0nlecX+N2uJqdxe9d18A98cp2u9BETelbjKpiVgQqzzmVNFYWEAjQHqS+2Khgto1vcwhik9cXucaj5ve2WWA==
   dependencies:
     bare-events "^2.0.0"
     bare-os "^2.0.0"
@@ -1658,9 +1658,9 @@ bare-fs@^2.1.1:
     streamx "^2.13.0"
 
 bare-os@^2.0.0, bare-os@^2.1.0:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/bare-os/-/bare-os-2.1.2.tgz#bdc8855062ea1c4bcb82fbb669d90be57462305d"
-  integrity sha512-slQjOn78Q8itnzomNAamiKo5MDpEpV3JnoNZ93lyynaFh6paWcU+5c0GVcZ7EYIJC2unN2JGdF1qupdscYl0Yg==
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/bare-os/-/bare-os-2.1.3.tgz#2683c3114862402a74b46cf819a669bf489737e7"
+  integrity sha512-YMKOQzoMouGCrYgJ0rassKvmbTz+TYDOKKmu4JkfNXS/qKn+If1ODCMEXnmknQXfnB1PS8bR+uHu6xBgwAQXew==
 
 bare-path@^2.0.0, bare-path@^2.1.0:
   version "2.1.0"
@@ -2190,9 +2190,9 @@ diff@^4.0.1:
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
 diff@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-5.1.0.tgz#bc52d298c5ea8df9194800224445ed43ffc87e40"
-  integrity sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-5.2.0.tgz#26ded047cd1179b78b9537d5ef725503ce1ae531"
+  integrity sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==
 
 dir-glob@^3.0.1:
   version "3.0.1"
@@ -2249,9 +2249,9 @@ edge-runtime@2.5.9:
     time-span "4.0.0"
 
 electron-to-chromium@^1.4.648:
-  version "1.4.665"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.665.tgz#681700bd590b0e5a3be66e3e2874ce62abcf5da5"
-  integrity sha512-UpyCWObBoD+nSZgOC2ToaIdZB0r9GhqT2WahPKiSki6ckkSuKhQNso8V2PrFcHBMleI/eqbKgVQgVC4Wni4ilw==
+  version "1.4.668"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.668.tgz#5cfed14f3240cdc70a359a49790cb295b1f097f1"
+  integrity sha512-ZOBocMYCehr9W31+GpMclR+KBaDZOoAEabLdhpZ8oU1JFDwIaFY0UDbpXVEUFc0BIP2O2Qn3rkfCjQmMR4T/bQ==
 
 emittery@^1.0.1:
   version "1.0.1"

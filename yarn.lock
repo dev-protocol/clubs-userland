@@ -1497,9 +1497,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.4.2.tgz#c61ee56abf342417f3495f7849a06d4908e343db"
-  integrity sha512-r1djG61ABvZ9n73vaTW6nTKnMvWY1LQhPpBtzoA2OI2RAk/ptzsqK9ozkAG1qXO2bW3NLJi6pfMxxpngNAALyQ==
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.4.3.tgz#4a278bab2b5c4f65d73a672a0d71524dd76558b6"
+  integrity sha512-9Ih+2mJv+i3XgGfU8m9evkNU7NEQWvOhqGsskrCwKmltuTtLol2hPw+eIfE49Yfktzfj5qLC6ZGkPxCJu5gkhA==
   dependencies:
     "@astrojs/compiler" "^2.5.3"
     "@astrojs/internal-helpers" "0.2.1"
@@ -1806,9 +1806,9 @@ camelcase@^7.0.1:
   integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
 caniuse-lite@^1.0.30001587:
-  version "1.0.30001588"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001588.tgz#07f16b65a7f95dba82377096923947fb25bce6e3"
-  integrity sha512-+hVY9jE44uKLkH0SrUTqxjxqNTOWHsbnQDIKjwkZ3lNTzUUVdBLBGXtj/q5Mp5u98r3droaZAewQuEDzjQdZlQ==
+  version "1.0.30001589"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001589.tgz#7ad6dba4c9bf6561aec8291976402339dc157dfb"
+  integrity sha512-vNQWS6kI+q6sBlHbh71IIeC+sRwK2N3EDySc/updIGhIee2x5z00J4c1242/5/d6EpEMdOnk/m+6tuk4/tcsqg==
 
 cbor@^9.0.1:
   version "9.0.1"
@@ -2244,9 +2244,9 @@ edge-runtime@2.5.9:
     time-span "4.0.0"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.678"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.678.tgz#80d43226a793cf4a689722f9cbdf5d69da32beb0"
-  integrity sha512-NbdGC2p0O5Q5iVhLEsNBSfytaw7wbEFJlIvaF71wi6QDtLAph5/rVogjyOpf/QggJIt8hNK3KdwNJnc2bzckbw==
+  version "1.4.680"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.680.tgz#18a30d3f557993eda2d5b1e21a06c4d51875392f"
+  integrity sha512-4nToZ5jlPO14W82NkF32wyjhYqQByVaDmLy4J2/tYcAbJfgO2TKJC780Az1V13gzq4l73CJ0yuyalpXvxXXD9A==
 
 emittery@^1.0.1:
   version "1.0.1"
@@ -4457,9 +4457,9 @@ prebuild-install@^7.1.1:
     tunnel-agent "^0.6.0"
 
 preferred-pm@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/preferred-pm/-/preferred-pm-3.1.2.tgz#aedb70550734a574dffcbf2ce82642bd1753bdd6"
-  integrity sha512-nk7dKrcW8hfCZ4H6klWcdRknBOXWzNQByJ0oJyX97BOupsYD+FzLS4hflgEu/uPUEHZCuRfMxzCBsuWd7OzT8Q==
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/preferred-pm/-/preferred-pm-3.1.3.tgz#4125ea5154603136c3b6444e5f5c94ecf90e4916"
+  integrity sha512-MkXsENfftWSRpzCzImcp4FRsCc3y1opwB73CfCNWyzMqArju2CrlMHlqB7VexKiPEOjGMbttv1r9fSCn5S610w==
   dependencies:
     find-up "^5.0.0"
     find-yarn-workspace-root2 "1.2.16"

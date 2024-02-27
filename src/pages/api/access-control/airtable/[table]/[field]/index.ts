@@ -7,7 +7,8 @@ import {
 	type ErrorOr,
 	whenNotError,
 } from '@devprotocol/util-ts'
-import Airtable, { Record, type FieldSet } from 'airtable'
+import Airtable from 'airtable'
+import type { Record, FieldSet } from 'airtable'
 import { tryCatch } from 'ramda'
 import { getFieldNameById } from 'utils/airtable'
 
@@ -74,10 +75,10 @@ export const GET: APIRoute = async ({ url, params }) => {
 							return typeof _v === 'string'
 								? `{${_f}}="${_v}"`
 								: typeof _v === 'boolean'
-								? _v
-									? `TRUE("${_f}")`
-									: `NOT(TRUE("${_f}"))`
-								: `{${_f}}=${_v}`
+									? _v
+										? `TRUE("${_f}")`
+										: `NOT(TRUE("${_f}"))`
+									: `{${_f}}=${_v}`
 						})
 						.join(', ')})`
 				: `{${field}}="${account}"`,
@@ -101,8 +102,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 						return err
 							? resolve(new Error(err))
 							: hit
-							? resolve(hit)
-							: resolve(new Error('Not found'))
+								? resolve(hit)
+								: resolve(new Error('Not found'))
 					}),
 		)
 		return res instanceof Error ? resolve(res) : undefined

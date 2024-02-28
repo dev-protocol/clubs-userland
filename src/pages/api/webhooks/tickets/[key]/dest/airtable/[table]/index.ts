@@ -94,19 +94,19 @@ export const POST: APIRoute = async ({ params, request }) => {
 								key === 'account'
 									? account
 									: key === 'status'
-									? status
-									: key === 'id'
-									? id
-									: key === 'ticket_name'
-									? ticket.name
-									: key === 'benefit_id'
-									? benefit.id
-									: key === 'benefit_name'
-									? benefit.name
-									: key === 'benefit_description'
-									? benefit.description
-									: undefined,
-					  }
+										? status
+										: key === 'id'
+											? id
+											: key === 'ticket_name'
+												? ticket.name
+												: key === 'benefit_id'
+													? benefit.id
+													: key === 'benefit_name'
+														? benefit.name
+														: key === 'benefit_description'
+															? benefit.description
+															: undefined,
+						}
 					: undefined,
 			),
 	)

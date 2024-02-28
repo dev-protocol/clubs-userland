@@ -1,3 +1,4 @@
+/* eslint-disable functional/functional-parameters */
 /* eslint-disable functional/no-return-void */
 import type { APIRoute } from 'astro'
 import { cors, headers, json } from 'utils/json'
@@ -6,15 +7,16 @@ import {
 	whenNotErrorAll,
 	type ErrorOr,
 	whenNotError,
-	type UndefinedOr,
 	whenDefined,
+	type UndefinedOr,
 } from '@devprotocol/util-ts'
 import Airtable from 'airtable'
 import { tryCatch } from 'ramda'
-import { AbiCoder, JsonRpcProvider } from 'ethers'
+import { JsonRpcProvider } from 'ethers'
 import { clientsSTokens } from '@devprotocol/dev-kit'
-import { Minted } from './abi'
+import { TransferTopic } from './abi'
 import { createOrUpdate } from 'utils/airtable'
+import pQueue from 'p-queue'
 
 const { AIRTABLE_BASE, AIRTABLE_API_KEY, RPC_URL } = import.meta.env
 
@@ -32,6 +34,8 @@ enum RequiredFields {
 enum OptionalFields {
 	TokenLocked = 't_lock',
 }
+
+const qOnChainTasks = new pQueue({ concurrency: 10 })
 
 export const GET: APIRoute = async ({ url, params }) => {
 	const query =
@@ -91,7 +95,7 @@ export const GET: APIRoute = async ({ url, params }) => {
 							}),
 						) ?? new Error('Missing some required field types')
 					)
-			  })(_fields)
+				})(_fields)
 			: new Error('Unexpected fields value'),
 	)
 
@@ -114,8 +118,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 						return err
 							? resolve(new Error(err))
 							: typeof number === 'number' && !isNaN(number)
-							? resolve(number)
-							: resolve(new Error('Not found'))
+								? resolve(number)
+								: resolve(new Error('Not found'))
 					}),
 		)
 		return res instanceof Error ? resolve(res) : undefined
@@ -124,8 +128,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 	const nextBlock = optionalQuery.fromBlock
 		? BigInt(optionalQuery.fromBlock)
 		: latestBlock instanceof Error
-		? 'latest'
-		: latestBlock + 1
+			? 'latest'
+			: latestBlock + 1
 
 	console.log({ latestBlock, nextBlock })
 
@@ -141,17 +145,38 @@ export const GET: APIRoute = async ({ url, params }) => {
 		})) ?? new Error('Failed to create contract client')
 
 	const eventsExtended = await whenNotErrorAll(
-		[eventsOnChain],
-		async ([evs]) => {
+		[eventsOnChain, sTokensContract],
+		async ([evs, contract]) => {
 			const res = await Promise.all(
 				evs.map(async (event) => {
-					const encoded = AbiCoder.defaultAbiCoder().decode(Minted, event.data)
-					const block = await provider.getBlock(event.blockNumber)
-					const timestamp = whenDefined(block, (b) =>
-						new Date(b.timestamp * 1000).toISOString(),
+					const tx = await qOnChainTasks.add(() =>
+						event.getTransactionReceipt(),
 					)
-					const tokenId = encoded[0] as bigint
-					return { tokenId, event, timestamp }
+					const lastTransfer = tx?.logs
+						.filter((log) => log.topics[0] === TransferTopic)
+						?.reduce((pv, log) => (pv.index < log.index ? log : pv))
+					const encTransfer = whenDefined(lastTransfer, (trns) =>
+						contract.interface.decodeEventLog(
+							'Transfer',
+							trns.data,
+							trns.topics,
+						),
+					)
+					const owner = encTransfer?.[1] as UndefinedOr<string>
+					const encMinted = contract.interface.decodeEventLog(
+						'Minted',
+						event.data,
+						event.topics,
+					)
+					const block = await qOnChainTasks.add(() =>
+						provider.getBlock(event.blockNumber),
+					)
+					const timestamp = whenDefined(block, (b) =>
+						new Date(b && b.timestamp * 1000).toISOString(),
+					)
+					const tokenId = encMinted[0] as bigint
+					const property = encMinted[2] as string
+					return { tokenId, event, timestamp, property, owner }
 				}),
 			)
 			return res
@@ -164,19 +189,13 @@ export const GET: APIRoute = async ({ url, params }) => {
 			const metadatas = await Promise.all(
 				logs.map(async ({ tokenId, ...left }) => {
 					const id = Number(tokenId)
-					const [metadata, owner] = await Promise.all([
-						contract.tokenURI(id),
-						contract.ownerOf(id),
-					])
-					return { tokenId, metadata, owner, ...left }
+					const metadata = await qOnChainTasks.add(() => contract.tokenURI(id))
+					return { tokenId, metadata, ...left }
 				}),
 			)
 			const property = propertyAddress.toLowerCase()
 			const res = metadatas.filter((meta) => {
-				const dest = meta.metadata.attributes.find(
-					(x) => x.trait_type === 'Destination',
-				)?.value as UndefinedOr<string>
-				return dest?.toLowerCase() === property
+				return meta.property.toLowerCase() === property
 			})
 			return res
 		},
@@ -197,21 +216,21 @@ export const GET: APIRoute = async ({ url, params }) => {
 			_events,
 		]) =>
 			_events.map((ev) => ({
-				[account]: ev.owner,
+				[account]: ev.owner ?? '',
 				[blockNumber]: ev.event.blockNumber,
 				[mintedAt]: ev.timestamp ?? '',
 				[tokenId]: Number(ev.tokenId),
-				[tokenName]: ev.metadata.name,
+				[tokenName]: ev.metadata?.name ?? '',
 				[payload]:
-					ev.metadata.attributes.find((x) => x.trait_type === 'Payload')
+					ev.metadata?.attributes.find((x) => x.trait_type === 'Payload')
 						?.value ?? '',
 				...(tokenLocked
 					? {
 							[tokenLocked]:
-								ev.metadata.attributes.find(
+								ev.metadata?.attributes.find(
 									(x) => x.trait_type === 'Locked Amount',
 								)?.value ?? '',
-					  }
+						}
 					: {}),
 			})),
 	)
@@ -235,9 +254,9 @@ export const GET: APIRoute = async ({ url, params }) => {
 		? new Response(json({ error: result.message }), {
 				status: 400,
 				headers: { ...headers, ...cors },
-		  })
+			})
 		: new Response(json(result), {
 				status: 200,
 				headers: { ...headers, ...cors },
-		  })
+			})
 }

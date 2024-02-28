@@ -35,7 +35,9 @@ enum OptionalFields {
 	TokenLocked = 't_lock',
 }
 
-const qOnChainTasks = new pQueue({ concurrency: 10 })
+const qOnChainTasks = new pQueue({ concurrency: 5 })
+
+export const maxDuration = 300
 
 export const GET: APIRoute = async ({ url, params }) => {
 	const query =

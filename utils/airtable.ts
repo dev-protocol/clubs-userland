@@ -40,8 +40,8 @@ const saveHandler = (
 		return err
 			? resolver(err)
 			: counter === count
-			? resolver(Array.from(tmp).flat())
-			: undefined
+				? resolver(Array.from(tmp).flat())
+				: undefined
 	}
 }
 
@@ -56,7 +56,7 @@ export const create = async (opts: {
 		return allData.length > 0
 			? allData.map((fields) =>
 					opts.base.table(opts.table).create(fields, handler),
-			  )
+				)
 			: resolve([])
 	})
 }
@@ -72,7 +72,7 @@ export const update = async (opts: {
 		return allData.length > 0
 			? allData.map((fields) =>
 					opts.base.table(opts.table).update(fields, handler),
-			  )
+				)
 			: resolve([])
 	})
 }
@@ -109,7 +109,7 @@ export const createOrUpdate = async <
 						: resolve({
 								data,
 								result: records && records.length ? records : undefined,
-						  })
+							})
 				}),
 		)
 	const existingOrNot = await Promise.all(opts.records.map(findExistingRecords))

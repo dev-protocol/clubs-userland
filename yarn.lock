@@ -63,10 +63,10 @@
     vscode-html-languageservice "^5.1.2"
     vscode-uri "^3.0.8"
 
-"@astrojs/markdown-remark@4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-4.3.1.tgz#7f3c395d804ce49f54d81e848ea69a676020af28"
-  integrity sha512-eJFi600tkRjTFiwzY9oD8AgCgB7gFqyWCKWuZ33dATVBgLiROD+zlMZ8STZzU7+ZALvmiUAun/K7umTmP5YfVQ==
+"@astrojs/markdown-remark@4.3.2":
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-4.3.2.tgz#0d5cb79c57ae8546ac355076c54275bade2588c5"
+  integrity sha512-4Oa4VaYiBd0MatB+rWIU/0A8pZH/sK3c2QkRYb+OO2lPl+qzevJtWaZY8hAQc4qurIOlRdn6B6ofDAGhWw+DSg==
   dependencies:
     "@astrojs/prism" "^3.0.0"
     github-slugger "^2.0.0"
@@ -907,10 +907,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.13.0.tgz#6abd79db7ff8d01a58865ba20a63cfd23d9e2a10"
   integrity sha512-UKXUQNbO3DOhzLRwHSpa0HnhhCgNODvfoPWv2FCXme8N/ANFfhIPMGuOT+QuKd16+B5yxZ0HdpNlqPvTMS1qfw==
 
-"@shikijs/core@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@shikijs/core/-/core-1.2.0.tgz#c19d1a4d4807d31aa02e9d822aa13da873e6f2e7"
-  integrity sha512-OlFvx+nyr5C8zpcMBnSGir0YPD6K11uYhouqhNmm1qLiis4GA7SsGtu07r9gKS9omks8RtQqHrJL4S+lqWK01A==
+"@shikijs/core@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@shikijs/core/-/core-1.2.1.tgz#df4bdfd20e0492681716eaca51c086a018b2bdb9"
+  integrity sha512-KaIS0H4EQ3KI2d++TjYqRNgwp8E3M/68e9veR4QtInzA7kKFgcjeiJqb80fuXW+blDy5fmd11PN9g9soz/3ANQ==
 
 "@sindresorhus/merge-streams@^2.1.0":
   version "2.3.0"
@@ -1574,13 +1574,13 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.5.9"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.5.9.tgz#7679ece9d6e826f5d601b0831dfceecb78ceaae7"
-  integrity sha512-GheU72Goz7dYQNKaqTxB2H49cNvHfahGSbNkTvMXk+gyHf/g633qadqlO2ZQbTUacoUWmDzvS5fhMZt2/w4naQ==
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.5.10.tgz#41e4e80c9c916bba305fd4ce7fe2e16123c7c858"
+  integrity sha512-xW/ZTSqSHEQyzWzXHJa9gEQXC+MUD3mhzEBJyrMp/JWT+geLgUK2m0Rrc/AnBl8EfdS/6uFadiJV1fWao4lc7w==
   dependencies:
     "@astrojs/compiler" "^2.7.0"
     "@astrojs/internal-helpers" "0.3.0"
-    "@astrojs/markdown-remark" "4.3.1"
+    "@astrojs/markdown-remark" "4.3.2"
     "@astrojs/telemetry" "3.0.4"
     "@babel/core" "^7.24.3"
     "@babel/generator" "^7.23.3"
@@ -2314,9 +2314,9 @@ edge-runtime@2.5.9:
     time-span "4.0.0"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.715"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.715.tgz#bb16bcf2a3537962fccfa746b5c98c5f7404ff46"
-  integrity sha512-XzWNH4ZSa9BwVUQSDorPWAUQ5WGuYz7zJUNpNif40zFCiCl20t8zgylmreNmn26h5kiyw2lg7RfTmeMBsDklqg==
+  version "1.4.717"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.717.tgz#99db370cae8cd090d5b01f8748e9ad369924d0f8"
+  integrity sha512-6Fmg8QkkumNOwuZ/5mIbMU9WI3H2fmn5ajcVya64I5Yr5CcNmO7vcLt0Y7c96DCiMO5/9G+4sI2r6eEvdg1F7A==
 
 emittery@^1.0.1:
   version "1.0.3"
@@ -2364,9 +2364,9 @@ es-module-lexer@1.4.1:
   integrity sha512-cXLGjP0c4T3flZJKQSuziYoq7MlT+rnvfZjfp7h+I7K9BNX54kP9nyWvdbwjQ4u1iWbOL4u96fgeZLToQlZC7w==
 
 es-module-lexer@^1.4.1:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.4.2.tgz#ba1a62255ff9b41023aaf9bd08c016a5f1a3fef3"
-  integrity sha512-7nOqkomXZEaxUDJw21XZNtRk739QvrPSoZoRtbsEfcii00vdzZUh6zh1CQwHhrib8MdEtJfv5rJiGeb4KuV/vw==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-1.5.0.tgz#4878fee3789ad99e065f975fdd3c645529ff0236"
+  integrity sha512-pqrTKmwEIgafsYZAGw9kszYzmagcE/n4dbgwGWLEXg7J4QFJVQRBld8j3Q3GNez79jzxZshq0bcT962QHOghjw==
 
 esbuild-android-64@0.14.47:
   version "0.14.47"
@@ -4981,11 +4981,11 @@ shebang-regex@^3.0.0:
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shiki@^1.1.2:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-1.2.0.tgz#7f1b6917cbb10daa1ac3ae62fa29b40c494e2812"
-  integrity sha512-xLhiTMOIUXCv5DqJ4I70GgQCtdlzsTqFLZWcMHHG3TAieBUbvEGthdrlPDlX4mL/Wszx9C6rEcxU6kMlg4YlxA==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-1.2.1.tgz#d48bc631f4172afff62a36b2f395f29403b50e71"
+  integrity sha512-u+XW6o0vCkUNlneZb914dLO+AayEIwK5tI62WeS//R5HIXBFiYaj/Hc5xcq27Yh83Grr4JbNtUBV8W6zyK4hWg==
   dependencies:
-    "@shikijs/core" "1.2.0"
+    "@shikijs/core" "1.2.1"
 
 signal-exit@4.0.2:
   version "4.0.2"
@@ -5659,9 +5659,9 @@ vfile@^6.0.0, vfile@^6.0.1:
     vfile-message "^4.0.0"
 
 vite@^5.1.4:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.3.tgz#198efc2fd4d80eac813b146a68a4b0dbde884fc2"
-  integrity sha512-+i1oagbvkVIhEy9TnEV+fgXsng13nZM90JQbrcPrf6DvW2mXARlz+DK7DLiDP+qeKoD1FCVx/1SpFL1CLq9Mhw==
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.2.6.tgz#fc2ce309e0b4871e938cb0aca3b96c422c01f222"
+  integrity sha512-FPtnxFlSIKYjZ2eosBQamz4CbyrTizbZ3hnGJlh/wMtCrlp1Hah6AzBLjGI5I2urTfNnpovpHdrL6YRuBOPnCA==
   dependencies:
     esbuild "^0.20.1"
     postcss "^8.4.36"
@@ -5952,9 +5952,9 @@ yocto-queue@^1.0.0:
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
 zod-to-json-schema@^3.22.4:
-  version "3.22.4"
-  resolved "https://registry.yarnpkg.com/zod-to-json-schema/-/zod-to-json-schema-3.22.4.tgz#f8cc691f6043e9084375e85fb1f76ebafe253d70"
-  integrity sha512-2Ed5dJ+n/O3cU383xSY28cuVi0BCQhF8nYqWU5paEpl7fVdqdAmiLdqLyfblbNdfOFwFfi/mqU4O1pwc60iBhQ==
+  version "3.22.5"
+  resolved "https://registry.yarnpkg.com/zod-to-json-schema/-/zod-to-json-schema-3.22.5.tgz#3646e81cfc318dbad2a22519e5ce661615418673"
+  integrity sha512-+akaPo6a0zpVCCseDed504KBJUQpEW5QZw7RMneNmKw+fGaML1Z9tUNLnHHAC8x6dzVRO1eB2oEMyZRnuBZg7Q==
 
 zod@^3.22.4:
   version "3.22.4"

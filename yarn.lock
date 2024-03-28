@@ -928,9 +928,9 @@
     path-browserify "^1.0.1"
 
 "@tsconfig/node10@^1.0.7":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.9.tgz#df4907fc07a886922637b15e02d4cebc4c0021b2"
-  integrity sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node10/-/node10-1.0.11.tgz#6ee46400685f130e278128c7b38b7e031ff5b2f2"
+  integrity sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==
 
 "@tsconfig/node12@^1.0.7":
   version "1.0.11"
@@ -1230,10 +1230,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@7.9.1":
-  version "7.9.1"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.9.1.tgz#b55180aa0ac5e88a9754152f7b09b74098c590a4"
-  integrity sha512-yqbP7d8oLAGkh5iy9/Vu1c0+s5jLFK56QHEZlkj1lY3t3OQ+7dsAi0oUP/gv8YxtUYwMDfeYSqZr/4cNhnSBsg==
+"@vercel/build-utils@7.10.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-7.10.0.tgz#c6ae950bf996fd13a59d3d7431855019c066d2f5"
+  integrity sha512-Lgt95xovRE/9ISevWiToDjt0l9NX8mlMUJKLQ6b7hjMB9ARkT3y+cgdx6TJJg4qmunIS8RKRxqTjzYXMPJLnmg==
 
 "@vercel/edge@^1.1.1":
   version "1.1.1"
@@ -1264,15 +1264,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.0.24"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.24.tgz#84a05c63be1421806cde7e237d5c050bacc6f661"
-  integrity sha512-2EbC6zsoaj2HH97BZYdkqHNeQ3gpcsETHXySSslkylU1uTAZU5i4c+Ze+RIinVkk7P+DVv4XzDK6xaSHvkXkGA==
+  version "3.0.25"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.0.25.tgz#91baff058b08589361e702d3c11a00a47815e7ec"
+  integrity sha512-P1Q79xSNyxQ1a6B+x6A3icpSkgtRzOp8VF90REARB1FwfCVYOFPiwU8s0tq92XsKQ0KXnw4eokkebEp3wERr8Q==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "14.18.33"
-    "@vercel/build-utils" "7.9.1"
+    "@vercel/build-utils" "7.10.0"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.26.4"
     "@vercel/static-config" "3.0.0"
@@ -1405,9 +1405,9 @@ abortcontroller-polyfill@^1.4.0:
   integrity sha512-JMJ5soJWP18htbbxJjG7bG6yuI6pRhgJ0scHHTfkUjf6wjP912xZWvM+A4sJK3gqd9E8fcPbDnOefbA9Th/FIQ==
 
 acorn-import-attributes@^1.9.2:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/acorn-import-attributes/-/acorn-import-attributes-1.9.2.tgz#bc3765bca6ec0c5c69d2293afd582216215279b0"
-  integrity sha512-O+nfJwNolEA771IYJaiLWK1UAwjNsQmZbTRqqwBYxCgVQTmpFEMvBw6LOIQV0Me339L5UMVYFyRohGnGlQDdIQ==
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/acorn-import-attributes/-/acorn-import-attributes-1.9.4.tgz#415c98c21c63d067e3f5c6ad121b6173d5ac4d3b"
+  integrity sha512-dNIX/5UEnZvVL94dV2scl4VIooK36D8AteP4xiz7cPKhDbhLhSuWkzG580g+Q7TXJklp+Z21SiaK7/HpLO84Qg==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -5262,9 +5262,9 @@ tar-stream@^3.1.5:
     streamx "^2.15.0"
 
 tar@^6.1.11:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-6.2.0.tgz#b14ce49a79cb1cd23bc9b016302dea5474493f73"
-  integrity sha512-/Wo7DcT0u5HUV486xg675HtjNd3BXZ6xDbzsCUZPt5iw8bTQ63bP0Raut3mvro9u+CUyq7YQd8Cx55fsZXxqLQ==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-6.2.1.tgz#717549c541bc3c2af15751bea94b1dd068d4b03a"
+  integrity sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==
   dependencies:
     chownr "^2.0.0"
     fs-minipass "^2.0.0"

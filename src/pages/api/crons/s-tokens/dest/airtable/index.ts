@@ -18,7 +18,15 @@ import { TransferTopic } from './abi'
 import { createOrUpdate } from 'utils/airtable'
 import pQueue from 'p-queue'
 
-const { AIRTABLE_BASE, AIRTABLE_API_KEY, RPC_URL } = import.meta.env
+const {
+	AIRTABLE_BASE,
+	AIRTABLE_API_KEY,
+	RPC_URL,
+	PROPERTY_ADDRESS,
+	WEBHOOK_STOKENS_FIELDS,
+	WEBHOOK_STOKENS_PRIMARY_KEY,
+	WEBHOOK_STOKENS_TABLE,
+} = import.meta.env
 
 // eslint-disable-next-line functional/no-expression-statements
 Airtable.configure({ apiKey: AIRTABLE_API_KEY })
@@ -39,73 +47,66 @@ const qOnChainTasks = new pQueue({ concurrency: 5 })
 
 export const maxDuration = 300
 
-export const GET: APIRoute = async ({ url, params }) => {
-	const query =
-		whenDefinedAll(
-			[url.searchParams.get('fields'), url.searchParams.get('primaryKey')],
-			([fields, primaryKey]) => ({
-				fields,
-				primaryKey,
-			}),
-		) ?? new Error('Missing required paramater: ?fields, ?primaryKey')
+export const GET: APIRoute = async ({ url }) => {
 	const optionalQuery = {
 		fromBlock: url.searchParams.get('fromBlock'),
 	}
-	const props =
+	const envs =
 		whenDefinedAll(
-			[params.propertyAddress, params.table],
-			([propertyAddress, table]) => ({
+			[
+				PROPERTY_ADDRESS,
+				WEBHOOK_STOKENS_TABLE,
+				WEBHOOK_STOKENS_FIELDS,
+				WEBHOOK_STOKENS_PRIMARY_KEY,
+			],
+			([propertyAddress, table, fields, primaryKey]) => ({
 				propertyAddress,
 				table,
+				fields,
+				primaryKey,
 			}),
-		) ?? new Error('Missing required path paramater: /[table]')
-	const fieldsQuery = whenNotError(query, ({ fields }) =>
+		) ??
+		new Error(
+			'Missing required env: PROPERTY_ADDRESS, WEBHOOK_STOKENS_TABLE, WEBHOOK_STOKENS_FIELDS, WEBHOOK_STOKENS_PRIMARY_KEY',
+		)
+	const fieldsEnv = whenNotError(envs, ({ fields }) =>
 		tryCatch(
-			(conds: string) => JSON.parse(conds) as [[string, string]],
+			(conds: string) => JSON.parse(conds) as Record<string, string>,
 			(err: Error) => err,
 		)(fields),
 	)
-	const givenFields = whenNotError(fieldsQuery, (_fields) =>
-		Array.isArray(_fields) && _fields.every(Array.isArray)
-			? ((_f) => {
-					const map = new Map(_f)
-					return (
-						whenDefinedAll(
-							[
-								map.get(RequiredFields.Account),
-								map.get(RequiredFields.BlockNumber),
-								map.get(RequiredFields.MintedAt),
-								map.get(RequiredFields.TokenId),
-								map.get(RequiredFields.TokenName),
-								map.get(RequiredFields.TokenPayload),
-							],
-							([
-								account,
-								blockNumber,
-								mintedAt,
-								tokenId,
-								tokenName,
-								payload,
-							]) => ({
-								account,
-								blockNumber,
-								mintedAt,
-								tokenId,
-								tokenName,
-								payload,
-								tokenLocked: map.get(OptionalFields.TokenLocked),
-							}),
-						) ?? new Error('Missing some required field types')
-					)
-				})(_fields)
-			: new Error('Unexpected fields value'),
+
+	const givenFields = whenNotError(fieldsEnv, (_fields) =>
+		((_f) => {
+			return (
+				whenDefinedAll(
+					[
+						_f[RequiredFields.Account],
+						_f[RequiredFields.BlockNumber],
+						_f[RequiredFields.MintedAt],
+						_f[RequiredFields.TokenId],
+						_f[RequiredFields.TokenName],
+						_f[RequiredFields.TokenPayload],
+					],
+					([account, blockNumber, mintedAt, tokenId, tokenName, payload]) => ({
+						account,
+						blockNumber,
+						mintedAt,
+						tokenId,
+						tokenName,
+						payload,
+						tokenLocked: _f[OptionalFields.TokenLocked],
+					}),
+				) ?? new Error('Missing some required field types')
+			)
+		})(_fields),
 	)
 
 	const airtable = Airtable.base(AIRTABLE_BASE)
 
 	const latestBlock = await new Promise<ErrorOr<number>>((resolve) => {
 		const res = whenNotErrorAll(
-			[props, givenFields],
+			[envs, givenFields],
 			([{ table }, { blockNumber }]) =>
 				airtable
 					.table(table)
@@ -186,7 +187,7 @@ export const GET: APIRoute = async ({ url, params }) => {
 	)
 
 	const filterdEvents = await whenNotErrorAll(
-		[eventsExtended, client, props],
+		[eventsExtended, client, envs],
 		async ([logs, contract, { propertyAddress }]) => {
 			const metadatas = await Promise.all(
 				logs.map(async ({ tokenId, ...left }) => {
@@ -240,8 +241,8 @@ export const GET: APIRoute = async ({ url, params }) => {
 	console.log({ newRecords })
 
 	const result = await whenNotErrorAll(
-		[props, query, newRecords],
-		([{ table }, { primaryKey }, records]) =>
+		[envs, newRecords],
+		([{ table, primaryKey }, records]) =>
 			createOrUpdate({
 				base: airtable,
 				table,

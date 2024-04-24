@@ -23,9 +23,9 @@ const {
 	AIRTABLE_API_KEY,
 	RPC_URL,
 	PROPERTY_ADDRESS,
-	WEBHOOK_STOKENS_FIELDS,
-	WEBHOOK_STOKENS_PRIMARY_KEY,
-	WEBHOOK_STOKENS_TABLE,
+	CRON_STOKENS_FIELDS,
+	CRON_STOKENS_PRIMARY_KEY,
+	CRON_STOKENS_TABLE,
 } = import.meta.env
 
 // eslint-disable-next-line functional/no-expression-statements
@@ -55,9 +55,9 @@ export const GET: APIRoute = async ({ url }) => {
 		whenDefinedAll(
 			[
 				PROPERTY_ADDRESS,
-				WEBHOOK_STOKENS_TABLE,
-				WEBHOOK_STOKENS_FIELDS,
-				WEBHOOK_STOKENS_PRIMARY_KEY,
+				CRON_STOKENS_TABLE,
+				CRON_STOKENS_FIELDS,
+				CRON_STOKENS_PRIMARY_KEY,
 			],
 			([propertyAddress, table, fields, primaryKey]) => ({
 				propertyAddress,
@@ -67,7 +67,7 @@ export const GET: APIRoute = async ({ url }) => {
 			}),
 		) ??
 		new Error(
-			'Missing required env: PROPERTY_ADDRESS, WEBHOOK_STOKENS_TABLE, WEBHOOK_STOKENS_FIELDS, WEBHOOK_STOKENS_PRIMARY_KEY',
+			'Missing required env: PROPERTY_ADDRESS, CRON_STOKENS_TABLE, CRON_STOKENS_FIELDS, CRON_STOKENS_PRIMARY_KEY',
 		)
 	const fieldsEnv = whenNotError(envs, ({ fields }) =>
 		tryCatch(

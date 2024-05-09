@@ -1737,9 +1737,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.8.0.tgz#13451ac7b9dc2346436c2c679eda64473e9f8fa1"
-  integrity sha512-JRGxesSdLPyXfo2E5JhT6jK8LQRlBRDtazNmZk0qEemVWqxijuETym1XPEZUOUA5pUSZUJjv0mYqlJ1RBtLTGA==
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.8.1.tgz#be95b45fa540c1368731c365f2d4fcefb3d0010b"
+  integrity sha512-m11p7QkROpKbercBSqv99Q+ueN0azsw/SwG67qjxmUXS9jHghc9IYSsZLbwEuR6wH5qHkaeKx8y2rV64mYKOFw==
   dependencies:
     "@astrojs/compiler" "^2.8.0"
     "@astrojs/internal-helpers" "0.4.0"
@@ -4882,10 +4882,15 @@ semver@^7.3.2, semver@^7.3.8, semver@^7.5.4:
   dependencies:
     lru-cache "^6.0.0"
 
-semver@^7.3.5, semver@^7.6.0, semver@^7.6.1:
+semver@^7.3.5:
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.1.tgz#60bfe090bf907a25aa8119a72b9f90ef7ca281b2"
   integrity sha512-f/vbBsu+fOiYt+lmwZV0rVwJScl46HppnOA1ZvIuBWKOTlllpyJ3bfVax76/OrhCH38dyxoDIA8K7uB963IYgA==
+
+semver@^7.6.0, semver@^7.6.1:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
+  integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
 
 serialize-error@^7.0.1:
   version "7.0.1"

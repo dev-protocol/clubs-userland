@@ -26,6 +26,7 @@ const {
 	CRON_STOKENS_FIELDS,
 	CRON_STOKENS_PRIMARY_KEY,
 	CRON_STOKENS_TABLE,
+	RPC_MAX_CONCURRENCY,
 } = import.meta.env
 
 // eslint-disable-next-line functional/no-expression-statements
@@ -43,7 +44,9 @@ enum OptionalFields {
 	TokenLocked = 't_lock',
 }
 
-const qOnChainTasks = new pQueue({ concurrency: 5 })
+const qOnChainTasks = new pQueue({
+	concurrency: Number(RPC_MAX_CONCURRENCY) ?? 5,
+})
 
 export const maxDuration = 300
 

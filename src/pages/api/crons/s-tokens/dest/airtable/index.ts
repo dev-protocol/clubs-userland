@@ -74,6 +74,7 @@ export const maxDuration = 300
 export const GET: APIRoute = async ({ url }) => {
 	const optionalQuery = {
 		fromBlock: url.searchParams.get('fromBlock'),
+		toBlock: url.searchParams.get('toBlock'),
 	}
 	const envs =
 		whenDefinedAll(
@@ -160,8 +161,9 @@ export const GET: APIRoute = async ({ url }) => {
 		: latestBlock instanceof Error
 			? currentBlock - maxBlock
 			: latestBlock + 1
-	const toBlock =
-		latestBlock instanceof Error
+	const toBlock = optionalQuery.toBlock
+		? BigInt(optionalQuery.toBlock)
+		: latestBlock instanceof Error
 			? 'latest'
 			: ((v) => (currentBlock < v ? currentBlock : v))(latestBlock + maxBlock)
 

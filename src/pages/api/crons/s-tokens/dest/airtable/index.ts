@@ -11,12 +11,13 @@ import {
 	type UndefinedOr,
 } from '@devprotocol/util-ts'
 import Airtable from 'airtable'
-import { tryCatch } from 'ramda'
-import { JsonRpcProvider } from 'ethers'
+import { always, tryCatch } from 'ramda'
+import { Contract, JsonRpcProvider } from 'ethers'
 import { clientsSTokens } from '@devprotocol/dev-kit'
-import { TransferTopic } from './abi'
+import { ABI_NFT, TransferTopic } from './abi'
 import { createOrUpdate } from 'utils/airtable'
 import pQueue from 'p-queue'
+import { fetchMetadatas, transferEvents } from 'utils/logs'
 
 const {
 	AIRTABLE_BASE,
@@ -27,6 +28,7 @@ const {
 	CRON_STOKENS_PRIMARY_KEY,
 	CRON_STOKENS_TABLE,
 	RPC_MAX_CONCURRENCY,
+	CRON_ADDITIONAL_NFTS,
 } = import.meta.env
 
 // eslint-disable-next-line functional/no-expression-statements
@@ -36,17 +38,36 @@ enum RequiredFields {
 	BlockNumber = 'block',
 	Account = 'account',
 	MintedAt = 'time',
-	TokenId = 't_id',
 	TokenName = 't_name',
 	TokenPayload = 't_payload',
 }
 enum OptionalFields {
+	TokenId = 't_id',
 	TokenLocked = 't_lock',
+	UniqueId = 'u_id',
+	Contract = 'contract',
 }
 
+type FiledsEnv = Readonly<{
+	[RequiredFields.BlockNumber]: string
+	[RequiredFields.Account]: string
+	[RequiredFields.MintedAt]: string
+	[RequiredFields.TokenName]: string
+	[RequiredFields.TokenPayload]: string
+	[OptionalFields.TokenId]?: string
+	[OptionalFields.TokenLocked]?: string
+	[OptionalFields.UniqueId]?: string
+	[OptionalFields.Contract]?: string
+}>
+
 const qOnChainTasks = new pQueue({
-	concurrency: Number(RPC_MAX_CONCURRENCY) ?? 5,
+	concurrency: RPC_MAX_CONCURRENCY ? Number(RPC_MAX_CONCURRENCY) : 5,
 })
+
+const maxBlock = 5000000
+
+const uid = (address: string, tokenId: string | number | bigint) =>
+	`${address}#${tokenId.toString()}`
 
 export const maxDuration = 300
 
@@ -74,7 +95,7 @@ export const GET: APIRoute = async ({ url }) => {
 		)
 	const fieldsEnv = whenNotError(envs, ({ fields }) =>
 		tryCatch(
-			(conds: string) => JSON.parse(conds) as Record<string, string>,
+			(conds: string) => JSON.parse(conds) as FiledsEnv,
 			(err: Error) => err,
 		)(fields),
 	)
@@ -87,18 +108,19 @@ export const GET: APIRoute = async ({ url }) => {
 						_f[RequiredFields.Account],
 						_f[RequiredFields.BlockNumber],
 						_f[RequiredFields.MintedAt],
-						_f[RequiredFields.TokenId],
 						_f[RequiredFields.TokenName],
 						_f[RequiredFields.TokenPayload],
 					],
-					([account, blockNumber, mintedAt, tokenId, tokenName, payload]) => ({
+					([account, blockNumber, mintedAt, tokenName, payload]) => ({
 						account,
 						blockNumber,
 						mintedAt,
-						tokenId,
 						tokenName,
 						payload,
 						tokenLocked: _f[OptionalFields.TokenLocked],
+						tokenId: _f[OptionalFields.TokenId],
+						uniqueId: _f[OptionalFields.UniqueId],
+						contract: _f[OptionalFields.Contract],
 					}),
 				) ?? new Error('Missing some required field types')
 			)
@@ -131,22 +153,27 @@ export const GET: APIRoute = async ({ url }) => {
 		return res instanceof Error ? resolve(res) : undefined
 	})
 
-	const nextBlock = optionalQuery.fromBlock
+	const provider = new JsonRpcProvider(RPC_URL)
+	const currentBlock = await provider.getBlockNumber()
+	const fromBlock = optionalQuery.fromBlock
 		? BigInt(optionalQuery.fromBlock)
 		: latestBlock instanceof Error
-			? 'latest'
+			? currentBlock - maxBlock
 			: latestBlock + 1
+	const toBlock =
+		latestBlock instanceof Error
+			? 'latest'
+			: ((v) => (currentBlock < v ? currentBlock : v))(latestBlock + maxBlock)
 
-	console.log({ latestBlock, nextBlock })
+	console.log({ latestBlock, fromBlock, toBlock })
 
-	const provider = new JsonRpcProvider(RPC_URL)
 	const [l1, l2] = await clientsSTokens(provider)
 	const client = l1 ?? l2 ?? new Error('Failed to load sTokens')
 	const sTokensContract = whenNotError(client, (c) => c.contract())
 	const eventsOnChain =
 		(await whenNotError(sTokensContract, async (contract) => {
 			return contract
-				.queryFilter(contract.filters.Minted, nextBlock)
+				.queryFilter(contract.filters.Minted, fromBlock, toBlock)
 				.catch((err) => new Error(err))
 		})) ?? new Error('Failed to create contract client')
 
@@ -168,47 +195,75 @@ export const GET: APIRoute = async ({ url }) => {
 							trns.topics,
 						),
 					)
-					const owner = encTransfer?.[1] as UndefinedOr<string>
+					const from = encTransfer?.[0] as UndefinedOr<string>
+					const to = encTransfer?.[1] as UndefinedOr<string>
 					const encMinted = contract.interface.decodeEventLog(
 						'Minted',
 						event.data,
 						event.topics,
 					)
-					const block = await qOnChainTasks.add(() =>
-						provider.getBlock(event.blockNumber),
-					)
-					const timestamp = whenDefined(block, (b) =>
-						new Date(b && b.timestamp * 1000).toISOString(),
-					)
+					const block = event.blockNumber
 					const tokenId = encMinted[0] as bigint
 					const property = encMinted[2] as string
-					return { tokenId, event, timestamp, property, owner }
+					const contractAddress = await contract.getAddress()
+					return { tokenId, event, property, from, to, block, contractAddress }
 				}),
 			)
 			return res
 		},
 	)
 
+	const eventsWithMeta = await whenNotErrorAll(
+		[eventsExtended, sTokensContract],
+		([events, contract]) =>
+			fetchMetadatas({
+				provider,
+				contract,
+				logs: events,
+				queue: qOnChainTasks,
+			}),
+	)
+
 	const filterdEvents = await whenNotErrorAll(
-		[eventsExtended, client, envs],
-		async ([logs, contract, { propertyAddress }]) => {
-			const metadatas = await Promise.all(
-				logs.map(async ({ tokenId, ...left }) => {
-					const id = Number(tokenId)
-					const metadata = await qOnChainTasks.add(() => contract.tokenURI(id))
-					return { tokenId, metadata, ...left }
-				}),
-			)
+		[eventsWithMeta, envs],
+		async ([logs, { propertyAddress }]) => {
 			const property = propertyAddress.toLowerCase()
-			const res = metadatas.filter((meta) => {
-				return meta.property.toLowerCase() === property
+			const res = logs.filter((log) => {
+				return log.property.toLowerCase() === property
 			})
 			return res
 		},
 	)
 
+	const nftAddresses =
+		whenDefined(CRON_ADDITIONAL_NFTS, (value) =>
+			tryCatch((v: string) => JSON.parse(v) as string[], always([]))(value),
+		) ?? []
+	const nfts = nftAddresses.map(
+		(address) => new Contract(address, ABI_NFT, provider),
+	)
+	const nftEvents = await Promise.all(
+		nfts.map(async (contract) =>
+			fetchMetadatas({
+				provider,
+				contract,
+				logs: await transferEvents({
+					contract,
+					fromBlock,
+					toBlock,
+					queue: qOnChainTasks,
+				}),
+				queue: qOnChainTasks,
+			}),
+		),
+	)
+	const allNftEventsFlat = whenNotErrorAll(
+		[filterdEvents, nftEvents],
+		([e1, e2]) => [...e1, ...e2.flat()],
+	)
+
 	const newRecords = whenNotErrorAll(
-		[givenFields, filterdEvents],
+		[givenFields, allNftEventsFlat],
 		([
 			{
 				account,
@@ -218,6 +273,8 @@ export const GET: APIRoute = async ({ url }) => {
 				tokenName,
 				payload,
 				tokenLocked,
+				uniqueId,
+				contract,
 			},
 			_events,
 		]) =>
@@ -225,17 +282,31 @@ export const GET: APIRoute = async ({ url }) => {
 				[account]: ev.owner ?? '',
 				[blockNumber]: ev.event.blockNumber,
 				[mintedAt]: ev.timestamp ?? '',
-				[tokenId]: Number(ev.tokenId),
 				[tokenName]: ev.metadata?.name ?? '',
 				[payload]:
 					ev.metadata?.attributes.find((x) => x.trait_type === 'Payload')
 						?.value ?? '',
+				...(tokenId
+					? {
+							[tokenId]: Number(ev.tokenId),
+						}
+					: {}),
 				...(tokenLocked
 					? {
 							[tokenLocked]:
 								ev.metadata?.attributes.find(
 									(x) => x.trait_type === 'Locked Amount',
 								)?.value ?? '',
+						}
+					: {}),
+				...(uniqueId
+					? {
+							[uniqueId]: uid(ev.contractAddress, ev.tokenId),
+						}
+					: {}),
+				...(contract
+					? {
+							[contract]: ev.contractAddress,
 						}
 					: {}),
 			})),

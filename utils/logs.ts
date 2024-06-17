@@ -9,6 +9,7 @@ import {
 	type Provider,
 } from 'ethers'
 import type PQueue from 'p-queue'
+import { tryCatch } from 'ramda'
 
 export type TransferEvent = Readonly<{
 	from?: string
@@ -96,7 +97,13 @@ export const fetchMetadatas = async <L extends TransferEvent = TransferEvent>({
 						.trim(),
 				),
 			)
-			const metadata = JSON.parse(decoded) as Metadata
+			const metadata = tryCatch(
+				(m: string) => JSON.parse(m) as Metadata,
+				(err) => {
+					console.error(err, log)
+					return {} as Metadata
+				},
+			)(decoded)
 			return { ...log, owner: log.to, timestamp, metadata }
 		}),
 	)

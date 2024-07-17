@@ -1284,10 +1284,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@8.3.2":
-  version "8.3.2"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.3.2.tgz#6e7eb9ef047abd5462a3dbb1fcfa8f9e21c8c508"
-  integrity sha512-/pacEU/vFFOayrZAWk0uEObo28mwqL8rIi7dTowYl0lRFcw3frej32uYMJSPdjskSRo50IR0m8WBqBiFu6zJGA==
+"@vercel/build-utils@8.3.3":
+  version "8.3.3"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.3.3.tgz#a9284837dd842a08abd582c4d7048ba30b15eff9"
+  integrity sha512-ubogxybcIQiWiyb08VmdrHbKBhBcysKNbh9jR4URqC8JBBKy8DiSn3LW2TYboayLGhKsv9zP84ItUcNhD0IsxA==
 
 "@vercel/edge@^1.1.1":
   version "1.1.1"
@@ -1354,15 +1354,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.4.tgz#0830f4d136493d61c83bc719dc34cb0029c473be"
-  integrity sha512-6zmLRzKt8PG3wWMx1vA+A+Eg02AtRT/m9aP4fnFxH7k8fzaKqtT8E9QfQiDSGi4YG2A1/Dmtu3saPhV37ovtyw==
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.5.tgz#1ed77353aae8969ff5e6dcbbafb50b697bb2d4db"
+  integrity sha512-vSSvD2MeneAGfVqcLpFOzjv0MEwiV5pI8mkgu2jgzwOeXhTL41M/Ax7W8qTF6TbE8Xi57FWlzTtU4y3i3Ls+mA==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "8.3.2"
+    "@vercel/build-utils" "8.3.3"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.27.3"
     "@vercel/static-config" "3.0.0"
@@ -4765,7 +4765,12 @@ semver@^7.3.2:
   dependencies:
     lru-cache "^6.0.0"
 
-semver@^7.3.5, semver@^7.3.8, semver@^7.6.0, semver@^7.6.2:
+semver@^7.3.5:
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.3.tgz#980f7b5550bc175fb4dc09403085627f9eb33143"
+  integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
+
+semver@^7.3.8, semver@^7.6.0, semver@^7.6.2:
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
   integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==

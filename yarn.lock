@@ -1644,9 +1644,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.14.0.tgz#04880f8ce9a2a58d8f4d16647c3469bf16c07847"
-  integrity sha512-UWUOy0aX+x3oDlItcrc4lgLqUXm63w6iChWnWiFijnfpUSJvogtKmJzb79ZmNj56i0ZVGhNVRsbtVhofJPdIXg==
+  version "4.14.2"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.14.2.tgz#384e2bff8cb75449c9eb13effc5b1fbcd9074a99"
+  integrity sha512-x9VeYx8Ih6kYKBMVwwsfRzsZVq30+SUhiawnYQ6+46qQnEx3zH05KcH24HsJMe6dVpHD8HdH7CWR5C4o7Q/jeg==
   dependencies:
     "@astrojs/compiler" "^2.10.2"
     "@astrojs/internal-helpers" "0.4.1"
@@ -1711,6 +1711,7 @@ astro@^4.0.0:
     vitefu "^0.2.5"
     which-pm "^3.0.0"
     xxhash-wasm "^1.0.2"
+    yargs-parser "^21.1.1"
     zod "^3.23.8"
     zod-to-json-schema "^3.23.2"
     zod-to-ts "^1.2.0"
@@ -4391,7 +4392,7 @@ plur@^5.1.0:
   dependencies:
     irregular-plurals "^3.3.0"
 
-postcss@^8.4.40:
+postcss@^8.4.41:
   version "8.4.41"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.41.tgz#d6104d3ba272d882fe18fc07d15dc2da62fa2681"
   integrity sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==
@@ -5341,12 +5342,12 @@ vfile@^6.0.0, vfile@^6.0.2:
     vfile-message "^4.0.0"
 
 vite@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.0.tgz#11dca8a961369ba8b5cae42d068c7ad684d5370f"
-  integrity sha512-5xokfMX0PIiwCMCMb9ZJcMyh5wbBun0zUzKib+L65vAZ8GY9ePZMXxFrHbr/Kyll2+LSCY7xtERPpxkBDKngwg==
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.1.tgz#2aa72370de824d23f53658affd807e4c9905b058"
+  integrity sha512-1oE6yuNXssjrZdblI9AfBbHCC41nnyoVoEZxQnID6yvQZAFBzxxkqoFLtHUMkYunL8hwOLEjgTuxpkRxvba3kA==
   dependencies:
     esbuild "^0.21.3"
-    postcss "^8.4.40"
+    postcss "^8.4.41"
     rollup "^4.13.0"
   optionalDependencies:
     fsevents "~2.3.3"

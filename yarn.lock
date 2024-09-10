@@ -1273,10 +1273,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@8.4.0":
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.4.0.tgz#bbf223e7644ce891d8dc8c37bb3547c9ab932fb3"
-  integrity sha512-SB2NFwWPTFAd/3lFR0TaJ94qwHJJmpKc5ngxL05YDe+5iOdduAkl8q8kEPdHc4/wKKqrqjSk1fiCp/MQgEuL7A==
+"@vercel/build-utils@8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.4.1.tgz#dee5845fe2a079d8c358938683182402fdd9b67a"
+  integrity sha512-QXTM96fT4ben2cSnlardkEY31tmsLAYIYYAGow61xkJ7D1ZNprlqQ8w9NwkZaHXAm0nyFpGxvs8o2YdLwhKwGA==
 
 "@vercel/edge@^1.1.2":
   version "1.1.2"
@@ -1325,15 +1325,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.12.tgz#8943289459d3d62ce17054e6233e41a17a415fcb"
-  integrity sha512-FlElxNA4L5Og0tCLwYGkp3qkoscOuy5Gk7MSomPgu/ECcSBnaUnZPTPT5I4kOWXKR0L7amKswOm9z1nx1zHb7g==
+  version "3.2.13"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.13.tgz#66098a8aed56dbc2f3258e36408084d78ea43e99"
+  integrity sha512-u4l4vvQg050U+kJQbATknPDGphSD0s+eqP7Gcoo7+x9/2e6/p7cMN91BMZ41BmRyQb1TiQxumB8ByMHK52oUqg==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "8.4.0"
+    "@vercel/build-utils" "8.4.1"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.27.3"
     "@vercel/static-config" "3.0.0"
@@ -1460,9 +1460,9 @@ acorn-jsx@^5.3.2:
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
 acorn-walk@^8.1.1:
-  version "8.3.3"
-  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.3.tgz#9caeac29eefaa0c41e3d4c65137de4d6f34df43e"
-  integrity sha512-MxXdReSRhGO7VlFe1bRG/oI7/mdLV9B9JJT0N8vZOhF7gFRR5l3M8W9G8JxmKV+JC5mGqJ0QvqfSOLsCPa4nUw==
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.4.tgz#794dd169c3977edf4ba4ea47583587c5866236b7"
+  integrity sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==
   dependencies:
     acorn "^8.11.0"
 
@@ -2172,14 +2172,7 @@ date-time@^3.1.0:
   dependencies:
     time-zone "^1.0.0"
 
-debug@4:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.6.tgz#2ab2c38fbaffebf8aa95fdfe6d88438c7a13c52b"
-  integrity sha512-O/09Bd4Z1fBrU4VzkhFqVgpPzaGbw6Sm9FEkBT1A/YBXQFGuuSxa1dN2nxgxS34JmKXqYx8CZAwEVoJFImUXIg==
-  dependencies:
-    ms "2.1.2"
-
-debug@^4.0.0, debug@^4.1.0, debug@^4.3.1, debug@^4.3.4, debug@^4.3.6:
+debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.3.1, debug@^4.3.4, debug@^4.3.6:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.7.tgz#87945b4151a011d76d95a198d7111c865c360a52"
   integrity sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==

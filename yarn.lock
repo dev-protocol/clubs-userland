@@ -1678,9 +1678,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.16.4"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.16.4.tgz#8e68fcff3fb65be5c3f15136fc9007e5cc845754"
-  integrity sha512-W/ETxHRkt9iEAj1RVSqV3bjSGaGXEFJHqeNpPhvJIj720hC3V/ZBDAd6FpMW291eiZPtxhGh+c/VDtkD6avPXQ==
+  version "4.16.5"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.16.5.tgz#074c1418c123b39d5235a88f513ce5c5b891eb7f"
+  integrity sha512-v8mKWcEPN7hkfyVsMFWV0F8UgL4GUJKT172KTB7dePO3yJb64HBwCckC0QnA60QQh3jK6+2xwyWEc5QvCeqjtg==
   dependencies:
     "@astrojs/compiler" "^2.10.3"
     "@astrojs/internal-helpers" "0.4.1"

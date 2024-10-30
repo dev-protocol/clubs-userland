@@ -1302,10 +1302,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@8.4.11":
-  version "8.4.11"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.4.11.tgz#ea83ccf838ba8eae099f402533a621a3f32863d8"
-  integrity sha512-bs6FwEhdWJ8+Wtey2jtAobgktk148Ipbc1VfTv1awUI5yEfhIGN87x20NfNsE+48vKlai/HkwHeubpMUwiS8Lw==
+"@vercel/build-utils@8.4.12":
+  version "8.4.12"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.4.12.tgz#8c5dcd4269bc2347b89424805d28e2661a3aa302"
+  integrity sha512-pIH0b965wJhd1otROVPndfZenPKFVoYSaRjtSKVOT/oNBT13ifq86UVjb5ZjoVfqUI2TtSTP+68kBqLPeoq30g==
 
 "@vercel/edge@^1.1.2":
   version "1.1.2"
@@ -1372,15 +1372,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.2.23"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.23.tgz#0b709c5f7b19486fea6fa4f9ecebd8743c11d532"
-  integrity sha512-qJmHZU3UeEoEDYHba9R7fb7EkpDF9fls2uyJTKJgUh+wH3NKWEWknrnP/Aipq/1U2e+UDtX3zVBfnbfPN0/d9A==
+  version "3.2.24"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.24.tgz#1c52a264e1355ee39f9bf87575f3b2442106b1ef"
+  integrity sha512-KEm50YBmcfRNOw5NfdcqMI4BkP4+5TD9kRwAByHHlIZXLj1NTTknvMF+69sHBYzwpK/SUZIkeo7jTrtcl4g+RQ==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "8.4.11"
+    "@vercel/build-utils" "8.4.12"
     "@vercel/error-utils" "2.0.2"
     "@vercel/nft" "0.27.3"
     "@vercel/static-config" "3.0.0"
@@ -1513,12 +1513,12 @@ acorn-walk@^8.1.1, acorn-walk@^8.3.4:
   dependencies:
     acorn "^8.11.0"
 
-acorn@^8.11.0, acorn@^8.4.1:
-  version "8.12.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.1.tgz#71616bdccbe25e27a54439e0046e89ca76df2248"
-  integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
+acorn@^8.11.0, acorn@^8.4.1, acorn@^8.6.0:
+  version "8.14.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.0.tgz#063e2c70cac5fb4f6467f0b11152e04c682795b0"
+  integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
 
-acorn@^8.13.0, acorn@^8.6.0:
+acorn@^8.13.0:
   version "8.13.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.13.0.tgz#2a30d670818ad16ddd6a35d3842dacec9e5d7ca3"
   integrity sha512-8zSiw54Oxrdym50NlZ9sUusyO1Z1ZchgRLWRaK6c86XJFClyCgFKetdowBg5bKxyp/u+CDBJG4Mpp0m3HLZl9w==

@@ -1304,10 +1304,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/edge/-/edge-1.1.2.tgz#b89bc5fa927b9af64c99311afb4dcf48e7b9e87a"
   integrity sha512-wt5SnhsMahWX8U9ZZhFUQoiXhMn/CUxA5xeMdZX1cwyOL1ZbDR3rNI8HRT9RSU73nDxeF6jlnqJyp/0Jy0VM2A==
 
-"@vercel/error-utils@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@vercel/error-utils/-/error-utils-2.0.2.tgz#d75ccce100dbdfc9cb85700767b59d4257a91113"
-  integrity sha512-Sj0LFafGpYr6pfCqrQ82X6ukRl5qpmVrHM/191kNYFqkkB9YkjlMAj6QcEsvCG259x4QZ7Tya++0AB85NDPbKQ==
+"@vercel/error-utils@2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@vercel/error-utils/-/error-utils-2.0.3.tgz#72575bf3a3ff3e67f474364e24e753d113c5b79a"
+  integrity sha512-CqC01WZxbLUxoiVdh9B/poPbNpY9U+tO1N9oWHwTl5YAZxcqXmmWJ8KNMFItJCUUWdY3J3xv8LvAuQv2KZ5YdQ==
 
 "@vercel/nft@0.27.3":
   version "0.27.3"
@@ -1364,16 +1364,16 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.2.24"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.24.tgz#1c52a264e1355ee39f9bf87575f3b2442106b1ef"
-  integrity sha512-KEm50YBmcfRNOw5NfdcqMI4BkP4+5TD9kRwAByHHlIZXLj1NTTknvMF+69sHBYzwpK/SUZIkeo7jTrtcl4g+RQ==
+  version "3.2.25"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.25.tgz#b06a78ee35bf2d1c0917524e06079a550a8f0a23"
+  integrity sha512-Htc7I/nHpxfMtmzoii8Fnm01iFiFeTW99OYw67S8UAJuY+Fc18RnZVPjtw1fTgf4EcRxsFGP6+nG1IkSqty6uA==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
     "@vercel/build-utils" "8.4.12"
-    "@vercel/error-utils" "2.0.2"
+    "@vercel/error-utils" "2.0.3"
     "@vercel/nft" "0.27.3"
     "@vercel/static-config" "3.0.0"
     async-listen "3.0.0"
@@ -4084,9 +4084,9 @@ node-fetch@^2.6.12, node-fetch@^2.6.7:
     whatwg-url "^5.0.0"
 
 node-gyp-build@^4.2.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.2.tgz#4f802b71c1ab2ca16af830e6c1ea7dd1ad9496fa"
-  integrity sha512-IRUxE4BVsHWXkV/SFOut4qTlagw2aM8T5/vnTsmrHJvVoKueJHRc/JaFND7QDDc61kLYUJ6qlZM3sqTSyx2dTw==
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.3.tgz#9187216d24dbee29e44eb20d2ebf62a296bbea1a"
+  integrity sha512-EMS95CMJzdoSKoIiXo8pxKoL8DYxwIZXYlLmgPb8KUv794abpnLK6ynsCAWNliOjREKruYKdzbh76HHYUHX7nw==
 
 node-releases@^2.0.18:
   version "2.0.18"

@@ -1294,10 +1294,10 @@
   dependencies:
     server-only "^0.0.1"
 
-"@vercel/build-utils@8.4.12":
-  version "8.4.12"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.4.12.tgz#8c5dcd4269bc2347b89424805d28e2661a3aa302"
-  integrity sha512-pIH0b965wJhd1otROVPndfZenPKFVoYSaRjtSKVOT/oNBT13ifq86UVjb5ZjoVfqUI2TtSTP+68kBqLPeoq30g==
+"@vercel/build-utils@8.5.0":
+  version "8.5.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-8.5.0.tgz#954f84eab9197e8052e7f577b93e8734d5b5cfa2"
+  integrity sha512-zyqeauvze7/XRFj8XRm0ot3Ec7l+Px5k1zzzVnARiXwC3x594dLen8Cjm0dpoy7blfWYXUuCMsbBWT2O2OHXxA==
 
 "@vercel/edge@^1.1.2":
   version "1.1.2"
@@ -1364,15 +1364,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^3.0.0":
-  version "3.2.25"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.25.tgz#b06a78ee35bf2d1c0917524e06079a550a8f0a23"
-  integrity sha512-Htc7I/nHpxfMtmzoii8Fnm01iFiFeTW99OYw67S8UAJuY+Fc18RnZVPjtw1fTgf4EcRxsFGP6+nG1IkSqty6uA==
+  version "3.2.26"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-3.2.26.tgz#d479b060d1a87a6525d28480762151d137ae3fbf"
+  integrity sha512-nN6S3srh4u/5TNFf7k9efw2RHhy135ETAnrQxgOpdnshqhe/n5Q/CcJy1eB6ZewAs6VJsHJU5TOZ+SO72+pg/w==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "8.4.12"
+    "@vercel/build-utils" "8.5.0"
     "@vercel/error-utils" "2.0.3"
     "@vercel/nft" "0.27.3"
     "@vercel/static-config" "3.0.0"
@@ -4084,9 +4084,9 @@ node-fetch@^2.6.12, node-fetch@^2.6.7:
     whatwg-url "^5.0.0"
 
 node-gyp-build@^4.2.2:
-  version "4.8.3"
-  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.3.tgz#9187216d24dbee29e44eb20d2ebf62a296bbea1a"
-  integrity sha512-EMS95CMJzdoSKoIiXo8pxKoL8DYxwIZXYlLmgPb8KUv794abpnLK6ynsCAWNliOjREKruYKdzbh76HHYUHX7nw==
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.4.tgz#8a70ee85464ae52327772a90d66c6077a900cfc8"
+  integrity sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
 
 node-releases@^2.0.18:
   version "2.0.18"

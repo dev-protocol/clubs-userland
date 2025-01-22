@@ -102,16 +102,16 @@
     which-pm-runs "^1.1.0"
 
 "@astrojs/vercel@^8.0.0":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-8.0.2.tgz#a91555ae09a580ea319e9489b2e118e6fb63b575"
-  integrity sha512-JiH9A/uSBqV/XHsfp/wghXs6yBpCNh4iQs8kNIcjKRZXLaO54+PWKar/6d69sUl+ugGXjSWhZjnB5hY4CC3tDg==
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-8.0.3.tgz#67b17b4bb5774648afa21717536fed2d1519967f"
+  integrity sha512-nftg5PSg8zCsJOWSBs50V2ALI6tb5Fhhw+hSb8hJELMBXteoYntupEtyVaQeRb5EY+ayoC/xdVVUL5WrCSPnMg==
   dependencies:
     "@astrojs/internal-helpers" "^0.4.2"
     "@vercel/analytics" "^1.4.1"
-    "@vercel/edge" "^1.2.0"
+    "@vercel/edge" "^1.2.1"
     "@vercel/nft" "^0.29.0"
     esbuild "^0.24.0"
-    fast-glob "^3.3.2"
+    fast-glob "^3.3.3"
 
 "@astrojs/yaml2ts@^0.2.1":
   version "0.2.1"
@@ -1149,7 +1149,7 @@
   resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-9.0.1.tgz#5135a6f5e4908bad6e4642914b56963bf545d242"
   integrity sha512-pG/izEqA0AGyqQj6QBfGoTOKU9FPG18sYw9qpncEq00uA+J4Ly4e8ssNbENsXtnXqkMjeoS3c5ncR3jT0bOyiA==
 
-"@vercel/edge@^1.2.0":
+"@vercel/edge@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@vercel/edge/-/edge-1.2.1.tgz#d74298f01912ea2940546f4b7639dc8619f4c89e"
   integrity sha512-1++yncEyIAi68D3UEOlytYb1IUcIulMWdoSzX2h9LuSeeyR7JtaIgR8DcTQ6+DmYOQn+5MCh6LY+UmK6QBByNA==
@@ -1326,10 +1326,10 @@ abbrev@1:
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
-abbrev@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-2.0.0.tgz#cf59829b8b4f03f89dda2771cb7f3653828c89bf"
-  integrity sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==
+abbrev@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-3.0.0.tgz#c29a6337e167ac61a84b41b80461b29c5c271a27"
+  integrity sha512-+/kfrslGQ7TNV2ecmQwMJj/B65g5KVq1/L3SGVZ3tCYGqlzFuFCGBZJtMP99wH3NpEUyAjn0zPdPUg0D+DwrOA==
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -3998,11 +3998,11 @@ nopt@^5.0.0:
     abbrev "1"
 
 nopt@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/nopt/-/nopt-8.0.0.tgz#644f1e78da564b70e3606ab8db4836b0e32e198a"
-  integrity sha512-1L/fTJ4UmV/lUxT2Uf006pfZKTvAgCF+chz+0OgBHO8u2Z67pE7AaAUUj7CJy0lXqHmymUvGFt6NE9R3HER0yw==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/nopt/-/nopt-8.1.0.tgz#b11d38caf0f8643ce885818518064127f602eae3"
+  integrity sha512-ieGu42u/Qsa4TFktmaKEwM6MQH0pOWnaB3htzh0JRtx84+Mebc0cbZYN5bC+6WTZ4+77xrL9Pn5m7CV6VIkV7A==
   dependencies:
-    abbrev "^2.0.0"
+    abbrev "^3.0.0"
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"

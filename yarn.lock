@@ -1549,9 +1549,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^5.0.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.2.1.tgz#c486f9b516edaa8a299bc45afd94e8873b4c0bbe"
-  integrity sha512-OYR2kUo9EqX6OYZ1OmM14xP8mjFwgrk1FzIr+3K3tS0gCCKJsXtfboCUhX3lODZFIsmY/on7NPZd+2PURA0R2Q==
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.2.3.tgz#6c3027207e61efee9e1257ec1087eb3ebb4c83af"
+  integrity sha512-04AceE/gVihtO3V28Ss0+tPPgLHGoulXrm1E7fUVPYyQu7y6w8+oXfYyzh1lpy+uEYiebjH7AFlJoz73anBmZA==
   dependencies:
     "@astrojs/compiler" "^2.10.3"
     "@astrojs/internal-helpers" "0.5.0"
@@ -1581,7 +1581,7 @@ astro@^5.0.0:
     fast-glob "^3.3.3"
     flattie "^1.1.1"
     github-slugger "^2.0.0"
-    html-escaper "^3.0.3"
+    html-escaper "3.0.3"
     http-cache-semantics "^4.1.1"
     js-yaml "^4.1.0"
     kleur "^4.1.5"
@@ -1591,12 +1591,12 @@ astro@^5.0.0:
     mrmime "^2.0.0"
     neotraverse "^0.6.18"
     p-limit "^6.2.0"
-    p-queue "^8.0.1"
-    preferred-pm "^4.0.0"
+    p-queue "^8.1.0"
+    preferred-pm "^4.1.0"
     prompts "^2.4.2"
     rehype "^13.0.2"
-    semver "^7.6.3"
-    shiki "^1.29.1"
+    semver "^7.7.0"
+    shiki "^1.29.2"
     tinyexec "^0.3.2"
     tsconfck "^3.1.4"
     ultrahtml "^1.5.3"
@@ -1608,7 +1608,7 @@ astro@^5.0.0:
     which-pm "^3.0.0"
     xxhash-wasm "^1.1.0"
     yargs-parser "^21.1.1"
-    yocto-spinner "^0.1.2"
+    yocto-spinner "^0.2.0"
     zod "^3.24.1"
     zod-to-json-schema "^3.24.1"
     zod-to-ts "^1.2.0"
@@ -3016,7 +3016,7 @@ hastscript@^9.0.0:
     property-information "^6.0.0"
     space-separated-tokens "^2.0.0"
 
-html-escaper@^3.0.3:
+html-escaper@3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-3.0.3.tgz#4d336674652beb1dcbc29ef6b6ba7f6be6fdfed6"
   integrity sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==
@@ -4138,7 +4138,7 @@ p-map@^7.0.2:
   resolved "https://registry.yarnpkg.com/p-map/-/p-map-7.0.2.tgz#7c5119fada4755660f70199a66aa3fe2f85a1fe8"
   integrity sha512-z4cYYMMdKHzw4O5UkWJImbZynVIo0lSGTXc7bzB1e/rrDqkgGUNysK/o4bTr+0+xKvvLoTyGqYC4Fgljy9qe1Q==
 
-p-queue@^8.0.1:
+p-queue@^8.0.1, p-queue@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/p-queue/-/p-queue-8.1.0.tgz#d71929249868b10b16f885d8a82beeaf35d32279"
   integrity sha512-mxLDbbGIBEXTJL0zEx8JIylaj3xQ7Z/7eEVjcF9fJX4DBiH9oqe+oahYnlKKxm0Ci9TlWTyhSHgygxMxjIB2jw==
@@ -4316,7 +4316,7 @@ postcss@^8.4.49:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-preferred-pm@^4.0.0:
+preferred-pm@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/preferred-pm/-/preferred-pm-4.1.0.tgz#911b7adb811a485d992fd60953eb9d9efcdba36f"
   integrity sha512-cNKMVcSvE3hZBRukdRsvPtlUaM2fYLFbIvBz620XaDA5SjHsCRsAjNE2baI90Hh7QvJIjCHJYnpPtyqJ1/kOjQ==
@@ -4694,7 +4694,7 @@ semver@^7.3.5, semver@^7.3.8, semver@^7.6.0, semver@^7.6.2:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.3.tgz#980f7b5550bc175fb4dc09403085627f9eb33143"
   integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
 
-semver@^7.5.3, semver@^7.6.3:
+semver@^7.5.3, semver@^7.6.3, semver@^7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.0.tgz#9c6fe61d0c6f9fa9e26575162ee5a9180361b09c"
   integrity sha512-DrfFnPzblFmNrIZzg5RzHegbiRWg7KMR7btwi2yjHwx06zsUbO5g613sVwEV7FTwmzJu+Io0lJe2GJ3LxqpvBQ==
@@ -4752,7 +4752,7 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@^1.29.1:
+shiki@^1.29.1, shiki@^1.29.2:
   version "1.29.2"
   resolved "https://registry.yarnpkg.com/shiki/-/shiki-1.29.2.tgz#5c93771f2d5305ce9c05975c33689116a27dc657"
   integrity sha512-njXuliz/cP+67jU2hukkxCNuH1yUi4QfdZZY+sMr5PPrIyXSu5iTb/qYC4BiWWB0vZ+7TbdvYUCeL23zpwCfbg==
@@ -5685,10 +5685,10 @@ yocto-queue@^1.1.1:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.1.1.tgz#fef65ce3ac9f8a32ceac5a634f74e17e5b232110"
   integrity sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==
 
-yocto-spinner@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/yocto-spinner/-/yocto-spinner-0.1.2.tgz#4d6bf052ed8d58c764aa1e815970368b33b40cbc"
-  integrity sha512-VfmLIh/ZSZOJnVRQZc/dvpPP90lWL4G0bmxQMP0+U/2vKBA8GSpcBuWv17y7F+CZItRuO97HN1wdbb4p10uhOg==
+yocto-spinner@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/yocto-spinner/-/yocto-spinner-0.2.0.tgz#18c71db0d63b30bb15084eb891ba6f61efcc4a49"
+  integrity sha512-Qu6WAqNLGleB687CCGcmgHIo8l+J19MX/32UrSMfbf/4L8gLoxjpOYoiHT1asiWyqvjRZbgvOhLlvne6E5Tbdw==
   dependencies:
     yoctocolors "^2.1.1"
 

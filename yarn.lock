@@ -1146,10 +1146,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-1.5.0.tgz#073f93694897414b21a8495e2619bbf64447dcaa"
   integrity sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==
 
-"@vercel/build-utils@9.3.1":
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-9.3.1.tgz#7f00c0836e291c91fb30721fd96f6564760d9163"
-  integrity sha512-18mY7A6JlumhBBfB9MkixhEJQL/ou7SpCT9G+zQS62lSIi2labv8UaRoLidT5LMsIZEHrydmMsk+0nKP2nIkaQ==
+"@vercel/build-utils@10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-10.0.1.tgz#ddc0a8d5c17ec6181fa5a20647ea1c460cbe9d8f"
+  integrity sha512-UcmSbYmdWCBojUHD2SYZ5KP1iUAZsbqWfTILo2evbwAk/A7eEAL0y6mgE+KDC/6nFhsHRRdg0rnhyG9opJMRQw==
 
 "@vercel/edge@^1.2.1":
   version "1.2.1"
@@ -1216,15 +1216,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^5.0.0":
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-5.1.4.tgz#ddd912ab27add60314b21c40679ad3f659efe1f2"
-  integrity sha512-xzHqIYYBZAtxOvvZBg8e9Q5I467OVKiEgySk/IQNo7Fo01P1en++btRteXZdGBZ5SJxe1hBDREO/9d7eolNMcQ==
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-5.1.6.tgz#5aca7684fab0fc94a861315acdc114668f1da3eb"
+  integrity sha512-1cUwgGckpi3l4m4qx0wWit4eIMKjLADaOEBKvziiJdx/XPQXlD0xoAFrHvqLNcwY6hoFsbBzFhIZYBiNBTds+A==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "9.3.1"
+    "@vercel/build-utils" "10.0.1"
     "@vercel/error-utils" "2.0.3"
     "@vercel/nft" "0.27.10"
     "@vercel/static-config" "3.0.0"

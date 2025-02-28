@@ -1147,10 +1147,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-1.5.0.tgz#073f93694897414b21a8495e2619bbf64447dcaa"
   integrity sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==
 
-"@vercel/build-utils@10.3.0":
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-10.3.0.tgz#707a5a2540bb4fd8e7ee491b6421c5e51da89827"
-  integrity sha512-wvAuBZJcDEeOfcQlcs3DSREvfbKOVVOFBHjabWX5y/ISbuW749A46SXrnoysCavluJcakizael4eFSg7n5IjJA==
+"@vercel/build-utils@10.3.1":
+  version "10.3.1"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-10.3.1.tgz#9c176ae121d5665c47b9fd0f016d453786b83f9a"
+  integrity sha512-aWVzwW4UYwrO0yxHQBSiFn/P665S3pORKTRbmdQ/DXMvzsvGtmyG2zeSFApV2WJ3fH46V74i8Lv9IouhmYkbVQ==
 
 "@vercel/edge@^1.2.1":
   version "1.2.1"
@@ -1217,15 +1217,15 @@
     resolve-from "^5.0.0"
 
 "@vercel/node@^5.0.0":
-  version "5.1.9"
-  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-5.1.9.tgz#b5782c58dc42a7395f57630fb9a4e60370ce805d"
-  integrity sha512-LR5fZPLWH/8sdphxteUPG1QuwmbY9/JVAKf3jOp41wqLnTUytg55iRsnc0Z4ncpFjT/dVCu4TdKNk/kL1io8LA==
+  version "5.1.10"
+  resolved "https://registry.yarnpkg.com/@vercel/node/-/node-5.1.10.tgz#77fbfbedfdd0fe6e44a4413a7cb03f23a990a485"
+  integrity sha512-VHY/VRu4AtzzHHX2aNOjHQ2LzQvkmaahTJKJ8zAfGseivvwOfFkJ7+TWcNWBx2yimCJLezqUcGmbUrru0r2I1g==
   dependencies:
     "@edge-runtime/node-utils" "2.3.0"
     "@edge-runtime/primitives" "4.1.0"
     "@edge-runtime/vm" "3.2.0"
     "@types/node" "16.18.11"
-    "@vercel/build-utils" "10.3.0"
+    "@vercel/build-utils" "10.3.1"
     "@vercel/error-utils" "2.0.3"
     "@vercel/nft" "0.27.10"
     "@vercel/static-config" "3.0.0"
@@ -2632,9 +2632,9 @@ fast-uri@^3.0.1:
   integrity sha512-GR6f0hD7XXyNJa25Tb9BuIdN0tdr+0BMi6/CJPH3wJO1JjNG3n/VsSw38AwRdKZABm8lGbPfakLRkYzx2V9row==
 
 fastq@^1.6.0:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.19.0.tgz#a82c6b7c2bb4e44766d865f07997785fecfdcb89"
-  integrity sha512-7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.19.1.tgz#d50eaba803c8846a883c16492821ebcd2cda55f5"
+  integrity sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==
   dependencies:
     reusify "^1.0.4"
 

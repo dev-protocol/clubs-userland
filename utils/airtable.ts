@@ -1,4 +1,3 @@
-/* eslint-disable functional/type-declaration-immutability */
 /* eslint-disable functional/no-return-void */
 import { whenDefined, type ErrorOr } from '@devprotocol/util-ts'
 import type { FieldSet, Records } from 'airtable'
@@ -21,8 +20,8 @@ export const getFieldNameById = async (opts: {
 				const [[name]] = names
 				return err
 					? resolve(new Error(err))
-					: whenDefined(name, (name) => resolve(name)) ??
-							resolve(new Error(`Faild to fetch the field name: ${opts.id}`))
+					: (whenDefined(name, (name) => resolve(name)) ??
+							resolve(new Error(`Faild to fetch the field name: ${opts.id}`)))
 			}),
 	)
 }

@@ -1,4 +1,3 @@
-/* eslint-disable functional/functional-parameters */
 /* eslint-disable functional/no-return-void */
 import type { APIRoute } from 'astro'
 import { cors, headers, json } from 'utils/json'

@@ -1,4 +1,3 @@
-/* eslint-disable functional/functional-parameters */
 import { whenDefined } from '@devprotocol/util-ts'
 import {
 	decodeBase64,
@@ -19,10 +18,9 @@ export type TransferEvent = Readonly<{
 	event: Log | EventLog
 	contractAddress: string
 }>
-// eslint-disable-next-line functional/type-declaration-immutability
+
 export type TransferEvents = Readonly<TransferEvent[]>
 
-// eslint-disable-next-line functional/type-declaration-immutability
 type Metadata = Readonly<{
 	name: string
 	description: string

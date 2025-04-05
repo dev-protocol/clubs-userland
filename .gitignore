@@ -95,6 +95,14 @@ local.settings.json
 
 # use yarn as a package manager
 package-lock.json
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 .vercel
 
 # astro settings

@@ -30,7 +30,7 @@
 		"ethers": "^6.7.1",
 		"p-queue": "^8.0.1",
 		"ramda": "0.30.1",
-		"redis": "^4.6.8"
+		"redis": "^5.0.0"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.0",

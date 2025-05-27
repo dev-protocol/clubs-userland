@@ -1672,10 +1672,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:10.5.1":
-  version: 10.5.1
-  resolution: "@vercel/build-utils@npm:10.5.1"
-  checksum: 10c0/4975af0f1af0d9ad9485b1b405fb37e6e6a1a058a98a06140556e4e1752da346b79ea34e1f46737477d39dfd967091a44ef5de09146972b64b4d15f61b4fdce6
+"@vercel/build-utils@npm:10.6.0":
+  version: 10.6.0
+  resolution: "@vercel/build-utils@npm:10.6.0"
+  checksum: 10c0/17e07a778a67e9e30b666213492a6043b019fc5d0b5c22fa65683eadd74d14e14bc16417047512d8dbccbfd5dc5abbca1d3743cbbeae04b1abeaa6873d22966f
   languageName: node
   linkType: hard
 
@@ -1716,17 +1716,17 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.1.16
-  resolution: "@vercel/node@npm:5.1.16"
+  version: 5.2.0
+  resolution: "@vercel/node@npm:5.2.0"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:16.18.11"
-    "@vercel/build-utils": "npm:10.5.1"
+    "@vercel/build-utils": "npm:10.6.0"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:0.29.2"
-    "@vercel/static-config": "npm:3.0.0"
+    "@vercel/static-config": "npm:3.1.0"
     async-listen: "npm:3.0.0"
     cjs-module-lexer: "npm:1.2.3"
     edge-runtime: "npm:2.5.9"
@@ -1740,7 +1740,7 @@ __metadata:
     ts-node: "npm:10.9.1"
     typescript: "npm:4.9.5"
     undici: "npm:5.28.4"
-  checksum: 10c0/9390001f6caf30e49b1a46eab59caccbdc55f67ae5a1ddfc4ad66046965402d83e723e7b21f6700085699dab3de4b434ff45a960e0e8211fd74fdd52f17a0f77
+  checksum: 10c0/482643c800259bc7d61fd5192e2b0a33abbce8ec722f2f7420b3d6489711ee364c2773dab72ab325b90499e482c85ae5170b16adf84eb8bdc3e45ab40dbf90ad
   languageName: node
   linkType: hard
 
@@ -1758,14 +1758,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/static-config@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@vercel/static-config@npm:3.0.0"
+"@vercel/static-config@npm:3.1.0":
+  version: 3.1.0
+  resolution: "@vercel/static-config@npm:3.1.0"
   dependencies:
     ajv: "npm:8.6.3"
     json-schema-to-ts: "npm:1.6.4"
     ts-morph: "npm:12.0.0"
-  checksum: 10c0/a25167bcdfc8d65057f2fef1a22908f055deacaab441979628cb62ea3ceac13439c2df418c5a4b28f5178545e68666c36caae298a0b9daead78f469004823844
+  checksum: 10c0/7e60cda326ffc10cde6e63afbc3cf53209c42409295d0c555b96b3ccb77f796ad70dc939c12eca9a2b7c1c51ca76f5637ed422162ceb1330a39266ee66658763
   languageName: node
   linkType: hard
 

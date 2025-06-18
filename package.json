@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.0",
-		"@ava/typescript": "5.0.0",
+		"@ava/typescript": "6.0.0",
 		"@eslint/js": "^9.24.0",
 		"@types/dotenv": "8.2.3",
 		"@types/eslint-config-prettier": "^6.11.3",

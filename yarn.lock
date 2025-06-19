@@ -138,11 +138,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/underscore-redirects@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@astrojs/underscore-redirects@npm:1.0.0"
+  checksum: 10c0/f2554e1ae0d605b1eca54ffb67269eff6ff58fcdaf34ecd9ba0c0f6751c9e0fdb806c896b6b4e1adb47e291f18d7b7b4dc554334a45c231d5d1da25d73524e8a
+  languageName: node
+  linkType: hard
+
 "@astrojs/vercel@npm:^8.0.0":
-  version: 8.1.5
-  resolution: "@astrojs/vercel@npm:8.1.5"
+  version: 8.2.0
+  resolution: "@astrojs/vercel@npm:8.2.0"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.6.1"
+    "@astrojs/underscore-redirects": "npm:1.0.0"
     "@vercel/analytics": "npm:^1.5.0"
     "@vercel/edge": "npm:^1.2.1"
     "@vercel/nft": "npm:^0.29.2"
@@ -151,7 +159,7 @@ __metadata:
     tinyglobby: "npm:^0.2.13"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/536bffb3a676c4f67ebc2bf7b91112314f2e2c087ac179d43a7ae22ee9ff16da370d6a228962cec690cf6deb46d81975109075c73a2c85b26c1f2b0a01a4f7ac
+  checksum: 10c0/8a4f92f9fed2e8964c5a31599008f80d4730b2659d24bb18c5853935d64315f5d08cfc5cf5150a74dfd9c91fdc33430f8f745d4e7184fd4d683ef8e5b5ce500b
   languageName: node
   linkType: hard
 
@@ -2248,8 +2256,8 @@ __metadata:
   linkType: hard
 
 "astro@npm:^5.0.0":
-  version: 5.9.4
-  resolution: "astro@npm:5.9.4"
+  version: 5.10.0
+  resolution: "astro@npm:5.10.0"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.6.1"
@@ -2318,7 +2326,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/418ee50278ae78a04ac40fe73a969fa16395d7ba49f448e76ba22b85a5420e94b9839223ed715fb40b5027eef583f28f6440186587aeefbb1d2080cdd9e4865a
+  checksum: 10c0/7c4c0e1d3e21895e69819d3ce8f53cc0b2f81f470db3f5ece0c88fcb8c81e971b72d8ef98200147a96676060d8fc8d2eb7f44f0fd1ec2823832ffa80bf6f3795
   languageName: node
   linkType: hard
 

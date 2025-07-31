@@ -42,10 +42,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/internal-helpers@npm:0.6.1":
-  version: 0.6.1
-  resolution: "@astrojs/internal-helpers@npm:0.6.1"
-  checksum: 10c0/2f03ea5d8a673f74f153ea4fb3ec3e50399093f4bea0e2aaebf6ef3ae336be3f7dfb13abfdffe1953814b5b870d59d641937d271822881778600fe47d99e7ef3
+"@astrojs/internal-helpers@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@astrojs/internal-helpers@npm:0.7.0"
+  checksum: 10c0/e1c6f3e24dfb2496edd8f808b254759c509ecd64f7466fff0cabb9f3ca301663fd6a418f503c6bbd00f8691ec1e6fc84b2f36bc1c72321c51a95ee408dcba96d
   languageName: node
   linkType: hard
 
@@ -85,11 +85,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:6.3.3":
-  version: 6.3.3
-  resolution: "@astrojs/markdown-remark@npm:6.3.3"
+"@astrojs/markdown-remark@npm:6.3.4":
+  version: 6.3.4
+  resolution: "@astrojs/markdown-remark@npm:6.3.4"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.6.1"
+    "@astrojs/internal-helpers": "npm:0.7.0"
     "@astrojs/prism": "npm:3.3.0"
     github-slugger: "npm:^2.0.0"
     hast-util-from-html: "npm:^2.0.3"
@@ -110,7 +110,7 @@ __metadata:
     unist-util-visit: "npm:^5.0.0"
     unist-util-visit-parents: "npm:^6.0.1"
     vfile: "npm:^6.0.3"
-  checksum: 10c0/0df9cabe2da0547d9aec0267339b5ecbcb64f95f4a2d365484d2262eda0e140bf8229f9d65e4bdcb5607a8d20c91f81583bba657733c0e1c1257ee58bbcc51cd
+  checksum: 10c0/414f00fde055bf39b38aedc484e97c6ec27802ae97d5e2cc48e911771647fea867d04ce3e1fab98b9fa3c611fd01b5813430910b4bba71eb1670c99f9b7f9c97
   languageName: node
   linkType: hard
 
@@ -139,19 +139,19 @@ __metadata:
   linkType: hard
 
 "@astrojs/vercel@npm:^8.0.0":
-  version: 8.2.3
-  resolution: "@astrojs/vercel@npm:8.2.3"
+  version: 8.2.4
+  resolution: "@astrojs/vercel@npm:8.2.4"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.6.1"
+    "@astrojs/internal-helpers": "npm:0.7.0"
     "@vercel/analytics": "npm:^1.5.0"
-    "@vercel/edge": "npm:^1.2.1"
+    "@vercel/functions": "npm:^2.2.2"
     "@vercel/nft": "npm:^0.29.2"
     "@vercel/routing-utils": "npm:^5.0.4"
     esbuild: "npm:^0.25.0"
     tinyglobby: "npm:^0.2.13"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/df04fdd2721ea03440973092fb4c5e18f3dae964ff45581fd4ba04f050abe113b907dbbf74912cdcd9818a4c046c7e2dbeb1ff66ac2c888b9ab40679e13b53ae
+  checksum: 10c0/582132a3e134b0d37ddf8ddbf307eba4ce2cbd2825aa3bd575e2beb003bc6cf7c8856a47d3e26e5a5aec54039f50d8f22efce688d599b977d6e6a915e479fd4c
   languageName: node
   linkType: hard
 
@@ -1807,17 +1807,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/edge@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@vercel/edge@npm:1.2.1"
-  checksum: 10c0/ace3cc730a8d8fd37b2849d2b5240adbf1d888f4af9332082adc5cc63e3df109aca2dbc0db30a1fe79b1812946d27a03c4008edaee9d860226c1f1048444d966
-  languageName: node
-  linkType: hard
-
 "@vercel/error-utils@npm:2.0.3":
   version: 2.0.3
   resolution: "@vercel/error-utils@npm:2.0.3"
   checksum: 10c0/e9f417b097bd2bcb53fe2e04060b07ec51a74bf835a07dc0616d08448d1a4365286a550e84b041462c718e83a82350aebe3a7e61811fdf13879b560d00a43f32
+  languageName: node
+  linkType: hard
+
+"@vercel/functions@npm:^2.2.2":
+  version: 2.2.6
+  resolution: "@vercel/functions@npm:2.2.6"
+  dependencies:
+    "@vercel/oidc": "npm:2.0.0"
+  peerDependencies:
+    "@aws-sdk/credential-provider-web-identity": "*"
+  peerDependenciesMeta:
+    "@aws-sdk/credential-provider-web-identity":
+      optional: true
+  checksum: 10c0/642b1d4aa81fe2eb6a124727ff0f868be88070a9fac18adaa2227809a4cd7668aff508bf37b92524fa0690d56133422a8c018943649574150468a75b9b0200bd
   languageName: node
   linkType: hard
 
@@ -1891,6 +1898,13 @@ __metadata:
     typescript: "npm:4.9.5"
     undici: "npm:5.28.4"
   checksum: 10c0/568be4445ac3070014dc514eb5eac3eaa98b9cd3f70dab177dc216b1effb90c314685cbe57448b9047d95334aaf7d0b52672386b45e4c9aa086cbcedb181265e
+  languageName: node
+  linkType: hard
+
+"@vercel/oidc@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@vercel/oidc@npm:2.0.0"
+  checksum: 10c0/a14685faef6d06bb80543d88a08481ef7b92884bec2f621596f0b62d201425d8cfc9ccba8de066c84485985e435e9c40ed47105c3306895589eae1bd856c9acf
   languageName: node
   linkType: hard
 
@@ -2249,12 +2263,12 @@ __metadata:
   linkType: hard
 
 "astro@npm:^5.0.0":
-  version: 5.12.6
-  resolution: "astro@npm:5.12.6"
+  version: 5.12.7
+  resolution: "astro@npm:5.12.7"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
-    "@astrojs/internal-helpers": "npm:0.6.1"
-    "@astrojs/markdown-remark": "npm:6.3.3"
+    "@astrojs/internal-helpers": "npm:0.7.0"
+    "@astrojs/markdown-remark": "npm:6.3.4"
     "@astrojs/telemetry": "npm:3.3.0"
     "@capsizecss/unpack": "npm:^2.4.0"
     "@oslojs/encoding": "npm:^1.1.0"
@@ -2320,7 +2334,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/dfdb5f6fbf02bca3ffbc8eb9ac67a942b8f43f4be1d00860dc4cb2e29f22e7054d36d723a4ecf0abb9bbf1032b87fffa90f9e627f8605e18db4ce9254a7f18d8
+  checksum: 10c0/8c16e3545a4181880471fff7fb2846328309c3cb4a76502cf56e9df88ef39c038a2458fa221b0158ee5d454498527277f9221dbb9e9a89f309eff0a074940305
   languageName: node
   linkType: hard
 

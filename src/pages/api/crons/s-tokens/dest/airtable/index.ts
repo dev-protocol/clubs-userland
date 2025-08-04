@@ -11,17 +11,17 @@ import {
 } from '@devprotocol/util-ts'
 import Airtable from 'airtable'
 import { always, tryCatch } from 'ramda'
-import { Contract, JsonRpcProvider } from 'ethers'
+import { Contract } from 'ethers'
 import { clientsSTokens } from '@devprotocol/dev-kit'
 import { ABI_NFT, TransferTopic } from './abi'
 import { createOrUpdate } from 'utils/airtable'
 import pQueue from 'p-queue'
 import { fetchMetadatas, transferEvents } from 'utils/logs'
+import { publicPolygonProvider } from 'utils/providers'
 
 const {
 	AIRTABLE_BASE,
 	AIRTABLE_API_KEY,
-	RPC_URL,
 	PROPERTY_ADDRESS,
 	CRON_STOKENS_FIELDS,
 	CRON_STOKENS_PRIMARY_KEY,
@@ -153,7 +153,7 @@ export const GET: APIRoute = async ({ url }) => {
 		return res instanceof Error ? resolve(res) : undefined
 	})
 
-	const provider = new JsonRpcProvider(RPC_URL)
+	const provider = publicPolygonProvider
 	const currentBlock = await provider.getBlockNumber()
 	const fromBlock = optionalQuery.fromBlock
 		? BigInt(optionalQuery.fromBlock)

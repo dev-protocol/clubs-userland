@@ -1895,8 +1895,8 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.3.15
-  resolution: "@vercel/node@npm:5.3.15"
+  version: 5.3.16
+  resolution: "@vercel/node@npm:5.3.16"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
@@ -1905,7 +1905,7 @@ __metadata:
     "@vercel/build-utils": "npm:11.0.2"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:0.30.1"
-    "@vercel/static-config": "npm:3.1.1"
+    "@vercel/static-config": "npm:3.1.2"
     async-listen: "npm:3.0.0"
     cjs-module-lexer: "npm:1.2.3"
     edge-runtime: "npm:2.5.9"
@@ -1919,7 +1919,7 @@ __metadata:
     ts-node: "npm:10.9.1"
     typescript: "npm:4.9.5"
     undici: "npm:5.28.4"
-  checksum: 10c0/408e2620a6f708575e3d0e6011d976548ce6dd6e9ae9363b98f1e585f252130bc21f02bab90e995964148aaa4fde213009f0f486cd2abd5fe0a0e009ed4e1aab
+  checksum: 10c0/05aa322240c01a90b691d1aad90b6111a60b66438ec23f40dd1f8710444d4487326bcbacd0aa5d181437646e7bc7b9940591cb86d740c2ce8f9e0945fb4ad1ca
   languageName: node
   linkType: hard
 
@@ -1944,14 +1944,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/static-config@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@vercel/static-config@npm:3.1.1"
+"@vercel/static-config@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@vercel/static-config@npm:3.1.2"
   dependencies:
     ajv: "npm:8.6.3"
     json-schema-to-ts: "npm:1.6.4"
     ts-morph: "npm:12.0.0"
-  checksum: 10c0/3a26c6da0ada2e2c478257d3f19a4592c61367f84b452afa9038f19aa8ef6c991a99768b91e5be9a2c4635070703a59fee75ef47bc8eb43b20d3ec77721fb49b
+  checksum: 10c0/846cf326eb78895c3402ae1580613b784dc5b43454395ad2c9ed2159cd7a2259661c3a92d32b04d9be32b444302281d7eb5052c4c64cad0fc7a4874f7c0e514f
   languageName: node
   linkType: hard
 

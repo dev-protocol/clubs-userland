@@ -139,19 +139,19 @@ __metadata:
   linkType: hard
 
 "@astrojs/vercel@npm:^8.0.0":
-  version: 8.2.6
-  resolution: "@astrojs/vercel@npm:8.2.6"
+  version: 8.2.7
+  resolution: "@astrojs/vercel@npm:8.2.7"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.7.2"
     "@vercel/analytics": "npm:^1.5.0"
     "@vercel/functions": "npm:^2.2.2"
     "@vercel/nft": "npm:^0.29.2"
-    "@vercel/routing-utils": "npm:^5.0.4"
+    "@vercel/routing-utils": "npm:^5.1.1"
     esbuild: "npm:^0.25.0"
     tinyglobby: "npm:^0.2.13"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/595d440aab5ce9a289b0ef250c9a981967a54d85ff938f857e74e51a84145df860ca299210bfc42d7cdf198b5999afeaecf5d300c628e0fc94ce67d37de03736
+  checksum: 10c0/9881b8700a64d5f8f93d97527649c1b74be25efcd55bfe5661e386c320ab2e7aaca84c9216da4c32f3a2964b001b691b28dc6ec030dcf211cea22b83ee6482b7
   languageName: node
   linkType: hard
 
@@ -1930,9 +1930,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/routing-utils@npm:^5.0.4":
-  version: 5.0.4
-  resolution: "@vercel/routing-utils@npm:5.0.4"
+"@vercel/routing-utils@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@vercel/routing-utils@npm:5.1.1"
   dependencies:
     ajv: "npm:^6.12.3"
     path-to-regexp: "npm:6.1.0"
@@ -1940,7 +1940,7 @@ __metadata:
   dependenciesMeta:
     ajv:
       optional: true
-  checksum: 10c0/863c1381c1c8eb7b22ff3b312717c33f2fec07ae95322ef108d58e63de3f94cf99be090d6e7b86e1a0d83a8319ec843913d48291f9f1b5bf8020d6094892cf5b
+  checksum: 10c0/46d229749230ed7611c0510a2b38b379ffed3f40b3874c2dea8f832f4542c41fee51d561085e926befa383049c6c36820cd0846daf3c3eb0392b52b5cbda68ca
   languageName: node
   linkType: hard
 
@@ -2285,8 +2285,8 @@ __metadata:
   linkType: hard
 
 "astro@npm:^5.0.0":
-  version: 5.13.4
-  resolution: "astro@npm:5.13.4"
+  version: 5.13.5
+  resolution: "astro@npm:5.13.5"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.7.2"
@@ -2356,7 +2356,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/d26a903bba5df0163779af8bb81eb7e413213c17353ec3c617230ef56f29646828292e8222b5bfc9760bb93f8f98ecd81c44fd2a27072f0c7f6d8089156e1511
+  checksum: 10c0/1734804d8ec8a8a8ceb19f96b1584d045eb94bbf4cfae370440da2a7e254f062c6be07a7d053acbc02057438938e0982a3f5c3eafb11bedda0c72c5664b6940e
   languageName: node
   linkType: hard
 

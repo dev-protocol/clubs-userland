@@ -42,7 +42,7 @@
 		"@types/ramda": "0.31.1",
 		"@vercel/node": "^5.0.0",
 		"ava": "6.4.1",
-		"dotenv": "17.2.2",
+		"dotenv": "17.2.3",
 		"eslint": "^9.24.0",
 		"eslint-config-prettier": "^10.1.1",
 		"eslint-plugin-functional": "^9.0.1",

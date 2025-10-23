@@ -138,9 +138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/vercel@npm:^8.0.0":
-  version: 8.2.11
-  resolution: "@astrojs/vercel@npm:8.2.11"
+"@astrojs/vercel@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@astrojs/vercel@npm:9.0.0"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.7.4"
     "@vercel/analytics": "npm:^1.5.0"
@@ -151,7 +151,7 @@ __metadata:
     tinyglobby: "npm:^0.2.15"
   peerDependencies:
     astro: ^5.0.0
-  checksum: 10c0/7f64debe1b2d32ab8ee97d449d7f890299a5645fb4b421fcdda173e5a990a8371f516cdc25a272135f68065aa338ad2aab637c8d9b6944eb37817fb5ad0d2df3
+  checksum: 10c0/9a7d48a519cc922bde69064399cc4c538c2fae33030fc9eb34d7f60cfdd711c6b489be86a7ff384606f68f1462d61323541e1d390f32562af3d760bf541bfba0
   languageName: node
   linkType: hard
 
@@ -7105,7 +7105,7 @@ __metadata:
   resolution: "template-repos-ts@workspace:."
   dependencies:
     "@astrojs/check": "npm:^0.9.0"
-    "@astrojs/vercel": "npm:^8.0.0"
+    "@astrojs/vercel": "npm:^9.0.0"
     "@ava/typescript": "npm:6.0.0"
     "@devprotocol/dev-kit": "npm:8.7.0"
     "@devprotocol/util-ts": "npm:4.0.0"

@@ -1937,10 +1937,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@vercel/build-utils@npm:13.0.0"
-  checksum: 10c0/d2cd2fc5c7197a5cdb75df06e9fbff4490c2aa1de8f1d386fde44412a89d3f974ef63d6eb9133973117b722a9583b06434f8fc1756f22cadffea79574128add7
+"@vercel/build-utils@npm:13.0.1":
+  version: 13.0.1
+  resolution: "@vercel/build-utils@npm:13.0.1"
+  checksum: 10c0/144c5fac3b5eb2b40d0eae3e07047fbf9e6f020f91dc21160bd141c05bca899d0dd1b9ce7e2678eb0bddfad3900f682c232a916cf08a7af9c986e53fe8c7c886
   languageName: node
   linkType: hard
 
@@ -2032,14 +2032,14 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.5.5
-  resolution: "@vercel/node@npm:5.5.5"
+  version: 5.5.6
+  resolution: "@vercel/node@npm:5.5.6"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:16.18.11"
-    "@vercel/build-utils": "npm:13.0.0"
+    "@vercel/build-utils": "npm:13.0.1"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:0.30.1"
     "@vercel/static-config": "npm:3.1.2"
@@ -2056,8 +2056,9 @@ __metadata:
     ts-morph: "npm:12.0.0"
     ts-node: "npm:10.9.1"
     typescript: "npm:4.9.5"
+    typescript5: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/d14d279407d3c5b2c9f36a8943f581b9ace6835684781b564554336a2276441dc0610347f73fe32e485864d3ca983645e2cdf69a95aa6fabefd1e6b899c8b6ad
+  checksum: 10c0/7364615d36f79451bac2ef854a650b6d6fcb4e94a88d56988b58b3db45075e071f737bac4d1e404edfdeec9d9f360f47973db0bef80212c241a66866194d7c51
   languageName: node
   linkType: hard
 
@@ -7423,6 +7424,16 @@ __metadata:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ">=4.8.4 <6.0.0"
   checksum: 10c0/e08f1a9a55969df12590b1633f0f6c35d843b7846dc38b60ff900517f8f10dc51f37f1598db92436e858967690bbce1ae732feea2f196071f733d6d2195b0db7
+  languageName: node
+  linkType: hard
+
+"typescript5@npm:typescript@5.9.3":
+  version: 5.9.3
+  resolution: "typescript@npm:5.9.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/6bd7552ce39f97e711db5aa048f6f9995b53f1c52f7d8667c1abdc1700c68a76a308f579cd309ce6b53646deb4e9a1be7c813a93baaf0a28ccd536a30270e1c5
   languageName: node
   linkType: hard
 

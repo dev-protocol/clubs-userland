@@ -1936,10 +1936,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.2.1":
-  version: 13.2.1
-  resolution: "@vercel/build-utils@npm:13.2.1"
-  checksum: 10c0/a447142d9de540b73f58cb42c05c2ac2b3d0fee57e30d7fa319c6038dab88c2ab867e4062a770d53f3f61d152037159a315c7a478bc92e37a4240ffae790a96c
+"@vercel/build-utils@npm:13.2.2":
+  version: 13.2.2
+  resolution: "@vercel/build-utils@npm:13.2.2"
+  checksum: 10c0/904949b1c9aa16d679414f7dc4a2d161afc741de154e4d0de3089d451b63d08226390fd672e42303817cae9dc8ceeabf33683dc73a739573ac20800646c141ee
   languageName: node
   linkType: hard
 
@@ -1986,9 +1986,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@vercel/nft@npm:1.1.0"
+"@vercel/nft@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@vercel/nft@npm:1.1.1"
   dependencies:
     "@mapbox/node-pre-gyp": "npm:^2.0.0"
     "@rollup/pluginutils": "npm:^5.1.3"
@@ -2004,7 +2004,7 @@ __metadata:
     resolve-from: "npm:^5.0.0"
   bin:
     nft: out/cli.js
-  checksum: 10c0/10a403ef64adcfbea243351467ef0e33e8f068e96f35d7224e1fcde50132b4b6b1892811efd12186a51fdcdfd9d1517b2f861f6ffece075250eada861a920bfa
+  checksum: 10c0/e92d381722c436ce8adb75e9d83c2b1da5fe8f835926d0acf1c042de6d036fd4bac6dbbcb9ede1c3172925d3a2c00eb4af74de9afd39efd7578badfe0872f553
   languageName: node
   linkType: hard
 
@@ -2031,16 +2031,16 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.5.13
-  resolution: "@vercel/node@npm:5.5.13"
+  version: 5.5.14
+  resolution: "@vercel/node@npm:5.5.14"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:16.18.11"
-    "@vercel/build-utils": "npm:13.2.1"
+    "@vercel/build-utils": "npm:13.2.2"
     "@vercel/error-utils": "npm:2.0.3"
-    "@vercel/nft": "npm:1.1.0"
+    "@vercel/nft": "npm:1.1.1"
     "@vercel/static-config": "npm:3.1.2"
     async-listen: "npm:3.0.0"
     cjs-module-lexer: "npm:1.2.3"
@@ -2057,7 +2057,7 @@ __metadata:
     typescript: "npm:4.9.5"
     typescript5: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/4e552634cee0c1afb831245575154bf9180caa572a71197638a095c90fec16259d5ca708e37fa4d8a90460e968752ffc0288a75946ffd6f73111ed5dcf25b6c3
+  checksum: 10c0/c524f47a885f43722c41822e919372e1dae571580d1d6cd203ac66637ef863070624438b66d000119ddc662fed0367ce9dcc05b0c6286d039d01dbb1a421e277
   languageName: node
   linkType: hard
 

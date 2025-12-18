@@ -159,8 +159,9 @@ export const GET: APIRoute = async ({ url }) => {
 		? BigInt(optionalQuery.fromBlock)
 		: latestBlock instanceof Error
 			? currentBlock - maxBlock
-			: ((fallbackBlock) =>
-					latestBlock > fallbackBlock ? latestBlock : fallbackBlock)(
+			: ((unprocessedBlock, fallbackBlock) =>
+					unprocessedBlock > fallbackBlock ? unprocessedBlock : fallbackBlock)(
+					latestBlock + 1,
 					currentBlock - maxBlock,
 				)
 	const toBlock = optionalQuery.toBlock

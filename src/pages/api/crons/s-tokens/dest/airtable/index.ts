@@ -165,11 +165,9 @@ export const GET: APIRoute = async ({ url }) => {
 				)
 	const toBlock = optionalQuery.toBlock
 		? BigInt(optionalQuery.toBlock)
-		: latestBlock instanceof Error
-			? 'latest'
-			: ((maxCurrentBlock) =>
+		: ((maxCurrentBlock) =>
 					currentBlock < maxCurrentBlock ? currentBlock : maxCurrentBlock)(
-					latestBlock + maxBlock,
+					Number(fromBlock) + maxBlock,
 				)
 
 	console.log({ latestBlock, fromBlock, toBlock })

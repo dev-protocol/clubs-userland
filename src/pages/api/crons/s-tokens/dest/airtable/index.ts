@@ -135,9 +135,13 @@ export const GET: APIRoute = async ({ url }) => {
 	)
 
 	const lastBlock = await whenNotErrorAll([blockKey], async ([key]) => {
-		const blob = await head(key)
-		const res = await fetch(blob.url)
-		const text = await res.text()
+		const blob = await head(key).catch(() => new Error('No blob found'))
+		const res = await whenNotError(blob, (b) =>
+			fetch(b.url).catch(() => new Error('Failed to fetch blob')),
+		)
+		const text = await whenNotError(res, (r) =>
+			r.ok ? r.text() : new Error('Failed to fetch text'),
+		)
 
 		return typeof text === 'string' && Number.isNaN(Number(text)) === false
 			? BigInt(text)

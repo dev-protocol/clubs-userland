@@ -323,6 +323,7 @@ export const GET: APIRoute = async ({ url }) => {
 				}),
 				whenNotErrorAll([blockKey, toBlock], async ([key, block]) => {
 					const blob = await put(key, String(block), {
+						allowOverwrite: true,
 						access: 'public',
 						contentType: 'text/plain',
 					})

@@ -1,10 +1,8 @@
-/* eslint-disable functional/no-return-void */
 import type { APIRoute } from 'astro'
 import { cors, headers, json } from 'utils/json'
 import {
 	whenDefinedAll,
 	whenNotErrorAll,
-	type ErrorOr,
 	whenNotError,
 	whenDefined,
 	type UndefinedOr,
@@ -17,6 +15,7 @@ import { ABI_NFT, TransferTopic } from './abi'
 import { createOrUpdate } from 'utils/airtable'
 import pQueue from 'p-queue'
 import { fetchMetadatas, transferEvents } from 'utils/logs'
+import { head, put } from '@vercel/blob'
 
 const {
 	AIRTABLE_BASE,
@@ -129,49 +128,37 @@ export const GET: APIRoute = async ({ url }) => {
 
 	const airtable = Airtable.base(AIRTABLE_BASE)
 
-	const latestBlock = await new Promise<ErrorOr<number>>((resolve) => {
-		const res = whenNotErrorAll(
-			[envs, givenFields],
-			([{ table }, { blockNumber }]) =>
-				airtable
-					.table(table)
-					.select({
-						fields: [blockNumber],
-						sort: [{ field: blockNumber, direction: 'desc' }],
-						maxRecords: 1,
-					})
-					.firstPage((err, records) => {
-						const hit = records?.find((r) => r.get(blockNumber))
-						const number = Number(hit?.get(blockNumber))
-						return err
-							? resolve(new Error(err))
-							: typeof number === 'number' && !isNaN(number)
-								? resolve(number)
-								: resolve(new Error('Not found'))
-					}),
-		)
-		return res instanceof Error ? resolve(res) : undefined
+	const blockKey = whenNotErrorAll(
+		[AIRTABLE_BASE, envs],
+		([base, { propertyAddress, table }]) =>
+			`${propertyAddress}:${base}:${table}:userland:crons:s-tokens:airtable::lastBlock`,
+	)
+
+	const lastBlock = await whenNotErrorAll([blockKey], async ([key]) => {
+		const blob = await head(key)
+		const res = await fetch(blob.url)
+		const text = await res.text()
+
+		return typeof text === 'string' && Number.isNaN(Number(text)) === false
+			? BigInt(text)
+			: new Error('No latest block')
 	})
 
 	const provider = new JsonRpcProvider(RPC_URL)
 	const currentBlock = await provider.getBlockNumber()
 	const fromBlock = optionalQuery.fromBlock
 		? BigInt(optionalQuery.fromBlock)
-		: latestBlock instanceof Error
+		: lastBlock instanceof Error
 			? currentBlock - maxBlock
-			: ((unprocessedBlock, fallbackBlock) =>
-					unprocessedBlock > fallbackBlock ? unprocessedBlock : fallbackBlock)(
-					latestBlock + 1,
-					currentBlock - maxBlock,
-				)
+			: lastBlock + 1n
 	const toBlock = optionalQuery.toBlock
 		? BigInt(optionalQuery.toBlock)
 		: ((maxCurrentBlock) =>
 				currentBlock < maxCurrentBlock ? currentBlock : maxCurrentBlock)(
-				Number(fromBlock) + maxBlock,
+				BigInt(fromBlock) + BigInt(maxBlock),
 			)
 
-	console.log({ latestBlock, fromBlock, toBlock })
+	console.log({ latestBlock: lastBlock, fromBlock, toBlock })
 
 	const [l1, l2] = await clientsSTokens(provider)
 	const client = l1 ?? l2 ?? new Error('Failed to load sTokens')
@@ -322,13 +309,27 @@ export const GET: APIRoute = async ({ url }) => {
 
 	const result = await whenNotErrorAll(
 		[envs, newRecords],
-		([{ table, primaryKey }, records]) =>
-			createOrUpdate({
-				base: airtable,
-				table,
-				records: records,
-				key: primaryKey,
-			}),
+		async ([{ table, primaryKey }, records]) => {
+			const finalize = await Promise.all([
+				createOrUpdate({
+					base: airtable,
+					table,
+					records: records,
+					key: primaryKey,
+				}),
+				whenNotErrorAll([blockKey, toBlock], async ([key, block]) => {
+					const blob = await put(key, String(block), {
+						access: 'public',
+						contentType: 'text/plain',
+					})
+					return blob
+				}),
+			])
+			return whenNotErrorAll(finalize, ([records, lastBlock]) => ({
+				records,
+				lastBlock,
+			}))
+		},
 	)
 
 	console.log({ result })

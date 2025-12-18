@@ -166,9 +166,9 @@ export const GET: APIRoute = async ({ url }) => {
 	const toBlock = optionalQuery.toBlock
 		? BigInt(optionalQuery.toBlock)
 		: ((maxCurrentBlock) =>
-					currentBlock < maxCurrentBlock ? currentBlock : maxCurrentBlock)(
-					Number(fromBlock) + maxBlock,
-				)
+				currentBlock < maxCurrentBlock ? currentBlock : maxCurrentBlock)(
+				Number(fromBlock) + maxBlock,
+			)
 
 	console.log({ latestBlock, fromBlock, toBlock })
 

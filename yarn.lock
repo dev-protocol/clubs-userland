@@ -2265,12 +2265,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.3.4":
-  version: 13.3.4
-  resolution: "@vercel/build-utils@npm:13.3.4"
+"@vercel/build-utils@npm:13.3.5":
+  version: 13.3.5
+  resolution: "@vercel/build-utils@npm:13.3.5"
   dependencies:
-    "@vercel/python-analysis": "npm:0.3.2"
-  checksum: 10c0/857556d4d9032dc2fe6c87ff6b1b53e6985fc0f1d4f364f3da8d472a2cb821fab3dc5deb92b273c880a09be453719d9c005864a8c9b909315ba3bd2da529c560
+    "@vercel/python-analysis": "npm:0.4.0"
+  checksum: 10c0/db414f76ffc143a59b90ec9439a8938811a8b6617703a7405b2ecaa96537f7ec4732d97c9102f5319bb33be169d72c6beb2ea08bc0e7dbc7de6af319b32fdf37
   languageName: node
   linkType: hard
 
@@ -2362,14 +2362,14 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.6.1
-  resolution: "@vercel/node@npm:5.6.1"
+  version: 5.6.2
+  resolution: "@vercel/node@npm:5.6.2"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.3.4"
+    "@vercel/build-utils": "npm:13.3.5"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:1.1.1"
     "@vercel/static-config": "npm:3.1.2"
@@ -2387,7 +2387,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/5673eb49da91f6b44801ca8c117ba82c0e615f6f57d6f3ed4f057cd01892d3dd058d84ddc578c0720774541702f1e6310753269a8e5208edfeea2f35cbf6c3d8
+  checksum: 10c0/03bb654576164db2ec33fb448ff17b8873bdb94112c49e1465fc66fb4187cb38e4eb0d52ecc514a302fdff1de471f08be7e5c9ede8d67f377cf457346e9e70e0
   languageName: node
   linkType: hard
 
@@ -2401,9 +2401,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/python-analysis@npm:0.3.2":
-  version: 0.3.2
-  resolution: "@vercel/python-analysis@npm:0.3.2"
+"@vercel/python-analysis@npm:0.4.0":
+  version: 0.4.0
+  resolution: "@vercel/python-analysis@npm:0.4.0"
   dependencies:
     "@bytecodealliance/preview2-shim": "npm:0.17.6"
     "@renovatebot/pep440": "npm:4.2.1"
@@ -2413,7 +2413,7 @@ __metadata:
     pip-requirements-js: "npm:1.0.2"
     smol-toml: "npm:1.5.2"
     zod: "npm:3.22.4"
-  checksum: 10c0/22adc82687817b88ab0c2cad5626d4267be59cb1d3ee1a4481a53e8f3b1dc42bed009dcddc19b9d90ba205087a27287f9e3551bc69b50e82ea13b8a7590c02d3
+  checksum: 10c0/7e411d13722ba1e91ee634e79aca109f55a90d5cc1ba3ce607b8d9499b0603ad4979c2ca43ce556ecc1321eba9cc7e0a5c2d0071c7450f15a330e3c945a14771
   languageName: node
   linkType: hard
 

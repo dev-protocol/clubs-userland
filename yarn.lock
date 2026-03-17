@@ -2202,12 +2202,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.8.0":
-  version: 13.8.0
-  resolution: "@vercel/build-utils@npm:13.8.0"
+"@vercel/build-utils@npm:13.8.1":
+  version: 13.8.1
+  resolution: "@vercel/build-utils@npm:13.8.1"
   dependencies:
-    "@vercel/python-analysis": "npm:0.9.1"
-  checksum: 10c0/036f32d09863c46b68d5f7b48eff936261f04b192ae0f104996b517ccae116f6a3d1f62cb512931cbd4d4315121e4ebee627c69b63ff6d365e40e12f36c883ea
+    "@vercel/python-analysis": "npm:0.10.0"
+  checksum: 10c0/73241e9ea5368ad0f046cf7a58706aa9a12cde371a9771c39d08eecdda48c4433066422a47065ab6842f96eee6d22fee6900f1fd8c9179e97eed94898208d81b
   languageName: node
   linkType: hard
 
@@ -2299,14 +2299,14 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.6.15
-  resolution: "@vercel/node@npm:5.6.15"
+  version: 5.6.16
+  resolution: "@vercel/node@npm:5.6.16"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.8.0"
+    "@vercel/build-utils": "npm:13.8.1"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:1.1.1"
     "@vercel/static-config": "npm:3.2.0"
@@ -2324,7 +2324,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/0ca3a63e60de722cf40654616c572f022e34cab69a1cd9965c57aeba656d23cc8dc27de0b7c898aa389dbf947b5e0a31a538d1e8f3f00ebf690d8fd0a13c6df9
+  checksum: 10c0/4755699b7775810e2e66aad5f6c9545bf45b3c8f7e83c4816c89434c5f9b3fde89422702882a4aa6ba2295e64993929ec59d37c4982ecbb23d3f61f6e44ec828
   languageName: node
   linkType: hard
 
@@ -2338,19 +2338,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/python-analysis@npm:0.9.1":
-  version: 0.9.1
-  resolution: "@vercel/python-analysis@npm:0.9.1"
+"@vercel/python-analysis@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@vercel/python-analysis@npm:0.10.0"
   dependencies:
     "@bytecodealliance/preview2-shim": "npm:0.17.6"
     "@renovatebot/pep440": "npm:4.2.1"
     fs-extra: "npm:11.1.1"
     js-yaml: "npm:4.1.1"
     minimatch: "npm:10.1.1"
-    pip-requirements-js: "npm:1.0.3"
     smol-toml: "npm:1.5.2"
     zod: "npm:3.22.4"
-  checksum: 10c0/44bc085e2a705fb5bc8ac84da74277d5235c3be1232a23a1652b2817b7e1f49c730f70870f4bee3e1cab469a3afcb69665c6aed4f43eb572c2b6ed72cf2f9a3d
+  checksum: 10c0/268292073201db40d2b0281b8facf4492f6065847182c79f94f167b7395b9ff872b1e8efe75442e8326f6fb0e7c838ec5f89ab9adc88bd407f494f87711bec1e
   languageName: node
   linkType: hard
 
@@ -6408,13 +6407,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ohm-js@npm:^17.1.0":
-  version: 17.3.0
-  resolution: "ohm-js@npm:17.3.0"
-  checksum: 10c0/96fc0318752a60cb86a7748447ed184d98c8d2e07999c1d8a53ca61b3deea0ea8da192151193d565afad09f70715082ef5b135e98bd437b75f23f6cc012d1f01
-  languageName: node
-  linkType: hard
-
 "oniguruma-parser@npm:^0.12.1":
   version: 0.12.1
   resolution: "oniguruma-parser@npm:0.12.1"
@@ -6693,15 +6685,6 @@ __metadata:
   version: 4.0.3
   resolution: "picomatch@npm:4.0.3"
   checksum: 10c0/9582c951e95eebee5434f59e426cddd228a7b97a0161a375aed4be244bd3fe8e3a31b846808ea14ef2c8a2527a6eeab7b3946a67d5979e81694654f939473ae2
-  languageName: node
-  linkType: hard
-
-"pip-requirements-js@npm:1.0.3":
-  version: 1.0.3
-  resolution: "pip-requirements-js@npm:1.0.3"
-  dependencies:
-    ohm-js: "npm:^17.1.0"
-  checksum: 10c0/1be0fa2b0a10078f961c2e5700ce0decda075b94a7cb77db142fe63b2a79a6cb2398adb06820a39ebc0ca195d31907aa63f3ddd4435a9f7037ae911389e24691
   languageName: node
   linkType: hard
 

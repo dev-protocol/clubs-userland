@@ -2202,12 +2202,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.8.1":
-  version: 13.8.1
-  resolution: "@vercel/build-utils@npm:13.8.1"
+"@vercel/build-utils@npm:13.8.2":
+  version: 13.8.2
+  resolution: "@vercel/build-utils@npm:13.8.2"
   dependencies:
-    "@vercel/python-analysis": "npm:0.10.0"
-  checksum: 10c0/73241e9ea5368ad0f046cf7a58706aa9a12cde371a9771c39d08eecdda48c4433066422a47065ab6842f96eee6d22fee6900f1fd8c9179e97eed94898208d81b
+    "@vercel/python-analysis": "npm:0.10.1"
+  checksum: 10c0/9d5776a5ab87a2d0a76c3e746486fbd1f495b484a70bfb7c351b13a5b8b4e14b132a66562eabe11bb43727598407ae63d967422a4951c51fa9754cfa424b108a
   languageName: node
   linkType: hard
 
@@ -2254,9 +2254,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@vercel/nft@npm:1.1.1"
+"@vercel/nft@npm:1.4.0":
+  version: 1.4.0
+  resolution: "@vercel/nft@npm:1.4.0"
   dependencies:
     "@mapbox/node-pre-gyp": "npm:^2.0.0"
     "@rollup/pluginutils": "npm:^5.1.3"
@@ -2272,7 +2272,7 @@ __metadata:
     resolve-from: "npm:^5.0.0"
   bin:
     nft: out/cli.js
-  checksum: 10c0/e92d381722c436ce8adb75e9d83c2b1da5fe8f835926d0acf1c042de6d036fd4bac6dbbcb9ede1c3172925d3a2c00eb4af74de9afd39efd7578badfe0872f553
+  checksum: 10c0/c3cc534686e13b870310970bc721799557d8290b50b77b2472f9991f96031f52f73d3dfe9ac415934df6f98c6f5fd4e6cde3091fe7584bf94b1246d9cbb3f06e
   languageName: node
   linkType: hard
 
@@ -2299,16 +2299,16 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.6.16
-  resolution: "@vercel/node@npm:5.6.16"
+  version: 5.6.18
+  resolution: "@vercel/node@npm:5.6.18"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.8.1"
+    "@vercel/build-utils": "npm:13.8.2"
     "@vercel/error-utils": "npm:2.0.3"
-    "@vercel/nft": "npm:1.1.1"
+    "@vercel/nft": "npm:1.4.0"
     "@vercel/static-config": "npm:3.2.0"
     async-listen: "npm:3.0.0"
     cjs-module-lexer: "npm:1.2.3"
@@ -2324,7 +2324,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/4755699b7775810e2e66aad5f6c9545bf45b3c8f7e83c4816c89434c5f9b3fde89422702882a4aa6ba2295e64993929ec59d37c4982ecbb23d3f61f6e44ec828
+  checksum: 10c0/7dfabbd8f7b8a054e0440c7fb3b30f00d99b6cc323c350a2bb57b362fcacb586bdaa92dc8424f2553a640414bc225179025e83331929ee98faf667ef26be1020
   languageName: node
   linkType: hard
 
@@ -2338,9 +2338,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/python-analysis@npm:0.10.0":
-  version: 0.10.0
-  resolution: "@vercel/python-analysis@npm:0.10.0"
+"@vercel/python-analysis@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@vercel/python-analysis@npm:0.10.1"
   dependencies:
     "@bytecodealliance/preview2-shim": "npm:0.17.6"
     "@renovatebot/pep440": "npm:4.2.1"
@@ -2349,7 +2349,7 @@ __metadata:
     minimatch: "npm:10.1.1"
     smol-toml: "npm:1.5.2"
     zod: "npm:3.22.4"
-  checksum: 10c0/268292073201db40d2b0281b8facf4492f6065847182c79f94f167b7395b9ff872b1e8efe75442e8326f6fb0e7c838ec5f89ab9adc88bd407f494f87711bec1e
+  checksum: 10c0/d5c4f7ad46e0f2294a8fa10a27bf619eccdc4b01504bbe3b40b4320ecc724b1183250e87c5119528f969a1e64110fb46b4cefda1ed88ebe4a75af4b9a3b40a8c
   languageName: node
   linkType: hard
 

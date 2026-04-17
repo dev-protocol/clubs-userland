@@ -2205,14 +2205,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.17.0":
-  version: 13.17.0
-  resolution: "@vercel/build-utils@npm:13.17.0"
+"@vercel/build-utils@npm:13.18.0":
+  version: 13.18.0
+  resolution: "@vercel/build-utils@npm:13.18.0"
   dependencies:
     "@vercel/python-analysis": "npm:0.11.0"
     cjs-module-lexer: "npm:1.2.3"
     es-module-lexer: "npm:1.5.0"
-  checksum: 10c0/900d83c9f239dd9da1b2ee6a21ead94ae3fe1a24f564d4b806040211344f7581c3dd4cce46f39dffdb891acc9b38dd00bfbffa56e52d6e6ba5f8c2f61af284c6
+  checksum: 10c0/a7a9701355ca6a95dfafcf4885a12fa4d7ea3e9338f640053f6e8f1894f3a6b6c30405d9412e72d4aca3453afeff5955a15be15e78880afa8d2df4660d3ea0bf
   languageName: node
   linkType: hard
 
@@ -2304,14 +2304,14 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.7.7
-  resolution: "@vercel/node@npm:5.7.7"
+  version: 5.7.10
+  resolution: "@vercel/node@npm:5.7.10"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.17.0"
+    "@vercel/build-utils": "npm:13.18.0"
     "@vercel/error-utils": "npm:2.0.3"
     "@vercel/nft": "npm:1.5.0"
     "@vercel/static-config": "npm:3.2.0"
@@ -2329,7 +2329,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/84916a2e4301ecf4c0b042f3c84375fffd8f87c121ef25f08f1cb7d20c46a41e0a01b05a1eca0b0296600109ccbf0ebd3eb0486bd4a9921e8168760311c2e233
+  checksum: 10c0/268a79dc3abf401df651cca4a0178ff3092c47217885b81f4e989040b4365f803638a3ef3ad9108792a00ac2f94a0532e038bf3cc00f9ef717e9ccf6473ea96f
   languageName: node
   linkType: hard
 

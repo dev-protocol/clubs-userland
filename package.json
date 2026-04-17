@@ -72,5 +72,5 @@
 	},
 	"homepage": "https://github.com/dev-protocol/template-repos-ts#readme",
 	"private": true,
-	"packageManager": "yarn@4.13.0"
+	"packageManager": "yarn@4.14.0"
 }

@@ -2212,14 +2212,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.26.2":
-  version: 13.26.2
-  resolution: "@vercel/build-utils@npm:13.26.2"
+"@vercel/build-utils@npm:13.26.3":
+  version: 13.26.3
+  resolution: "@vercel/build-utils@npm:13.26.3"
   dependencies:
     "@vercel/python-analysis": "npm:0.11.1"
     cjs-module-lexer: "npm:1.2.3"
     es-module-lexer: "npm:1.5.0"
-  checksum: 10c0/ae94799109dd4c8f686af1eaa9d32804510376fcbc22fccf23af97c2dd33728680b86d4c5ca158d63abaa2accc63042561d14a5e2189ca99c7a66e75b59750d2
+  checksum: 10c0/c0296875610389b4f4c912369afcdb5d5fa9c5c7d971f3b5a406c5b44e194f5251838a06e59c0f79ef52e78cee39a23de5514995cdcf52bab51d7f1319e84c42
   languageName: node
   linkType: hard
 
@@ -2289,17 +2289,17 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.8.5
-  resolution: "@vercel/node@npm:5.8.5"
+  version: 5.8.6
+  resolution: "@vercel/node@npm:5.8.6"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.26.2"
+    "@vercel/build-utils": "npm:13.26.3"
     "@vercel/error-utils": "npm:2.1.0"
     "@vercel/nft": "npm:1.5.0"
-    "@vercel/static-config": "npm:3.3.0"
+    "@vercel/static-config": "npm:3.4.0"
     async-listen: "npm:3.0.0"
     cjs-module-lexer: "npm:1.2.3"
     edge-runtime: "npm:2.5.9"
@@ -2314,7 +2314,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/c0b1ba79c14af95838f3a33dd5b09ae14320d72c2479cdfda87b832dba2133c765f014eb50f1b1aeb1b54598cc9ce5210b9153492b212b39fd84d1fb8f092599
+  checksum: 10c0/350538d3068884bef7b2b1ab41fadcad9945bff9e74e8342611ed939af49a44215dd21ba5fb9adb080f2292e75d42692effe4601fea8dcdd9651ffd2518e8d55
   languageName: node
   linkType: hard
 
@@ -2357,14 +2357,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/static-config@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@vercel/static-config@npm:3.3.0"
+"@vercel/static-config@npm:3.4.0":
+  version: 3.4.0
+  resolution: "@vercel/static-config@npm:3.4.0"
   dependencies:
     ajv: "npm:8.6.3"
     json-schema-to-ts: "npm:1.6.4"
     ts-morph: "npm:12.0.0"
-  checksum: 10c0/2eba816cad840e9dd5a3798233eef6a878c4eb6400b74313ef58c27ab637d3eb2c590001f80588f60f011fbe174f424ae138de8d70b518e50b2b51021091ccbc
+  checksum: 10c0/22773895a10b44d453192031659d69050fdb55a60dc4a9acaa005d3609c1697e34a4b885eee5d691e7078efe8653033a473fcce8b908ff9aa7a76f4527886a88
   languageName: node
   linkType: hard
 

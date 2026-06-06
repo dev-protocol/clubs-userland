@@ -2212,21 +2212,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/build-utils@npm:13.26.4":
-  version: 13.26.4
-  resolution: "@vercel/build-utils@npm:13.26.4"
+"@vercel/build-utils@npm:13.27.1":
+  version: 13.27.1
+  resolution: "@vercel/build-utils@npm:13.27.1"
   dependencies:
     "@vercel/python-analysis": "npm:0.11.1"
     cjs-module-lexer: "npm:1.2.3"
     es-module-lexer: "npm:1.5.0"
-  checksum: 10c0/7328b95be9c12f6a135def47151ab505039391ecf7df9f04f91495ad875dec202b0d4f8fc0dca8064c081a49b7b2e202efa383ec26ad9c5561fa09b81042134b
+  checksum: 10c0/3f7226b8077b321dceb9e4650673356b391b5dece11b538d9adfd003c4d3516f19f03aa47492966201bb1b02af5640b8ced5d943c33fab7374591c5f63470658
   languageName: node
   linkType: hard
 
-"@vercel/error-utils@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@vercel/error-utils@npm:2.1.0"
-  checksum: 10c0/ba67eca29ffd1d9a57ff67294cddd24dfce2f23983811086b3e7b5d3bff1ba121985bae7a4327a3eda4b14f692c50bcccf4d1dbdffdbae996caa9163fbc6e422
+"@vercel/error-utils@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@vercel/error-utils@npm:2.2.0"
+  checksum: 10c0/b8e535bb8c86fd2eb26242a0b835545c5ff589e1048c304865ce5e418ec5b980ce016e89149e928be87ed18bc23eddb579d1c0b93ab04a870e3396082d3a9b6b
   languageName: node
   linkType: hard
 
@@ -2311,15 +2311,15 @@ __metadata:
   linkType: hard
 
 "@vercel/node@npm:^5.0.0":
-  version: 5.8.8
-  resolution: "@vercel/node@npm:5.8.8"
+  version: 5.8.12
+  resolution: "@vercel/node@npm:5.8.12"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
     "@edge-runtime/vm": "npm:3.2.0"
     "@types/node": "npm:20.11.0"
-    "@vercel/build-utils": "npm:13.26.4"
-    "@vercel/error-utils": "npm:2.1.0"
+    "@vercel/build-utils": "npm:13.27.1"
+    "@vercel/error-utils": "npm:2.2.0"
     "@vercel/nft": "npm:1.10.0"
     "@vercel/static-config": "npm:3.4.0"
     async-listen: "npm:3.0.0"
@@ -2336,7 +2336,7 @@ __metadata:
     tsx: "npm:4.21.0"
     typescript: "npm:typescript@5.9.3"
     undici: "npm:5.28.4"
-  checksum: 10c0/d17c71cc1a8202333df4bc268b49885912d8fd7e94f22d3ea380c07e9a78f1f67bf6f066e009fb9f5b352f3995e5cedea9f12b96afa20614d47647119ac249b2
+  checksum: 10c0/6698b56d2cbb9a1cb94a33b1d7550a85ea3531f640d5e8a6cb202fe7b4528eb95ec72def89dfbfcb27c62a08d362b26a4966873bb9153197c97746981ee494ea
   languageName: node
   linkType: hard
 

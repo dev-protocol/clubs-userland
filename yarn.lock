@@ -2200,15 +2200,16 @@ __metadata:
   linkType: hard
 
 "@vercel/blob@npm:^2.0.0":
-  version: 2.4.0
-  resolution: "@vercel/blob@npm:2.4.0"
+  version: 2.4.1
+  resolution: "@vercel/blob@npm:2.4.1"
   dependencies:
+    "@vercel/oidc": "npm:^3.6.1"
     async-retry: "npm:^1.3.3"
     is-buffer: "npm:^2.0.5"
     is-node-process: "npm:^1.2.0"
     throttleit: "npm:^2.1.0"
     undici: "npm:^6.23.0"
-  checksum: 10c0/cc8c6dc6203ec2bb09094e64d5751246e16413fd8607f512a6e8b6f03b5a2286f4e87f4809ba340027e7b7eadc030580f16b70a6342c90164ae09c4abcfd5471
+  checksum: 10c0/2d3798b927e1eb605bfe2f99edf1ba673ea75b9eb38cc31ae02a8926b4dd797bb0f6b85aa6434a4509c06726893ca0f0d8bc73557cf75c1b47f69da051546443
   languageName: node
   linkType: hard
 
@@ -2220,6 +2221,25 @@ __metadata:
     cjs-module-lexer: "npm:1.2.3"
     es-module-lexer: "npm:1.5.0"
   checksum: 10c0/26e15da1cc086a75bf180fca6796810e4d368277ec61b2696efa7147efe9fb9a4f6082b8f793255a7c88d066b7867eafbc99481207327f3509831ea1b7064d8b
+  languageName: node
+  linkType: hard
+
+"@vercel/cli-config@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@vercel/cli-config@npm:0.2.0"
+  dependencies:
+    xdg-app-paths: "npm:5"
+    zod: "npm:4.1.11"
+  checksum: 10c0/9428fa46ec58492ae616d438e23b439e6381a118da0fad392f0b3a6d389c8adf5168593e50e173c97cf72125102e6858b5d1dd77e47c1a2a04f3da5fcc32bd32
+  languageName: node
+  linkType: hard
+
+"@vercel/cli-exec@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@vercel/cli-exec@npm:0.1.1"
+  dependencies:
+    execa: "npm:5.1.1"
+  checksum: 10c0/43aafb64259ea931c2421913baf6322a7e115d05cf6168a0d7097bd902391a27ac2baa3ed11fdb328c05823966ce69e78b7982bfcb5c2028034b8c3b7963e61e
   languageName: node
   linkType: hard
 
@@ -2347,6 +2367,17 @@ __metadata:
     "@types/ms": "npm:2.1.0"
     ms: "npm:2.1.3"
   checksum: 10c0/473baec88175e235777e12ffe912a5a76f1497a1aea121ddd98a885223e0284eae3535a0ac4975e01f72664b4d40bfff40067dc70a7ec241c4482d1d3f6205df
+  languageName: node
+  linkType: hard
+
+"@vercel/oidc@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "@vercel/oidc@npm:3.6.1"
+  dependencies:
+    "@vercel/cli-config": "npm:0.2.0"
+    "@vercel/cli-exec": "npm:0.1.1"
+    jose: "npm:^5.9.6"
+  checksum: 10c0/dbb9f5e582ee23de44219d366f2c42d3433d73d830b60c65d0a123ae58b92e8b64161b77fc046ec7f70bd43ef7be0fdb57627c5dd5f48377109c5bb849d4b513
   languageName: node
   linkType: hard
 
@@ -3417,7 +3448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.6":
+"cross-spawn@npm:^7.0.3, cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
   dependencies:
@@ -4341,6 +4372,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"execa@npm:5.1.1":
+  version: 5.1.1
+  resolution: "execa@npm:5.1.1"
+  dependencies:
+    cross-spawn: "npm:^7.0.3"
+    get-stream: "npm:^6.0.0"
+    human-signals: "npm:^2.1.0"
+    is-stream: "npm:^2.0.0"
+    merge-stream: "npm:^2.0.0"
+    npm-run-path: "npm:^4.0.1"
+    onetime: "npm:^5.1.2"
+    signal-exit: "npm:^3.0.3"
+    strip-final-newline: "npm:^2.0.0"
+  checksum: 10c0/c8e615235e8de4c5addf2fa4c3da3e3aa59ce975a3e83533b4f6a71750fb816a2e79610dc5f1799b6e28976c9ae86747a36a606655bf8cb414a74d8d507b304f
+  languageName: node
+  linkType: hard
+
 "execa@npm:^9.6.1":
   version: 9.6.1
   resolution: "execa@npm:9.6.1"
@@ -4628,6 +4676,13 @@ __metadata:
   version: 1.5.0
   resolution: "get-east-asian-width@npm:1.5.0"
   checksum: 10c0/bff8bbc8d81790b9477f7aa55b1806b9f082a8dc1359fff7bd8b96939622c86b729685afc2bfeb22def1fc6ef1e5228e4d87dd4e6da60bc43a5edfb03c4ee167
+  languageName: node
+  linkType: hard
+
+"get-stream@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "get-stream@npm:6.0.1"
+  checksum: 10c0/49825d57d3fd6964228e6200a58169464b8e8970489b3acdc24906c782fb7f01f9f56f8e6653c4a50713771d6658f7cfe051e5eb8c12e334138c9c918b296341
   languageName: node
   linkType: hard
 
@@ -4973,6 +5028,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"human-signals@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "human-signals@npm:2.1.0"
+  checksum: 10c0/695edb3edfcfe9c8b52a76926cd31b36978782062c0ed9b1192b36bebc75c4c87c82e178dfcb0ed0fc27ca59d434198aac0bd0be18f5781ded775604db22304a
+  languageName: node
+  linkType: hard
+
 "human-signals@npm:^8.0.1":
   version: 8.0.1
   resolution: "human-signals@npm:8.0.1"
@@ -5196,6 +5258,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-stream@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "is-stream@npm:2.0.1"
+  checksum: 10c0/7c284241313fc6efc329b8d7f08e16c0efeb6baab1b4cd0ba579eb78e5af1aa5da11e68559896a2067cd6c526bd29241dda4eb1225e627d5aa1a89a76d4635a5
+  languageName: node
+  linkType: hard
+
 "is-stream@npm:^4.0.1":
   version: 4.0.1
   resolution: "is-stream@npm:4.0.1"
@@ -5252,6 +5321,13 @@ __metadata:
   dependencies:
     "@isaacs/cliui": "npm:^9.0.0"
   checksum: 10c0/b5c0c414f1607c2aa0597f4bf2c03b8443897fccd5fd3c2b3e4f77d556b2bc7c3d3413828ba91e0789f6fb40ad90242f7f89fb20aee9e9d705bc1681f7564f67
+  languageName: node
+  linkType: hard
+
+"jose@npm:^5.9.6":
+  version: 5.10.0
+  resolution: "jose@npm:5.10.0"
+  checksum: 10c0/e20d9fc58d7e402f2e5f04e824b8897d5579aae60e64cb88ebdea1395311c24537bf4892f7de413fab1acf11e922797fb1b42269bc8fc65089a3749265ccb7b0
   languageName: node
   linkType: hard
 
@@ -5715,6 +5791,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"merge-stream@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "merge-stream@npm:2.0.0"
+  checksum: 10c0/867fdbb30a6d58b011449b8885601ec1690c3e41c759ecd5a9d609094f7aed0096c37823ff4a7190ef0b8f22cc86beb7049196ff68c016e3b3c671d0dac91ce5
+  languageName: node
+  linkType: hard
+
 "merge2@npm:^1.3.0":
   version: 1.4.1
   resolution: "merge2@npm:1.4.1"
@@ -6077,6 +6160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mimic-fn@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "mimic-fn@npm:2.1.0"
+  checksum: 10c0/b26f5479d7ec6cc2bce275a08f146cf78f5e7b661b18114e2506dd91ec7ec47e7a25bf4360e5438094db0560bcc868079fb3b1fb3892b833c1ecbf63f80c95a4
+  languageName: node
+  linkType: hard
+
 "mimic-function@npm:^5.0.1":
   version: 5.0.1
   resolution: "mimic-function@npm:5.0.1"
@@ -6390,6 +6480,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"npm-run-path@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "npm-run-path@npm:4.0.1"
+  dependencies:
+    path-key: "npm:^3.0.0"
+  checksum: 10c0/6f9353a95288f8455cf64cbeb707b28826a7f29690244c1e4bb61ec573256e021b6ad6651b394eb1ccfd00d6ec50147253aba2c5fe58a57ceb111fad62c519ac
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^6.0.0":
   version: 6.0.0
   resolution: "npm-run-path@npm:6.0.0"
@@ -6427,6 +6526,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"onetime@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "onetime@npm:5.1.2"
+  dependencies:
+    mimic-fn: "npm:^2.1.0"
+  checksum: 10c0/ffcef6fbb2692c3c40749f31ea2e22677a876daea92959b8a80b521d95cca7a668c884d8b2045d1d8ee7d56796aa405c405462af112a1477594cc63531baeb8f
+  languageName: node
+  linkType: hard
+
 "oniguruma-parser@npm:^0.12.1":
   version: 0.12.1
   resolution: "oniguruma-parser@npm:0.12.1"
@@ -6456,6 +6564,13 @@ __metadata:
     type-check: "npm:^0.4.0"
     word-wrap: "npm:^1.2.5"
   checksum: 10c0/4afb687a059ee65b61df74dfe87d8d6815cd6883cb8b3d5883a910df72d0f5d029821f37025e4bccf4048873dbdb09acc6d303d27b8f76b1a80dd5a7d5334675
+  languageName: node
+  linkType: hard
+
+"os-paths@npm:^4.0.1":
+  version: 4.4.0
+  resolution: "os-paths@npm:4.4.0"
+  checksum: 10c0/3d16cde656dbadfce3fb4dd2dd10343d530ac0ebbd0d6f99dcaa84561b5eeec5342be1640139ab5a0a27dbb24fd0bb352b2e9a06359552be791fcd2f00d37eda
   languageName: node
   linkType: hard
 
@@ -6618,7 +6733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-key@npm:^3.1.0":
+"path-key@npm:^3.0.0, path-key@npm:^3.1.0":
   version: 3.1.1
   resolution: "path-key@npm:3.1.1"
   checksum: 10c0/748c43efd5a569c039d7a00a03b58eecd1d75f3999f5a28303d75f521288df4823bc057d8784eb72358b2895a05f29a070bc9f1f17d28226cc4e62494cc58c4c
@@ -7423,6 +7538,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"signal-exit@npm:^3.0.3":
+  version: 3.0.7
+  resolution: "signal-exit@npm:3.0.7"
+  checksum: 10c0/25d272fa73e146048565e08f3309d5b942c1979a6f4a58a8c59d5fa299728e9c2fcd1a759ec870863b1fd38653670240cd420dad2ad9330c71f36608a6a1c912
+  languageName: node
+  linkType: hard
+
 "signal-exit@npm:^4.0.1, signal-exit@npm:^4.1.0":
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
@@ -7628,6 +7750,13 @@ __metadata:
   dependencies:
     ansi-regex: "npm:^6.2.2"
   checksum: 10c0/544d13b7582f8254811ea97db202f519e189e59d35740c46095897e254e4f1aa9fe1524a83ad6bc5ad67d4dd6c0281d2e0219ed62b880a6238a16a17d375f221
+  languageName: node
+  linkType: hard
+
+"strip-final-newline@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "strip-final-newline@npm:2.0.0"
+  checksum: 10c0/bddf8ccd47acd85c0e09ad7375409d81653f645fda13227a9d459642277c253d877b68f2e5e4d819fe75733b0e626bac7e954c04f3236f6d196f79c94fa4a96f
   languageName: node
   linkType: hard
 
@@ -8806,6 +8935,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"xdg-app-paths@npm:5":
+  version: 5.5.1
+  resolution: "xdg-app-paths@npm:5.5.1"
+  dependencies:
+    os-paths: "npm:^4.0.1"
+    xdg-portable: "npm:^7.2.0"
+  checksum: 10c0/9fbd81fea0cb8d2a7f2473e4da90ece034c32dc6c271449ba048dc37c45da54c8c9401e65df1012071b8b9a4e1a6166d8a83beb86d943ef102bac5f22d6e3581
+  languageName: node
+  linkType: hard
+
+"xdg-portable@npm:^7.2.0":
+  version: 7.3.0
+  resolution: "xdg-portable@npm:7.3.0"
+  dependencies:
+    os-paths: "npm:^4.0.1"
+  checksum: 10c0/d363f73aede0b198b9e76d2f40bd68b2af56ecd25d0c692cd6fbbfbd2857943f53a4ce97bd50584d8baf580e0cc20b40789d1ca22e4834499e5e1ea975ce35cb
+  languageName: node
+  linkType: hard
+
 "xxhash-wasm@npm:^1.1.0":
   version: 1.1.0
   resolution: "xxhash-wasm@npm:1.1.0"
@@ -8969,6 +9117,13 @@ __metadata:
   version: 3.22.4
   resolution: "zod@npm:3.22.4"
   checksum: 10c0/7578ab283dac0eee66a0ad0fc4a7f28c43e6745aadb3a529f59a4b851aa10872b3890398b3160f257f4b6817b4ce643debdda4fb21a2c040adda7862cab0a587
+  languageName: node
+  linkType: hard
+
+"zod@npm:4.1.11":
+  version: 4.1.11
+  resolution: "zod@npm:4.1.11"
+  checksum: 10c0/ce6a4c4acfbf51d7dd0f2669c82f207d62a1f00264eef608994b94eb99d86a74c99f59b0dd3e61ef82909ee136631378b709e0908f0a02a2d5c21d0c497de5db
   languageName: node
   linkType: hard
 
